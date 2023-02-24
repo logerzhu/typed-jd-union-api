@@ -23,7 +23,7 @@ export class JdCrypto {
     return crypto.createHash('md5').update(s).digest('hex')
   }
 
-  static sign(secretKey: string, params: { [key: string]: string }) {
+  static sign(secretKey: string, params: { [key: string]: any }) {
     const sorted = Object.keys(params).sort()
     let signStr = secretKey
     for (let i = 0, l = sorted.length; i < l; i++) {

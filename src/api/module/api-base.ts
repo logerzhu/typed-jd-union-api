@@ -50,7 +50,7 @@ export class JdUnionBase {
 
   async execute<T>(
     api: string,
-    params: { [key: string]: string },
+    params: { [key: string]: any },
     successCode?: string
   ): Promise<T> {
     const data = {
