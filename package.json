@@ -1,7 +1,7 @@
 {
   "name": "typed-jd-union-api",
-  "version": "0.0.1",
-  "description": "京东开放平台京东联盟NodeJS接口",
+  "version": "1.0.0",
+  "description": "京东开放平台京东联盟NodeJS API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -24,7 +24,9 @@
   "license": "MIT",
   "keywords": [
     "TypeScript",
-    "Wechat"
+    "京东开放平台",
+    "京东联盟",
+    "JdUnion"
   ],
   "dependencies": {
     "axios": "^0.26.1"
