@@ -1,7 +1,7 @@
 {
   "name": "typed-jd-union-api",
   "version": "1.0.0",
-  "description": "京东开放平台京东联盟NodeJS API",
+  "description": "京东联盟 NodeJS API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
