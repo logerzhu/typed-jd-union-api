@@ -1,0 +1,546 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.promotion.byunionid.get",
+      "znName": "工具商获取推广链接接口【申请】",
+      "version": "1.0",
+      "apiDesc": "工具商媒体帮助子站长获取普通推广链接和优惠券二合一推广链接，可传入PID参数以区分子站长的推广位，该参数可在订单查询接口返回。接口和subunionid参数需向cps-qxsq@jd.com申请权限。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_promotion_byunionid_get_response\": {\n        \"getResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"clickURL\": \"https://union-click.jd.com/jdc?e=XXXXXX%26p=XXXXXXXXXXX\",\n                \"weChatShortLink\": \"#小程序://京小街/****\",\n                \"jShortCommand\": \"短口令\",\n                \"shortURL\": \"https://union-click.jd.com/jdc?d=XXXXXX\",\n                \"jCommand\": \"6.0复制整段话 http://JhT7V5wlKygHDK京口令内容#J6UFE5iMn***\"\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_promotion_byunionid_get_response>\n    <getResult>\n      <code>200</code>\n      <data>\n        <clickURL>https://union-click.jd.com/jdc?e=XXXXXX%26p=XXXXXXXXXXX</clickURL>\n        <jCommand>6.0复制整段话 http://JhT7V5wlKygHDK京口令内容#J6UFE5iMn***</jCommand>\n        <jShortCommand>短口令</jShortCommand>\n        <shortURL>https://union-click.jd.com/jdc?d=XXXXXX</shortURL>\n        <weChatShortLink>#小程序://京小街/****</weChatShortLink>\n      </data>\n      <message>success</message>\n    </getResult>\n  </jd_union_open_promotion_byunionid_get_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenPromotionByunionidGetRequest();\n<br/>\n                                                                                                                                \n$promotionCodeReq= new PromotionCodeReq;\n<br/>\n                    \n$req->setPromotionCodeReq($promotionCodeReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenPromotionByunionidGetRequest request=new UnionOpenPromotionByunionidGetRequest();<br>PromotionCodeReq promotionCodeReq=new PromotionCodeReq();<br>request.setPromotionCodeReq(promotionCodeReq);<br>request.setVersion(\"1.0\");<br>UnionOpenPromotionByunionidGetResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenPromotionByunionidGetRequest import UnionOpenPromotionByunionidGetRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenPromotionByunionidGetRequest(url,port)\n<br/>\na.promotionCodeReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "无",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.promotion.base.PromotionCodeReq",
+          "systemValue": false,
+          "webPamer": "promotionCodeReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "materialId",
+              "elements": [],
+              "required": true,
+              "value": "https://item.m.jd.com/product/100010793716.html",
+              "desc": "推广物料url，例如活动链接、商品链接、联盟链接（包含微信shortlink形式）等；不支持仅传入skuid"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "unionId",
+              "elements": [],
+              "required": true,
+              "value": "10000618",
+              "desc": "目标推客的联盟ID"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "positionId",
+              "elements": [],
+              "required": false,
+              "value": "6",
+              "desc": "新增推广位id （不填的话，为其默认生成一个唯一此接口推广位-名称：微信手Q短链接）"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "pid",
+              "elements": [],
+              "required": false,
+              "value": "618_618_6018",
+              "desc": "联盟子推客身份标识（不能传入接口调用者自己的pid）"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "couponUrl",
+              "elements": [],
+              "required": false,
+              "value": "http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXX",
+              "desc": "优惠券领取链接，在使用优惠券、商品二合一功能时入参，且materialId须为商品详情页链接"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "subUnionId",
+              "elements": [],
+              "required": false,
+              "value": "618_18_c35***e6a",
+              "desc": "子渠道标识，仅支持传入字母、数字、下划线或中划线，最多80个字符（不可包含空格），该参数会在订单行查询接口中展示（需申请权限，申请方法请见https://union.jd.com/helpcenter/13246-13247-46301）"
+            },
+            {
+              "id": 2007,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "chainType",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "转链类型，1：长链， 2 ：短链 ，3： 长链+短链，默认短链，短链有效期60天"
+            },
+            {
+              "id": 2008,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "giftCouponKey",
+              "elements": [],
+              "required": false,
+              "value": "xxx_coupon_key",
+              "desc": "礼金批次号"
+            },
+            {
+              "id": 2009,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "channelId",
+              "elements": [],
+              "required": false,
+              "value": "12345",
+              "desc": "渠道关系ID"
+            },
+            {
+              "id": 2010,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "command",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "是否生成短口令：1生成，默认不生成"
+            },
+            {
+              "id": 2011,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "weChatType",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "微信小程序ShortLink类型（需向cps-qxsq@jd.com申请权限）"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.GetResult",
+            "systemValue": false,
+            "webPamer": "getResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.PromotionCodeResp",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "shortURL",
+                    "elements": [],
+                    "required": true,
+                    "value": "https://union-click.jd.com/jdc?d=XXXXXX",
+                    "desc": "生成的推广目标链接，以短链接形式，有效期60天"
+                  },
+                  {
+                    "id": 1003002,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "clickURL",
+                    "elements": [],
+                    "required": false,
+                    "value": "https://union-click.jd.com/jdc?e=XXXXXX%26p=XXXXXXXXXXX",
+                    "desc": "生成推广目标的长链，长期有效"
+                  },
+                  {
+                    "id": 1003003,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "jCommand",
+                    "elements": [],
+                    "required": false,
+                    "value": "6.0复制整段话 http://JhT7V5wlKygHDK京口令内容#J6UFE5iMn***",
+                    "desc": "需要权限申请，京口令（匹配到红包活动有效配置才会返回京口令）"
+                  },
+                  {
+                    "id": 1003004,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "jShortCommand",
+                    "elements": [],
+                    "required": false,
+                    "value": "短口令",
+                    "desc": "需要权限申请，短口令"
+                  },
+                  {
+                    "id": 1003005,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "weChatShortLink",
+                    "elements": [],
+                    "required": false,
+                    "value": "#小程序://京小街/****",
+                    "desc": "微信小程序ShortLink（需向cps-qxsq@jd.com申请权限）"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "2001208",
+        "error": "subUnionId入参格式有误",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "2001923",
+        "error": "礼金已过期",
+        "solution": "更换礼金"
+      },
+      {
+        "code": "2001603",
+        "error": "子联盟没有签订法律协议，协议签署地址：https://union.jd.com/account_son",
+        "solution": "子联盟没有签订法律协议，协议签署地址：https://union.jd.com/account_son"
+      },
+      {
+        "code": "2001602",
+        "error": "无母账号权限或未签署协议",
+        "solution": "联系运营开通权限"
+      },
+      {
+        "code": "2001921",
+        "error": "skuId不可使用该礼金",
+        "solution": "更换商品或者礼金"
+      },
+      {
+        "code": "2001403",
+        "error": "无调用权限，请联系联盟运营申请",
+        "solution": "联系联盟运营申请权限"
+      },
+      {
+        "code": "2001920",
+        "error": "未开通礼金权限，请联系联盟运营",
+        "solution": "联系运营开通权限"
+      },
+      {
+        "code": "2001925",
+        "error": "礼金链接不支持再次转链",
+        "solution": "更换链接"
+      },
+      {
+        "code": "2001605",
+        "error": "pid错误，请线下找子账号核对",
+        "solution": "请自行联系子账号，核对pid是否正确"
+      },
+      {
+        "code": "2001924",
+        "error": "礼金已领光",
+        "solution": "更换礼金"
+      },
+      {
+        "code": "2001201",
+        "error": "联盟ID错误",
+        "solution": "更换联盟ID"
+      },
+      {
+        "code": "2001919",
+        "error": "礼金不存在",
+        "solution": "更换礼金"
+      },
+      {
+        "code": "2001917",
+        "error": "优惠券不可购买该商品，请更换其他优惠券",
+        "solution": "更换商品或者优惠券"
+      },
+      {
+        "code": "2001217",
+        "error": "渠道关系ID与unionid不匹配",
+        "solution": "更换成该unionid下的渠道关系ID"
+      },
+      {
+        "code": "2001932",
+        "error": "礼金信息配置不全，请联系联盟运营",
+        "solution": "礼金信息配置不全，请联系联盟运营"
+      },
+      {
+        "code": "2001216",
+        "error": "渠道关系ID不存在",
+        "solution": "更换正确的渠道关系ID"
+      },
+      {
+        "code": "2001931",
+        "error": "pid不存在",
+        "solution": "自行联系子账号，核对pid是否正确"
+      },
+      {
+        "code": "2001215",
+        "error": "pid的第一段与您的unionId不能相同",
+        "solution": "请更换pid或者unionid"
+      },
+      {
+        "code": "2001930",
+        "error": "pid不在该礼金定向范围内",
+        "solution": "检查pid是否可使用该礼金"
+      },
+      {
+        "code": "2001214",
+        "error": "pid和subUnionId不能同时使用",
+        "solution": "联系运营开通权限"
+      },
+      {
+        "code": "2001610",
+        "error": "APPID不存在或者WEBID不存在",
+        "solution": "核实APPID或者WEBID"
+      },
+      {
+        "code": "2001213",
+        "error": "传入pid错误",
+        "solution": "自行联系子账号，核对pid是否正确"
+      },
+      {
+        "code": "2001212",
+        "error": "参数错误",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "200",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "2001929",
+        "error": "unionId不在该礼金定向范围内",
+        "solution": "检查unionId是否可使用该礼金"
+      },
+      {
+        "code": "2001609",
+        "error": "服务降级，请稍后重试！",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2001928",
+        "error": "此unionId无定向优惠券转链权限",
+        "solution": "联系运营开通权限"
+      },
+      {
+        "code": "2001703",
+        "error": "您填写的原始链接不符合要求",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "2001504",
+        "error": "服务降级，请稍后重试",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2001702",
+        "error": "无原始链接转链权限",
+        "solution": "联系运营开通权限"
+      },
+      {
+        "code": "2001107",
+        "error": "不允许给此落地页转链，请联系联盟运营",
+        "solution": "不允许给此落地页转链，请联系联盟运营"
+      },
+      {
+        "code": "2001701",
+        "error": "无二合一转链权限",
+        "solution": "联系运营开通权限"
+      },
+      {
+        "code": "2001905",
+        "error": "优惠券无效",
+        "solution": "更换优惠券链接"
+      },
+      {
+        "code": "2001904",
+        "error": "优惠券接口异常，请稍后重试",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2001101",
+        "error": "materialId链接格式错误",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "2001105",
+        "error": "聊天工具禁止推广首页链接",
+        "solution": "聊天工具禁止推广首页链接"
+      },
+      {
+        "code": "2001303",
+        "error": "传入的微信小程序短链无效",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "2001501",
+        "error": "WEBID填写错误",
+        "solution": "核实WEBID"
+      },
+      {
+        "code": "2001104",
+        "error": "商品不在推广中",
+        "solution": "商品不在推广中，请更换商品"
+      },
+      {
+        "code": "2001301",
+        "error": "微信小程序短链生成传入参数错误",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "2001102",
+        "error": "materialId链接无法识别",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "2001912",
+        "error": "优惠券接口异常，请稍后重试",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2001911",
+        "error": "优惠券消费限额必须小于商品最低价格",
+        "solution": "优惠券消费限额必须小于商品最低价格"
+      },
+      {
+        "code": "2001910",
+        "error": "系统异常",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2001916",
+        "error": "商品不支持京券",
+        "solution": "更换商品或者优惠券"
+      },
+      {
+        "code": "2001915",
+        "error": "商品不支持东券，请勿传入couponUrl",
+        "solution": "商品不支持东券，请勿传入couponUrl"
+      },
+      {
+        "code": "2001914",
+        "error": "优惠券剩余数量不足，请更换其他优惠券",
+        "solution": "更换其他优惠券"
+      },
+      {
+        "code": "2001230",
+        "error": "参数格式超长",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "500",
+        "error": "服务端异常",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2001909",
+        "error": "优惠券与商品不匹配",
+        "solution": "检查优惠券和品的关系"
+      },
+      {
+        "code": "2001906",
+        "error": "优惠券已过期",
+        "solution": "更换优惠券链接"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2001906\",\n    \"errorMessage\": \"优惠券已过期\",\n    \"errorSolution\": \"更换优惠券链接\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2001906</code>\n  <errorMessage>优惠券已过期</errorMessage>\n  <errorSolution>更换优惠券链接</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b42acc5_leinkrpk_2517"
+}

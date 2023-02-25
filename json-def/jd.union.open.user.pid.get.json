@@ -1,0 +1,204 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.user.pid.get",
+      "znName": "获取PID【申请】",
+      "version": "1.0",
+      "apiDesc": "工具商媒体帮助子站长创建PID，该参数可在媒体和子站长之间建立关联，并通过获取推广链接、订单查询来跟踪。需向cps-qxsq@jd.com申请权限。此接口创建的pid,同一联盟用户不能超过10个，和官网手动创建的推广位相加不能超过500个。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_user_pid_get_response\": {\n        \"getResult\": {\n            \"code\": \"200\",\n            \"data\": \"1000618618_0_6186181618\",\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_user_pid_get_response>\n    <getResult>\n      <code>200</code>\n      <data>1000618618_0_6186181618</data>\n      <message>success</message>\n    </getResult>\n  </jd_union_open_user_pid_get_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenUserPidGetRequest();\n<br/>\n                                                                                                                                \n$pidReq= new PidReq;\n<br/>\n                    \n$req->setPidReq($pidReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenUserPidGetRequest request=new UnionOpenUserPidGetRequest();<br>PidReq pidReq=new PidReq();<br>request.setPidReq(pidReq);<br>request.setVersion(\"1.0\");<br>UnionOpenUserPidGetResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenUserPidGetRequest import UnionOpenUserPidGetRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenUserPidGetRequest(url,port)\n<br/>\na.pidReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "123",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.user.PidReq",
+          "systemValue": false,
+          "webPamer": "pidReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "unionId",
+              "elements": [],
+              "required": true,
+              "value": "10000618",
+              "desc": "联盟ID"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "childUnionId",
+              "elements": [],
+              "required": true,
+              "value": "61800001",
+              "desc": "子站长ID"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "promotionType",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "推广类型,1APP推广 2聊天工具推广 "
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "positionName",
+              "elements": [],
+              "required": false,
+              "value": "无",
+              "desc": "子站长的推广位名称，如不存在则创建，不填则由联盟根据母账号信息创建 "
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "mediaName",
+              "elements": [],
+              "required": true,
+              "value": "huhu",
+              "desc": "媒体名称，即子站长的app应用名称，推广方式为app推广时必填，且app名称必须为已存在的app名称 "
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "查询对象"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.GetResult",
+            "systemValue": false,
+            "webPamer": "getResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [],
+                "required": true,
+                "value": "1000618618_0_6186181618",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "2020102",
+        "error": "unionId无母账号权限",
+        "solution": "联系运营开通权限"
+      },
+      {
+        "code": "200",
+        "error": "success",
+        "solution": "调用成功"
+      },
+      {
+        "code": "2020110",
+        "error": "子站长ID未签署协议",
+        "solution": "子站长ID未签署协议，协议签署地址：https://union.jd.com/account_son"
+      },
+      {
+        "code": "5",
+        "error": "promotionType为1时，mediaName不为空",
+        "solution": "promotionType为1时，mediaName不为空"
+      },
+      {
+        "code": "2020106",
+        "error": "推广方式错误",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "2020104",
+        "error": "APP不存在",
+        "solution": "medianame对应的APP名称不存在，请检查APP名称"
+      },
+      {
+        "code": "2020103",
+        "error": "子站长ID不存在",
+        "solution": "子站长ID不存在，请更换"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2020103\",\n    \"errorMessage\": \"子站长ID不存在\",\n    \"errorSolution\": \"子站长ID不存在，请更换\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2020103</code>\n  <errorMessage>子站长ID不存在</errorMessage>\n  <errorSolution>子站长ID不存在，请更换</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b118b51_leinyvd3_1956"
+}

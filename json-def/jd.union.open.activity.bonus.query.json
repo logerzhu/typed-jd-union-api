@@ -1,0 +1,340 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.activity.bonus.query",
+      "znName": "奖励活动信息查询接口",
+      "version": "1.0",
+      "apiDesc": "查询近3个月的奖励活动信息"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_activity_bonus_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"bonusActivityResp\": {\n                    \"firstPayRate\": \"100.0\",\n                    \"activityId\": \"1\",\n                    \"beginDate\": \"1616603400000\",\n                    \"payType\": \"1\",\n                    \"secondPayTime\": \"1622390400000\",\n                    \"pcDescUrl\": \"http://union.jd.com/activityRule?id=11180\",\n                    \"prepareTime\": \"1616603400000\",\n                    \"endDate\": \"1621180799000\",\n                    \"secondPayRate\": \"0.0\",\n                    \"activityName\": \"京橙周年庆\",\n                    \"remark\": \"周年庆\",\n                    \"firstPayTime\": \"1622390400000\"\n                }\n            },\n            \"hasMore\": \"true\",\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_activity_bonus_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <bonusActivityResp>\n          <activityId>1</activityId>\n          <activityName>京橙周年庆</activityName>\n          <beginDate>1616603400000</beginDate>\n          <endDate>1621180799000</endDate>\n          <firstPayRate>100.0</firstPayRate>\n          <firstPayTime>1622390400000</firstPayTime>\n          <payType>1</payType>\n          <pcDescUrl>http://union.jd.com/activityRule?id=11180</pcDescUrl>\n          <prepareTime>1616603400000</prepareTime>\n          <remark>周年庆</remark>\n          <secondPayRate>0.0</secondPayRate>\n          <secondPayTime>1622390400000</secondPayTime>\n        </bonusActivityResp>\n      </data>\n      <hasMore>true</hasMore>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_activity_bonus_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenActivityBonusQueryRequest();\n<br/>\n                                                                                                                                \n$req= new Req;\n<br/>\n                    \n$req->setReq($req);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenActivityBonusQueryRequest request=new UnionOpenActivityBonusQueryRequest();<br>BonusActivityReq req=new BonusActivityReq();<br>request.setReq(req);<br>request.setVersion(\"1.0\");<br>UnionOpenActivityBonusQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenActivityBonusQueryRequest import UnionOpenActivityBonusQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenActivityBonusQueryRequest(url,port)\n<br/>\na.req=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.activity.bonus.BonusActivityReq",
+          "systemValue": false,
+          "webPamer": "req",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "activityId",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "奖励活动Id"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "beginTime",
+              "elements": [],
+              "required": true,
+              "value": "1619428378000",
+              "desc": "奖励活动开始时间,开始时间为最近90天，时间戳（ms）"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "endTime",
+              "elements": [],
+              "required": true,
+              "value": "1619428378000",
+              "desc": "奖励活动结束时间，时间戳（ms）"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageIndex",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "索引"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageSize",
+              "elements": [],
+              "required": true,
+              "value": "10",
+              "desc": "每页数量"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入參"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.BonusActivityQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.BonusActivityResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.BonusActivityResp",
+                    "systemValue": false,
+                    "webPamer": "bonusActivityResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "activityId",
+                        "elements": [],
+                        "required": true,
+                        "value": "1",
+                        "desc": "活动id"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "activityName",
+                        "elements": [],
+                        "required": true,
+                        "value": "京橙周年庆",
+                        "desc": "活动名称"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "prepareTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1616603400000",
+                        "desc": "预热时间，时间戳（ms）"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "beginDate",
+                        "elements": [],
+                        "required": true,
+                        "value": "1616603400000",
+                        "desc": "开始时间，时间戳（ms）"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "endDate",
+                        "elements": [],
+                        "required": true,
+                        "value": "1621180799000",
+                        "desc": "结束时间，时间戳（ms）"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "payType",
+                        "elements": [],
+                        "required": true,
+                        "value": "1",
+                        "desc": "结算类型：1 一次结算，2 二次结算"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "firstPayTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1622390400000",
+                        "desc": "一次结算时间，时间戳（ms）"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "firstPayRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "100.0",
+                        "desc": "一次结算比例"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "secondPayTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1622390400000",
+                        "desc": "二次结算时间，时间戳（ms）"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "secondPayRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.0",
+                        "desc": "二次计算比例"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "pcDescUrl",
+                        "elements": [],
+                        "required": true,
+                        "value": "http://union.jd.com/activityRule?id=11180",
+                        "desc": "活动规则"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "remark",
+                        "elements": [],
+                        "required": true,
+                        "value": "周年庆",
+                        "desc": "活动概述"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              },
+              {
+                "id": 1004,
+                "pid": 1,
+                "type": "Boolean",
+                "systemValue": false,
+                "webPamer": "hasMore",
+                "elements": [],
+                "required": true,
+                "value": "true",
+                "desc": "是否有更多"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "0",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b42acc5_leinqgtm_2534"
+}

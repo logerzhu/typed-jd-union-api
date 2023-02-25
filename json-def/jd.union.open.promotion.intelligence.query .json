@@ -1,0 +1,351 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.promotion.intelligence.query",
+      "znName": "营销线报接口【申请】",
+      "version": "1.0",
+      "apiDesc": "京东商品段子、优惠信息、店铺及类目活动爆料信息，接口出参直接是转链后链接"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_promotion_intelligence_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"intelligenceResp\": {\n                    \"reportContent\": \"特价\",\n                    \"essence\": \"1\",\n                    \"startTime\": \"2021-11-11 12:00:00\",\n                    \"endTime\": \"2021-11-18 12:00:00\",\n                    \"type\": \"1\",\n                    \"cid1List\": \"[52253,75691]\",\n                    \"status\": \"1\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_promotion_intelligence_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <intelligenceResp>\n          <cid1List>\n            <element>52253</element>\n            <element>75691</element>\n          </cid1List>\n          <endTime>2021-11-18 12:00:00</endTime>\n          <essence>1</essence>\n          <reportContent>特价</reportContent>\n          <startTime>2021-11-11 12:00:00</startTime>\n          <status>1</status>\n          <type>1</type>\n        </intelligenceResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_promotion_intelligence_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenPromotionIntelligenceQueryRequest();\n<br/>\n                                                                                                                                \n$req= new Req;\n<br/>\n                    \n$req->setReq($req);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenPromotionIntelligenceQueryRequest request=new UnionOpenPromotionIntelligenceQueryRequest();<br>IntelligencePromotionReq req=new IntelligencePromotionReq();<br>request.setReq(req);<br>request.setVersion(\"1.0\");<br>UnionOpenPromotionIntelligenceQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenPromotionIntelligenceQueryRequest import UnionOpenPromotionIntelligenceQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenPromotionIntelligenceQueryRequest(url,port)\n<br/>\na.req=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.promotion.intelligence.IntelligencePromotionReq",
+          "systemValue": false,
+          "webPamer": "req",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "title",
+              "elements": [],
+              "required": false,
+              "value": "特价",
+              "desc": "关键词"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "type",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "线报类型：1 单品；2 店铺活动；3 品类活动；4 其它"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number[]",
+              "systemValue": false,
+              "webPamer": "cid1List",
+              "elements": [],
+              "required": false,
+              "value": "[52253,75691]",
+              "desc": "类目一ID，支持传多个类目筛选"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "status",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "默认吐出未开始和进行中线报，1 未开始、2 进行中"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "essence",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "1 精华，0 非精华"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageIndex",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "默认为 1，最大 1000（必填字段）"
+            },
+            {
+              "id": 2007,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageSize",
+              "elements": [],
+              "required": false,
+              "value": "10",
+              "desc": "默认为 10，最大 20（必填字段）"
+            },
+            {
+              "id": 2008,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "pid",
+              "elements": [],
+              "required": false,
+              "value": "xxx_xxx_xx",
+              "desc": "联盟id_应用id_推广位id，三段式"
+            },
+            {
+              "id": 2009,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "subUnionId",
+              "elements": [],
+              "required": false,
+              "value": "scxss",
+              "desc": "子联盟ID（需申请，申请方法请见https://union.jd.com/helpcenter/13246-13247-46301），该字段为自定义参数，建议传入字母数字和下划线的格式"
+            },
+            {
+              "id": 2010,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "siteId",
+              "elements": [],
+              "required": false,
+              "value": "12345",
+              "desc": "站点ID是指在联盟后台的推广管理中的网站Id、APPID（1、通用转链接口禁止使用社交媒体id入参；2、订单来源，即投放链接的网址或应用必须与传入的网站ID/AppID备案一致，否则订单会判“无效-来源与备案网址不符”）"
+            },
+            {
+              "id": 2011,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "positionId",
+              "elements": [],
+              "required": false,
+              "value": "123",
+              "desc": "推广位id"
+            },
+            {
+              "id": 2012,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "ext1",
+              "elements": [],
+              "required": false,
+              "value": "xxxwww",
+              "desc": "系统扩展参数（需申请权限）"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.IntelligenceQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.IntelligenceResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.IntelligenceResp",
+                    "systemValue": false,
+                    "webPamer": "intelligenceResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "reportContent",
+                        "elements": [],
+                        "required": false,
+                        "value": "特价",
+                        "desc": "线报内容"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "type",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "线报类型：1 单品；2 店铺活动；3 品类活动；4 其它"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "Number[]",
+                        "systemValue": false,
+                        "webPamer": "cid1List",
+                        "elements": [],
+                        "required": false,
+                        "value": "[52253,75691]",
+                        "desc": "类目信息"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "status",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "1 未开始、2 进行中"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "essence",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "1 精华，0 非精华"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "startTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "2021-11-11 12:00:00",
+                        "desc": "线报开始时间,天维度，精确到时分秒2021-11-18 12:00:00"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "endTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "2021-11-18 12:00:00",
+                        "desc": "线报结束时间,天维度，精确到时分秒2021-11-18 12:00:00"
+                      }
+                    ],
+                    "required": false,
+                    "value": "",
+                    "desc": "数据对象"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "0",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b118b51_leingznk_1918"
+}

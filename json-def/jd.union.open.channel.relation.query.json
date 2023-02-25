@@ -1,0 +1,214 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.channel.relation.query",
+      "znName": "渠道关系查询接口【申请】",
+      "version": "1.0",
+      "apiDesc": "渠道关系查询"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_channel_relation_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"channelRelationQueryResp\": {\n                    \"note\": \"备注\",\n                    \"createTime\": \"2020-12-20 23:59:59\",\n                    \"channelId\": \"100001\"\n                }\n            },\n            \"message\": \"success\",\n            \"totalCount\": \"100\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_channel_relation_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <channelRelationQueryResp>\n          <channelId>100001</channelId>\n          <createTime>2020-12-20 23:59:59</createTime>\n          <note>备注</note>\n        </channelRelationQueryResp>\n      </data>\n      <message>success</message>\n      <totalCount>100</totalCount>\n    </queryResult>\n  </jd_union_open_channel_relation_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenChannelRelationQueryRequest();\n<br/>\n                                                                                                                                \n$channelRelationQueryReq= new ChannelRelationQueryReq;\n<br/>\n                    \n$req->setChannelRelationQueryReq($channelRelationQueryReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenChannelRelationQueryRequest request=new UnionOpenChannelRelationQueryRequest();<br>ChannelRelationQueryReq channelRelationQueryReq=new ChannelRelationQueryReq();<br>request.setChannelRelationQueryReq(channelRelationQueryReq);<br>request.setVersion(\"1.0\");<br>UnionOpenChannelRelationQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenChannelRelationQueryRequest import UnionOpenChannelRelationQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenChannelRelationQueryRequest(url,port)\n<br/>\na.channelRelationQueryReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.channel.relation.ChannelRelationQueryReq",
+          "systemValue": false,
+          "webPamer": "channelRelationQueryReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageIndex",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "页码，默认1"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageSize",
+              "elements": [],
+              "required": false,
+              "value": "100",
+              "desc": "每页数量，默认100，上限100"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "channelId",
+              "elements": [],
+              "required": false,
+              "value": "100001",
+              "desc": "渠道关系ID"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.ChannelRelationQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.ChannelRelationQueryResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.kpl.ChannelRelationQueryResp",
+                    "systemValue": false,
+                    "webPamer": "channelRelationQueryResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "channelId",
+                        "elements": [],
+                        "required": true,
+                        "value": "100001",
+                        "desc": "渠道关系ID"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "createTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "2020-12-20 23:59:59",
+                        "desc": "备案时间，格式：yyyy-MM-dd HH:mm:ss"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "note",
+                        "elements": [],
+                        "required": false,
+                        "value": "备注",
+                        "desc": "备注名：仅支持传入中文、字母、数字、下划线或中划线，最多20个字符"
+                      }
+                    ],
+                    "required": false,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": false,
+                "value": "无",
+                "desc": "数据明细"
+              },
+              {
+                "id": 1004,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "totalCount",
+                "elements": [],
+                "required": false,
+                "value": "100",
+                "desc": "总数"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "200",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "2026500",
+        "error": "服务端异常",
+        "solution": "稍后重试"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2026500\",\n    \"errorMessage\": \"服务端异常\",\n    \"errorSolution\": \"稍后重试\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2026500</code>\n  <errorMessage>服务端异常</errorMessage>\n  <errorSolution>稍后重试</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b5fe1d3_leio0a6d_2521"
+}

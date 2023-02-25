@@ -1,0 +1,267 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.coupon.query",
+      "znName": "优惠券领取情况查询接口【申请】",
+      "version": "1.0",
+      "apiDesc": "通过领券链接查询优惠券的平台、面额、期限、可用状态、剩余数量等详细信息，通常用于和商品信息一起展示优惠券券信息。需向cps-qxsq@jd.com申请权限。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_coupon_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"couponResp\": {\n                    \"takeEndTime\": \"1532966460000\",\n                    \"takeBeginTime\": \"1531065600000\",\n                    \"remainNum\": \"9990\",\n                    \"yn\": \"是\",\n                    \"num\": \"10000\",\n                    \"quota\": \"15\",\n                    \"link\": \"http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXXXXXX\",\n                    \"discount\": \"10\",\n                    \"beginTime\": \"1531065600000\",\n                    \"endTime\": \"1533052799000\",\n                    \"platform\": \"全平台\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_coupon_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <couponResp>\n          <beginTime>1531065600000</beginTime>\n          <discount>10</discount>\n          <endTime>1533052799000</endTime>\n          <link>http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXXXXXX</link>\n          <num>10000</num>\n          <platform>全平台</platform>\n          <quota>15</quota>\n          <remainNum>9990</remainNum>\n          <takeBeginTime>1531065600000</takeBeginTime>\n          <takeEndTime>1532966460000</takeEndTime>\n          <yn>是</yn>\n        </couponResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_coupon_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenCouponQueryRequest();\n<br/>\n                                                                                                                                \n$couponUrls= array();\n<br/>\n                    \n$req->setCouponUrls($couponUrls);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenCouponQueryRequest request=new UnionOpenCouponQueryRequest();<br>List couponUrls = new ArrayList();<br>couponUrls.add(\"http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXX\");<br>request.setCouponUrls(couponUrls);<br>request.setVersion(\"1.0\");<br>UnionOpenCouponQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenCouponQueryRequest import UnionOpenCouponQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenCouponQueryRequest(url,port)\n<br/>\na.couponUrls=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "无",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "String[]",
+          "systemValue": false,
+          "webPamer": "couponUrls",
+          "elements": [],
+          "required": true,
+          "value": "[\"http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXX\"]",
+          "desc": "优惠券链接集合；上限10（GET请求）；上限50（POST请求或SDK调用）"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.QueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.CouponResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.CouponResp",
+                    "systemValue": false,
+                    "webPamer": "couponResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "takeEndTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1532966460000",
+                        "desc": "券领取结束时间(时间戳，毫秒)"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "takeBeginTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1531065600000",
+                        "desc": "券领取开始时间(时间戳，毫秒)"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "remainNum",
+                        "elements": [],
+                        "required": true,
+                        "value": "9990",
+                        "desc": "券剩余张数"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "yn",
+                        "elements": [],
+                        "required": true,
+                        "value": "是",
+                        "desc": "券有效状态"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "num",
+                        "elements": [],
+                        "required": true,
+                        "value": "10000",
+                        "desc": "券总张数"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "quota",
+                        "elements": [],
+                        "required": true,
+                        "value": "15",
+                        "desc": "券消费限额"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "link",
+                        "elements": [],
+                        "required": true,
+                        "value": "http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXXXXXX",
+                        "desc": "券链接"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "discount",
+                        "elements": [],
+                        "required": true,
+                        "value": "10",
+                        "desc": "券面额"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "beginTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1531065600000",
+                        "desc": "券有效使用开始时间(时间戳，毫秒)"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "endTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1533052799000",
+                        "desc": "券有效使用结束时间(时间戳，毫秒)"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "platform",
+                        "elements": [],
+                        "required": true,
+                        "value": "全平台",
+                        "desc": "券使用平台"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "200",
+        "error": "获取信息成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "2006408",
+        "error": "unionid被限制调用",
+        "solution": "联系联盟商务"
+      },
+      {
+        "code": "500",
+        "error": "服务端异常",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2006400",
+        "error": "参数错误",
+        "solution": "请按文档要求入参"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2006400\",\n    \"errorMessage\": \"参数错误\",\n    \"errorSolution\": \"请按文档要求入参\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2006400</code>\n  <errorMessage>参数错误</errorMessage>\n  <errorSolution>请按文档要求入参</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b434891_leiney61_2344"
+}

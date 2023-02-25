@@ -1,0 +1,318 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.activity.recommend.query",
+      "znName": "活动推荐接口【申请】",
+      "version": "1.0",
+      "apiDesc": "输入设备ID即可获取个性化推荐的活动信息，建议使用clickUrlM转链长链接，千人千面推荐效果会更好。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_activity_recommend_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"RecommendActivityResp\": {\n                    \"activityId\": \"00854729\",\n                    \"clickUrlM\": \"https://union-click.jd.com/jdc?e= p=AyIGZRprFDJWWA1FBCVbV0IUWVALHFN\",\n                    \"imageUrl\": \"https://ad.xxx.promotion.png\",\n                    \"activityName\": \"自营图书促销会场\",\n                    \"urlM\": \"https://pro.m.jd.com/mall/active/2NdTSg6iTDUWWC3gDQa3TpuZxxh9/index.html\",\n                    \"imageTitle\": \"超值精选种草,超值精品大聚会\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_activity_recommend_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <RecommendActivityResp>\n          <activityId>00854729</activityId>\n          <activityName>自营图书促销会场</activityName>\n          <clickUrlM>https://union-click.jd.com/jdc?e= p=AyIGZRprFDJWWA1FBCVbV0IUWVALHFN</clickUrlM>\n          <imageTitle>超值精选种草,超值精品大聚会</imageTitle>\n          <imageUrl>https://ad.xxx.promotion.png</imageUrl>\n          <urlM>https://pro.m.jd.com/mall/active/2NdTSg6iTDUWWC3gDQa3TpuZxxh9/index.html</urlM>\n        </RecommendActivityResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_activity_recommend_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenActivityRecommendQueryRequest();\n<br/>\n                                                                                                                                \n$req= new Req;\n<br/>\n                    \n$req->setReq($req);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenActivityRecommendQueryRequest request=new UnionOpenActivityRecommendQueryRequest();<br>RecommendActivityReq req=new RecommendActivityReq();<br>request.setReq(req);<br>request.setVersion(\"1.0\");<br>UnionOpenActivityRecommendQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenActivityRecommendQueryRequest import UnionOpenActivityRecommendQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenActivityRecommendQueryRequest(url,port)\n<br/>\na.req=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.activity.recommend.RecommendActivityReq",
+          "systemValue": false,
+          "webPamer": "req",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "userId",
+              "elements": [],
+              "required": false,
+              "value": "示例1： userIdType设置为8时，此时userId需要设置为安卓移动设备Imei，如861794042953717 示例2： userIdType设置为16时，此时userId需要设置为苹果移动设备Openudid，如f99dbd2ba8de45a65cd7f08b7737bc919d6c87f7 示例3： userIdType设置为32时，此时userId需要设置为苹果移动设备idfa，如DCC77BDA-C2CA-4729-87D6-B7F65C8014D6 示例4： userIdType设置为64时，此时userId需要设置为安卓移动设备imei的32位大写的MD5编码，如1097787632DB8876D325C356285648D0（原始imei：861794042953717） 示例5： userIdType设置为128时，此时userId需要设置为苹果移动设备idfa的32位大写的MD5编码，如38D7C90186B1328F9418816DCC762A27（原始idfa：DCC77BDA-C2CA-4729-87D6-B7F65C8014D6） 示例6： userIdType设置为32768时，此时userId需要设置为安卓移动设备oaid，如7dafe7ff-bffe-a28b-fdf5-7fefdf7f7e85 示例7： userIdType设置为131072时，此时userId需要设置为安卓移动设备oaid的32位大写的MD5编码，如4967357D630E32E312A3A3EE0C5A128B（原始oaid：7dafe7ff-bffe-a28b-fdf5-7fefdf7f7e85）",
+              "desc": "userIdType对应的用户设备ID，userIdType和userId需同时传入"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "userIdType",
+              "elements": [],
+              "required": false,
+              "value": "8",
+              "desc": "用户ID类型，传入此参数可获得个性化推荐结果。当前userIdType支持的枚举值包括：8、16、32、64、128、32768。userIdType和userId需同时传入，且一一对应。userIdType各枚举值对应的userId含义如下：8(安卓移动设备Imei); 16(苹果移动设备Openudid)；32(苹果移动设备idfa); 64(安卓移动设备imei的md5编码，32位，大写，匹配率略低);128(苹果移动设备idfa的md5编码，32位，大写，匹配率略低); 32768(安卓移动设备oaid); 131072(安卓移动设备oaid的md5编码，32位，大写)"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "orderId",
+              "elements": [],
+              "required": false,
+              "value": "108618000005",
+              "desc": "用户京东订单号"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "pid",
+              "elements": [],
+              "required": false,
+              "value": "无",
+              "desc": "联盟id_应用id_推广位id，三段式"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "subUnionId",
+              "elements": [],
+              "required": false,
+              "value": "618_18_c35***e6a",
+              "desc": "子联盟ID（需申请，申请方法请见https://union.jd.com/helpcenter/13246-13247-46301），该字段为自定义参数，建议传入字母数字和下划线的格式"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "siteId",
+              "elements": [],
+              "required": false,
+              "value": "435676",
+              "desc": "站点ID是指在联盟后台的推广管理中的网站Id、APPID（1、通用转链接口禁止使用社交媒体id入参；2、订单来源，即投放链接的网址或应用必须与传入的网站ID/AppID备案一致，否则订单会判“无效-来源与备案网址不符”）"
+            },
+            {
+              "id": 2007,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "positionId",
+              "elements": [],
+              "required": false,
+              "value": "618",
+              "desc": "推广位id"
+            },
+            {
+              "id": 2008,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "needClickUrl",
+              "elements": [],
+              "required": false,
+              "value": "0",
+              "desc": "是否转链,1:转链;0:不转链,默认转链"
+            },
+            {
+              "id": 2009,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "imageWidth",
+              "elements": [],
+              "required": false,
+              "value": "400",
+              "desc": "素材尺寸：宽"
+            },
+            {
+              "id": 2010,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "imageHeight",
+              "elements": [],
+              "required": false,
+              "value": "300",
+              "desc": "素材尺寸：高"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入參"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.RecommendActivityQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.RecommendActivityResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.RecommendActivityResp",
+                    "systemValue": false,
+                    "webPamer": "RecommendActivityResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "activityId",
+                        "elements": [],
+                        "required": false,
+                        "value": "00854729",
+                        "desc": "活动ID"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "activityName",
+                        "elements": [],
+                        "required": false,
+                        "value": "自营图书促销会场",
+                        "desc": "活动名称"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "clickUrlM",
+                        "elements": [],
+                        "required": false,
+                        "value": "https://union-click.jd.com/jdc?e= p=AyIGZRprFDJWWA1FBCVbV0IUWVALHFN",
+                        "desc": "活动落地页-移动端（转链长链接，无需调用转链接口）"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "urlM",
+                        "elements": [],
+                        "required": false,
+                        "value": "https://pro.m.jd.com/mall/active/2NdTSg6iTDUWWC3gDQa3TpuZxxh9/index.html",
+                        "desc": "活动落地页-移动端（需调用转链接口）"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "imageUrl",
+                        "elements": [],
+                        "required": false,
+                        "value": "https://ad.xxx.promotion.png",
+                        "desc": "投放图片链接（如需广告投放素材和文案需入参高和宽）"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "imageTitle",
+                        "elements": [],
+                        "required": false,
+                        "value": "超值精选种草,超值精品大聚会",
+                        "desc": "活动文案（如需广告投放素材和文案需入参高和宽）"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "0",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b118af3_leinga4s_2581"
+}

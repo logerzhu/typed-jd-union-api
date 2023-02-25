@@ -1,0 +1,508 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.activity.query",
+      "znName": "活动查询接口",
+      "version": "1.0",
+      "apiDesc": "提供联盟官方活动查询，支持分别查询联盟PC端、京粉APP、大促营销日历的活动，可查询活动链接、图片、规则等素材。建议按日期依次查询当天及未来的活动。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_activity_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"activityResp\": {\n                    \"actStatus\": \"1\",\n                    \"urlPC\": \"http://pc.jd.xxx\",\n                    \"promotionStartTime\": \"1532921782000\",\n                    \"advantage\": \"满300减200\",\n                    \"downloadCode\": \"2f435\",\n                    \"urlM\": \"http://m.jd.xxx\",\n                    \"downloadUrl\": \"http://download/xxx\",\n                    \"platformType\": \"1\",\n                    \"recommend\": \"1\",\n                    \"updateTime\": \"1532921782000\",\n                    \"title\": \"热门\",\n                    \"content\": \"双11热销\",\n                    \"eliteId\": \"1\",\n                    \"categoryList\": {\n                        \"activityCategory\": {\n                            \"type\": \"1\",\n                            \"categoryId\": \"652\"\n                        }\n                    },\n                    \"startTime\": \"1532921782000\",\n                    \"endTime\": \"1532921782000\",\n                    \"tag\": \"1\",\n                    \"id\": \"1\",\n                    \"promotionEndTime\": \"1532921782000\",\n                    \"imgList\": {\n                        \"image\": {\n                            \"imgName\": \"250x250.jpg\",\n                            \"imgUrl\": \"https://img14.360buyimg.com/pop/jfs/t1/144004/25/8645/45670/5f6210dfE9d652c78/92a00825e74ee585.jpg\",\n                            \"widthHeight\": \"100*100\"\n                        }\n                    }\n                }\n            },\n            \"message\": \"success\",\n            \"totalCount\": \"100\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_activity_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <activityResp>\n          <actStatus>1</actStatus>\n          <advantage>满300减200</advantage>\n          <categoryList>\n            <activityCategory>\n              <categoryId>652</categoryId>\n              <type>1</type>\n            </activityCategory>\n          </categoryList>\n          <content>双11热销</content>\n          <downloadCode>2f435</downloadCode>\n          <downloadUrl>http://download/xxx</downloadUrl>\n          <eliteId>1</eliteId>\n          <endTime>1532921782000</endTime>\n          <id>1</id>\n          <imgList>\n            <image>\n              <imgName>250x250.jpg</imgName>\n              <imgUrl>https://img14.360buyimg.com/pop/jfs/t1/144004/25/8645/45670/5f6210dfE9d652c78/92a00825e74ee585.jpg</imgUrl>\n              <widthHeight>100*100</widthHeight>\n            </image>\n          </imgList>\n          <platformType>1</platformType>\n          <promotionEndTime>1532921782000</promotionEndTime>\n          <promotionStartTime>1532921782000</promotionStartTime>\n          <recommend>1</recommend>\n          <startTime>1532921782000</startTime>\n          <tag>1</tag>\n          <title>热门</title>\n          <updateTime>1532921782000</updateTime>\n          <urlM>http://m.jd.xxx</urlM>\n          <urlPC>http://pc.jd.xxx</urlPC>\n        </activityResp>\n      </data>\n      <message>success</message>\n      <totalCount>100</totalCount>\n    </queryResult>\n  </jd_union_open_activity_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenActivityQueryRequest();\n<br/>\n                                                                                                                                \n$activityReq= new ActivityReq;\n<br/>\n                    \n$req->setActivityReq($activityReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenActivityQueryRequest request=new UnionOpenActivityQueryRequest();<br>ActivityReq activityReq=new ActivityReq();<br>request.setActivityReq(activityReq);<br>request.setVersion(\"1.0\");<br>UnionOpenActivityQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenActivityQueryRequest import UnionOpenActivityQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenActivityQueryRequest(url,port)\n<br/>\na.activityReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.activity.base.ActivityReq",
+          "systemValue": false,
+          "webPamer": "activityReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageIndex",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "页码，默认1"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageSize",
+              "elements": [],
+              "required": false,
+              "value": "20",
+              "desc": "每页数量，默认20，上限50"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "poolId",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "活动物料ID，1：营销日历热门会场；2：营销日历热门榜单；6：PC站长端官方活动"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "activeDate",
+              "elements": [],
+              "required": false,
+              "value": "20200918",
+              "desc": "按单个日期查询活动，查询日期范围为过去或未来15天。建议按日期依次查询当天及未来的活动"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.kpl.QueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.kpl.ActivityResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.kpl.ActivityResp",
+                    "systemValue": false,
+                    "webPamer": "activityResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "urlPC",
+                        "elements": [],
+                        "required": false,
+                        "value": "http://pc.jd.xxx",
+                        "desc": "活动落地页-PC"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "urlM",
+                        "elements": [],
+                        "required": false,
+                        "value": "http://m.jd.xxx",
+                        "desc": "活动落地页-移动端"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "title",
+                        "elements": [],
+                        "required": false,
+                        "value": "热门",
+                        "desc": "活动主题"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "advantage",
+                        "elements": [],
+                        "required": false,
+                        "value": "满300减200",
+                        "desc": "活动利益点"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "startTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "1532921782000",
+                        "desc": "活动开始时间"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "endTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "1532921782000",
+                        "desc": "活动结束时间"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "eliteId",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "商品资源位id，调用京粉精选商品查询接口传入此参数可获取活动SKU"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "recommend",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "推荐指数，从1到5，越高越好"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "downloadUrl",
+                        "elements": [],
+                        "required": false,
+                        "value": "http://download/xxx",
+                        "desc": "活动素材下载链接"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "downloadCode",
+                        "elements": [],
+                        "required": false,
+                        "value": "2f435",
+                        "desc": "活动素材提取码"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "updateTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "1532921782000",
+                        "desc": "活动更新时间"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "content",
+                        "elements": [],
+                        "required": false,
+                        "value": "双11热销",
+                        "desc": "活动规则、描述、说明"
+                      },
+                      {
+                        "id": 1003001013,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "tag",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "活动标签，1：大促活动；2：佣金提升活动；3：常规活动"
+                      },
+                      {
+                        "id": 1003001014,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actStatus",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "活动状态，1：未开始；2：进行中；3：已结束"
+                      },
+                      {
+                        "id": 1003001015,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "promotionStartTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "1532921782000",
+                        "desc": "主推开始时间"
+                      },
+                      {
+                        "id": 1003001016,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "promotionEndTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "1532921782000",
+                        "desc": "主推结束时间"
+                      },
+                      {
+                        "id": 1003001017,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "platformType",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "活动推广平台，1：仅支持PC推广；2：仅支持移动端推广；3：PC和移动端均支持推广"
+                      },
+                      {
+                        "id": 1003001018,
+                        "pid": 1003001,
+                        "type": "com.jd.union.activity.Image[]",
+                        "systemValue": false,
+                        "webPamer": "imgList",
+                        "elements": [
+                          {
+                            "id": 1003001018001,
+                            "pid": 1003001018,
+                            "type": "com.jd.union.activity.Image",
+                            "systemValue": false,
+                            "webPamer": "image",
+                            "elements": [
+                              {
+                                "id": 1003001018001001,
+                                "pid": 1003001018001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "widthHeight",
+                                "elements": [],
+                                "required": false,
+                                "value": "100*100",
+                                "desc": "图片尺寸"
+                              },
+                              {
+                                "id": 1003001018001002,
+                                "pid": 1003001018001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "imgName",
+                                "elements": [],
+                                "required": false,
+                                "value": "250x250.jpg",
+                                "desc": "图片名称"
+                              },
+                              {
+                                "id": 1003001018001003,
+                                "pid": 1003001018001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "imgUrl",
+                                "elements": [],
+                                "required": false,
+                                "value": "https://img14.360buyimg.com/pop/jfs/t1/144004/25/8645/45670/5f6210dfE9d652c78/92a00825e74ee585.jpg",
+                                "desc": "图片链接"
+                              }
+                            ],
+                            "required": false,
+                            "value": "",
+                            "desc": "图片对象"
+                          }
+                        ],
+                        "required": false,
+                        "value": "",
+                        "desc": "图片集"
+                      },
+                      {
+                        "id": 1003001019,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "id",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "活动ID"
+                      },
+                      {
+                        "id": 1003001020,
+                        "pid": 1003001,
+                        "type": "com.jd.union.activity.ActivityCategory[]",
+                        "systemValue": false,
+                        "webPamer": "categoryList",
+                        "elements": [
+                          {
+                            "id": 1003001020001,
+                            "pid": 1003001020,
+                            "type": "com.jd.union.activity.ActivityCategory",
+                            "systemValue": false,
+                            "webPamer": "activityCategory",
+                            "elements": [
+                              {
+                                "id": 1003001020001001,
+                                "pid": 1003001020001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "categoryId",
+                                "elements": [],
+                                "required": false,
+                                "value": "652",
+                                "desc": "类目Id"
+                              },
+                              {
+                                "id": 1003001020001002,
+                                "pid": 1003001020001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "type",
+                                "elements": [],
+                                "required": false,
+                                "value": "1",
+                                "desc": "类目级别(需枚举，当前京挑客活动全部为一级类目)"
+                              }
+                            ],
+                            "required": false,
+                            "value": "",
+                            "desc": "类目"
+                          }
+                        ],
+                        "required": false,
+                        "value": "",
+                        "desc": "类目集"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              },
+              {
+                "id": 1004,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "totalCount",
+                "elements": [],
+                "required": false,
+                "value": "100",
+                "desc": "总数量"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "200",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "410",
+        "error": "无此活动物料ID",
+        "solution": "请修改活动物料ID"
+      },
+      {
+        "code": "400",
+        "error": "参数格式错误",
+        "solution": "参数格式错误"
+      },
+      {
+        "code": "500",
+        "error": "服务端异常，请稍后再试",
+        "solution": "请稍后再试"
+      },
+      {
+        "code": "1002003",
+        "error": "未查询到数据",
+        "solution": "未查询到数据"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"1002003\",\n    \"errorMessage\": \"未查询到数据\",\n    \"errorSolution\": \"未查询到数据\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>1002003</code>\n  <errorMessage>未查询到数据</errorMessage>\n  <errorSolution>未查询到数据</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b118b51_leinfiwf_1915"
+}

@@ -1,0 +1,576 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.selling.goods.query",
+      "znName": "商羚商品查询接口",
+      "version": "1.0",
+      "apiDesc": "通过SKUID查询商羚商品的名称、主图、类目、价格、30天销量等详细信息，支持批量查询"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_selling_goods_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"sellingGoodsResp\": {\n                    \"owner\": \"p\",\n                    \"cid1Name\": \"珠宝首饰 \",\n                    \"promotionCodeList\": {\n                        \"promotionCode\": {\n                            \"promoName\": \"限时购\",\n                            \"totalCnt\": \"200\",\n                            \"directReduceAmount\": \"100\",\n                            \"promoType\": \"1\",\n                            \"promoCode\": \"jd110226\",\n                            \"beginTime\": \"1601364491000\",\n                            \"endTime\": \"1601364491000\",\n                            \"state\": \"1\"\n                        }\n                    },\n                    \"materialUrl\": \"znn.pre-m.selling.cn/pages/detail/index?skuId=601007407\",\n                    \"lowestPrice\": \"10\",\n                    \"shopInfo\": {\n                        \"shopName\": \"店铺名称\",\n                        \"shopType\": \"0\"\n                    },\n                    \"wlCommissionShare\": \"10\",\n                    \"inOrderCount30Days\": \"100\",\n                    \"skuName\": \"便携式女士香水持久淡香小样 初见系列香水 遇见时光\",\n                    \"wlCommission\": \"2\",\n                    \"cid2Name\": \"木手串/把件\",\n                    \"couponList\": {\n                        \"coupon\": {\n                            \"quota\": \"5\",\n                            \"link\": \"shop10166289.m.selling.cn/pages/coupon-share/index?linkey=AAROH_xIpeffAs_-naABEFoeRk7KdcsU1LJePw7ZNklEBiyKFFBPoJm2ZC9S4z3fsNsRvOAxbLL-I960M0VlTGyhn9WyHg\",\n                            \"discount\": \"10\",\n                            \"isBest\": \"1\"\n                        }\n                    },\n                    \"imageUrl\": \"http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg\",\n                    \"goodComments\": \"50\",\n                    \"wlPrice\": \"20\",\n                    \"cid2\": \"12041\",\n                    \"cid3Name\": \"其他\",\n                    \"currency\": \"USD\",\n                    \"cid3\": \"12052\",\n                    \"cid1\": \"6144\",\n                    \"skuId\": \"110\",\n                    \"imgList\": \"['https://img14.360buyimg.com/pop/jfs/t1/161772/40/4648/625761/6012b89cE7cde28cd/b0371ba9aa5be7dd.jpg']\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_selling_goods_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <sellingGoodsResp>\n          <cid1>6144</cid1>\n          <cid1Name>珠宝首饰 </cid1Name>\n          <cid2>12041</cid2>\n          <cid2Name>木手串/把件</cid2Name>\n          <cid3>12052</cid3>\n          <cid3Name>其他</cid3Name>\n          <couponList>\n            <coupon>\n              <discount>10</discount>\n              <isBest>1</isBest>\n              <link>shop10166289.m.selling.cn/pages/coupon-share/index?linkey=AAROH_xIpeffAs_-naABEFoeRk7KdcsU1LJePw7ZNklEBiyKFFBPoJm2ZC9S4z3fsNsRvOAxbLL-I960M0VlTGyhn9WyHg</link>\n              <quota>5</quota>\n            </coupon>\n          </couponList>\n          <currency>USD</currency>\n          <goodComments>50</goodComments>\n          <imageUrl>http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg</imageUrl>\n          <imgList>\n            <element>https://img14.360buyimg.com/pop/jfs/t1/161772/40/4648/625761/6012b89cE7cde28cd/b0371ba9aa5be7dd.jpg</element>\n          </imgList>\n          <inOrderCount30Days>100</inOrderCount30Days>\n          <lowestPrice>10</lowestPrice>\n          <materialUrl>znn.pre-m.selling.cn/pages/detail/index?skuId=601007407</materialUrl>\n          <owner>p</owner>\n          <promotionCodeList>\n            <promotionCode>\n              <beginTime>1601364491000</beginTime>\n              <directReduceAmount>100</directReduceAmount>\n              <endTime>1601364491000</endTime>\n              <promoCode>jd110226</promoCode>\n              <promoName>限时购</promoName>\n              <promoType>1</promoType>\n              <state>1</state>\n              <totalCnt>200</totalCnt>\n            </promotionCode>\n          </promotionCodeList>\n          <shopInfo>\n            <shopName>店铺名称</shopName>\n            <shopType>0</shopType>\n          </shopInfo>\n          <skuId>110</skuId>\n          <skuName>便携式女士香水持久淡香小样 初见系列香水 遇见时光</skuName>\n          <wlCommission>2</wlCommission>\n          <wlCommissionShare>10</wlCommissionShare>\n          <wlPrice>20</wlPrice>\n        </sellingGoodsResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_selling_goods_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenSellingGoodsQueryRequest();\n<br/>\n                                                                                                                                \n$req= new Req;\n<br/>\n                    \n$req->setReq($req);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenSellingGoodsQueryRequest request=new UnionOpenSellingGoodsQueryRequest();<br>SellingGoodsReq req=new SellingGoodsReq();<br>request.setReq(req);<br>request.setVersion(\"1.0\");<br>UnionOpenSellingGoodsQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenSellingGoodsQueryRequest import UnionOpenSellingGoodsQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenSellingGoodsQueryRequest(url,port)\n<br/>\na.req=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.goods.selling.SellingGoodsReq",
+          "systemValue": false,
+          "webPamer": "req",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number[]",
+              "systemValue": false,
+              "webPamer": "skuIds",
+              "elements": [],
+              "required": true,
+              "value": "[1,2]",
+              "desc": "京东skuId集合，最多100个"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.SellingGoodsQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.SellingGoodsResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.SellingGoodsResp",
+                    "systemValue": false,
+                    "webPamer": "sellingGoodsResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuId",
+                        "elements": [],
+                        "required": true,
+                        "value": "110",
+                        "desc": "京东skuId"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "skuName",
+                        "elements": [],
+                        "required": true,
+                        "value": "便携式女士香水持久淡香小样 初见系列香水 遇见时光",
+                        "desc": "商品名称"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "materialUrl",
+                        "elements": [],
+                        "required": true,
+                        "value": "znn.pre-m.selling.cn/pages/detail/index?skuId=601007407",
+                        "desc": "落地页"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "owner",
+                        "elements": [],
+                        "required": true,
+                        "value": "p",
+                        "desc": "自营：g；非自营：p"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "imageUrl",
+                        "elements": [],
+                        "required": true,
+                        "value": "http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg",
+                        "desc": "主图链接"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "String[]",
+                        "systemValue": false,
+                        "webPamer": "imgList",
+                        "elements": [],
+                        "required": true,
+                        "value": "['https://img14.360buyimg.com/pop/jfs/t1/161772/40/4648/625761/6012b89cE7cde28cd/b0371ba9aa5be7dd.jpg']",
+                        "desc": "图片链接集合"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "cid1",
+                        "elements": [],
+                        "required": true,
+                        "value": "6144",
+                        "desc": "一级类目ID"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "cid2",
+                        "elements": [],
+                        "required": true,
+                        "value": "12041",
+                        "desc": "二级类目ID"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "cid3",
+                        "elements": [],
+                        "required": true,
+                        "value": "12052",
+                        "desc": "三级类目ID"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "cid1Name",
+                        "elements": [],
+                        "required": true,
+                        "value": "珠宝首饰 ",
+                        "desc": "一级类目名称"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "cid2Name",
+                        "elements": [],
+                        "required": true,
+                        "value": "木手串/把件",
+                        "desc": "二级类目名称"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "cid3Name",
+                        "elements": [],
+                        "required": true,
+                        "value": "其他",
+                        "desc": "三级类目名称"
+                      },
+                      {
+                        "id": 1003001013,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "inOrderCount30Days",
+                        "elements": [],
+                        "required": true,
+                        "value": "100",
+                        "desc": "30天销量"
+                      },
+                      {
+                        "id": 1003001014,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "goodComments",
+                        "elements": [],
+                        "required": true,
+                        "value": "50",
+                        "desc": "好评数"
+                      },
+                      {
+                        "id": 1003001015,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "wlPrice",
+                        "elements": [],
+                        "required": true,
+                        "value": "20",
+                        "desc": "无线价格"
+                      },
+                      {
+                        "id": 1003001016,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "lowestPrice",
+                        "elements": [],
+                        "required": true,
+                        "value": "10",
+                        "desc": "促销价格"
+                      },
+                      {
+                        "id": 1003001017,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "wlCommissionShare",
+                        "elements": [],
+                        "required": true,
+                        "value": "10",
+                        "desc": "无线佣金比例"
+                      },
+                      {
+                        "id": 1003001018,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "wlCommission",
+                        "elements": [],
+                        "required": true,
+                        "value": "2",
+                        "desc": "无线佣金"
+                      },
+                      {
+                        "id": 1003001019,
+                        "pid": 1003001,
+                        "type": "com.jd.union.SellingCoupon[]",
+                        "systemValue": false,
+                        "webPamer": "couponList",
+                        "elements": [
+                          {
+                            "id": 1003001019001,
+                            "pid": 1003001019,
+                            "type": "com.jd.union.SellingCoupon",
+                            "systemValue": false,
+                            "webPamer": "coupon",
+                            "elements": [
+                              {
+                                "id": 1003001019001001,
+                                "pid": 1003001019001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "link",
+                                "elements": [],
+                                "required": true,
+                                "value": "shop10166289.m.selling.cn/pages/coupon-share/index?linkey=AAROH_xIpeffAs_-naABEFoeRk7KdcsU1LJePw7ZNklEBiyKFFBPoJm2ZC9S4z3fsNsRvOAxbLL-I960M0VlTGyhn9WyHg",
+                                "desc": "优惠券链接"
+                              },
+                              {
+                                "id": 1003001019001002,
+                                "pid": 1003001019001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "discount",
+                                "elements": [],
+                                "required": true,
+                                "value": "10",
+                                "desc": "优惠券额度"
+                              },
+                              {
+                                "id": 1003001019001003,
+                                "pid": 1003001019001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "quota",
+                                "elements": [],
+                                "required": true,
+                                "value": "5",
+                                "desc": "消费限额"
+                              },
+                              {
+                                "id": 1003001019001004,
+                                "pid": 1003001019001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "isBest",
+                                "elements": [],
+                                "required": true,
+                                "value": "1",
+                                "desc": "1：是；0：否"
+                              }
+                            ],
+                            "required": true,
+                            "value": "无",
+                            "desc": "优惠券集合"
+                          }
+                        ],
+                        "required": true,
+                        "value": "无",
+                        "desc": "优惠券集合"
+                      },
+                      {
+                        "id": 1003001020,
+                        "pid": 1003001,
+                        "type": "com.jd.union.SellingShopInfo",
+                        "systemValue": false,
+                        "webPamer": "shopInfo",
+                        "elements": [
+                          {
+                            "id": 1003001020001,
+                            "pid": 1003001020,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "shopName",
+                            "elements": [],
+                            "required": false,
+                            "value": "店铺名称",
+                            "desc": "店铺名称"
+                          },
+                          {
+                            "id": 1003001020002,
+                            "pid": 1003001020,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "shopType",
+                            "elements": [],
+                            "required": false,
+                            "value": "0",
+                            "desc": "店铺类型：0国内，1海外"
+                          }
+                        ],
+                        "required": false,
+                        "value": "",
+                        "desc": "店铺"
+                      },
+                      {
+                        "id": 1003001021,
+                        "pid": 1003001,
+                        "type": "com.jd.union.PromotionCode[]",
+                        "systemValue": false,
+                        "webPamer": "promotionCodeList",
+                        "elements": [
+                          {
+                            "id": 1003001021001,
+                            "pid": 1003001021,
+                            "type": "com.jd.union.PromotionCode",
+                            "systemValue": false,
+                            "webPamer": "promotionCode",
+                            "elements": [
+                              {
+                                "id": 1003001021001001,
+                                "pid": 1003001021001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "promoName",
+                                "elements": [],
+                                "required": false,
+                                "value": "限时购",
+                                "desc": "优惠码名称"
+                              },
+                              {
+                                "id": 1003001021001002,
+                                "pid": 1003001021001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "promoCode",
+                                "elements": [],
+                                "required": false,
+                                "value": "jd110226",
+                                "desc": "优惠码code"
+                              },
+                              {
+                                "id": 1003001021001003,
+                                "pid": 1003001021001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "beginTime",
+                                "elements": [],
+                                "required": false,
+                                "value": "1601364491000",
+                                "desc": "开始时间"
+                              },
+                              {
+                                "id": 1003001021001004,
+                                "pid": 1003001021001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "endTime",
+                                "elements": [],
+                                "required": false,
+                                "value": "1601364491000",
+                                "desc": "结束时间"
+                              },
+                              {
+                                "id": 1003001021001005,
+                                "pid": 1003001021001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "totalCnt",
+                                "elements": [],
+                                "required": false,
+                                "value": "200",
+                                "desc": "可用总次数"
+                              },
+                              {
+                                "id": 1003001021001006,
+                                "pid": 1003001021001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "promoType",
+                                "elements": [],
+                                "required": false,
+                                "value": "1",
+                                "desc": "促销类型，1直降，2满减，3满折"
+                              },
+                              {
+                                "id": 1003001021001007,
+                                "pid": 1003001021001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "state",
+                                "elements": [],
+                                "required": false,
+                                "value": "1",
+                                "desc": "优惠码状态,1有效，0失效"
+                              },
+                              {
+                                "id": 1003001021001008,
+                                "pid": 1003001021001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "directReduceAmount",
+                                "elements": [],
+                                "required": false,
+                                "value": "100",
+                                "desc": "优惠方式，直降金额"
+                              }
+                            ],
+                            "required": false,
+                            "value": "",
+                            "desc": "优惠码列表"
+                          }
+                        ],
+                        "required": false,
+                        "value": "",
+                        "desc": "优惠码列表，目前仅商羚海外站有该字段"
+                      },
+                      {
+                        "id": 1003001022,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "currency",
+                        "elements": [],
+                        "required": false,
+                        "value": "USD",
+                        "desc": "币种：USD代表美元，CNY代表人民币"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "0",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b124e37_leio0sfs_2276"
+}

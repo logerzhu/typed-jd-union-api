@@ -1,0 +1,305 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.position.create",
+      "znName": "创建推广位【申请】",
+      "version": "1.0",
+      "apiDesc": "工具商媒体帮助推客批量创建推广位，推广位分为两种类型：3：私域推广位，上限5000个，不在联盟后台展示，无对应 PID；4：联盟后台推广位，上限500个，在联盟后台展示，自动生成PID，可用于内容平台推广。业务参数key需要由推客进入联盟官网-我的工具-我的API中查询，有效期365天。此接口需向cps-qxsq@jd.com申请权限。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_position_create_response\": {\n        \"createResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"unionId\": \"618618\",\n                \"siteId\": \"1\",\n                \"pid\": {\n                    \"pid\": \"52267_0_3002884236\"\n                },\n                \"type\": \"4\",\n                \"resultList\": {\n                    \"result\": \"6186666082\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_position_create_response>\n    <createResult>\n      <code>200</code>\n      <data>\n        <pid>\n          <pid>52267_0_3002884236</pid>\n        </pid>\n        <resultList>\n          <result>6186666082</result>\n        </resultList>\n        <siteId>1</siteId>\n        <type>4</type>\n        <unionId>618618</unionId>\n      </data>\n      <message>success</message>\n    </createResult>\n  </jd_union_open_position_create_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenPositionCreateRequest();\n<br/>\n                                                                                                                                \n$positionReq= new PositionReq;\n<br/>\n                    \n$req->setPositionReq($positionReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenPositionCreateRequest request=new UnionOpenPositionCreateRequest();<br>PositionReq positionReq=new PositionReq();<br>request.setPositionReq(positionReq);<br>request.setVersion(\"1.0\");<br>UnionOpenPositionCreateResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenPositionCreateRequest import UnionOpenPositionCreateRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenPositionCreateRequest(url,port)\n<br/>\na.positionReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "37f4dbefd6bb4f81bef238638f3d6b74",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.position.base.PositionReq",
+          "systemValue": false,
+          "webPamer": "positionReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "unionId",
+              "elements": [],
+              "required": true,
+              "value": "10000618",
+              "desc": "需要创建的目标联盟id"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "key",
+              "elements": [],
+              "required": true,
+              "value": "无",
+              "desc": "推客unionid对应的“授权Key”，在联盟官网-我的工具-我的API中查询，授权Key具有唯一性，有效期365天，删除或创建新的授权Key后原有的授权Key自动失效"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "unionType",
+              "elements": [],
+              "required": true,
+              "value": "3",
+              "desc": "3：私域推广位，上限5000个，不在联盟后台展示，无对应 PID；4：联盟后台推广位，上限500个，会在推客联盟后台展示，自动生成对应PID，可用于内容平台推广"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "type",
+              "elements": [],
+              "required": true,
+              "value": "4",
+              "desc": "站点类型 1.网站推广位2.APP推广位3.导购媒体推广位4.聊天工具推广位"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String[]",
+              "systemValue": false,
+              "webPamer": "spaceNameList",
+              "elements": [],
+              "required": true,
+              "value": "无",
+              "desc": "推广位名称集合，英文,分割；上限50"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "siteId",
+              "elements": [],
+              "required": true,
+              "value": "61800001",
+              "desc": "站点ID：网站的ID/app ID/snsID 。当type非4(聊天工具)时，siteId必填"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求对象"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.CreateResult",
+            "systemValue": false,
+            "webPamer": "createResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.PositionCreateResp",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "java.util.Map",
+                    "systemValue": false,
+                    "webPamer": "resultList",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "result",
+                        "elements": [],
+                        "required": true,
+                        "value": "6186666082",
+                        "desc": "推广位结果，但是对应的pid不能作为母子分佣使用。"
+                      }
+                    ],
+                    "required": true,
+                    "value": "'test4': 6186666082",
+                    "desc": "推广位结果集合"
+                  },
+                  {
+                    "id": 1003002,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "siteId",
+                    "elements": [],
+                    "required": true,
+                    "value": "1",
+                    "desc": "站点ID"
+                  },
+                  {
+                    "id": 1003003,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "type",
+                    "elements": [],
+                    "required": true,
+                    "value": "4",
+                    "desc": "站点类型 1.网站推广位2.APP推广位3.导购媒体推广位4.聊天工具推广位"
+                  },
+                  {
+                    "id": 1003004,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "unionId",
+                    "elements": [],
+                    "required": true,
+                    "value": "618618",
+                    "desc": "联盟ID"
+                  },
+                  {
+                    "id": 1003005,
+                    "pid": 1003,
+                    "type": "java.util.Map",
+                    "systemValue": false,
+                    "webPamer": "pid",
+                    "elements": [
+                      {
+                        "id": 1003005001,
+                        "pid": 1003005,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "pid",
+                        "elements": [],
+                        "required": false,
+                        "value": "52267_0_3002884236",
+                        "desc": "pid结果，仅uniontype传4时，展示pid；可用于内容平台推广"
+                      }
+                    ],
+                    "required": false,
+                    "value": "",
+                    "desc": "pid结果集"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "20046",
+        "error": "批量创建推广位后历史推广位数超过上限",
+        "solution": "私域推广位不能超过5000，公域推广位不能超过500"
+      },
+      {
+        "code": "20045",
+        "error": "siteId不存在",
+        "solution": "siteId不存在"
+      },
+      {
+        "code": "500",
+        "error": "服务端异常",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "20044",
+        "error": "推广位名称长度多于30字符",
+        "solution": "推广位名称长度不能超过30字符"
+      },
+      {
+        "code": "20043",
+        "error": "一次性创建推广位数量不能超过50",
+        "solution": "按文档要求入参"
+      },
+      {
+        "code": "20042",
+        "error": "推广位名称重复",
+        "solution": "推广位名称重复"
+      },
+      {
+        "code": "2004408",
+        "error": "接口降级处理",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2004410",
+        "error": "联盟用户不存在，请检查unionId是否正确",
+        "solution": "unionid不存在，检查unionid是否正确"
+      },
+      {
+        "code": "2004400",
+        "error": "参数错误",
+        "solution": "按文档要求入参"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2004400\",\n    \"errorMessage\": \"参数错误\",\n    \"errorSolution\": \"按文档要求入参\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2004400</code>\n  <errorMessage>参数错误</errorMessage>\n  <errorSolution>按文档要求入参</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b42acc5_leinxxjt_2556"
+}

@@ -1,0 +1,508 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.statistics.giftcoupon.query",
+      "znName": "礼金效果数据",
+      "version": "1.0",
+      "apiDesc": "您可以通过礼金批次ID或礼金商品SKUID实时查询礼金面额、剩余数量、有效期等基础信息，以及礼金的实时推广数据。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_statistics_giftcoupon_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"giftCouponEffectDataResp\": {\n                    \"amount\": \"100\",\n                    \"contentMatch\": \"0\",\n                    \"giftCouponKey\": \"4f70ed5a367c94bf\",\n                    \"costNum\": \"10\",\n                    \"expireType\": \"1\",\n                    \"useStartTime\": \"2020-10-14 00:00:00\",\n                    \"ygCommission\": \"50\",\n                    \"receiveStartTime\": \"2019-10-14 00:00:00\",\n                    \"costAmount\": \"80\",\n                    \"showStatus\": \"1\",\n                    \"type\": \"2\",\n                    \"contentMatchMedias\": \"[17,18]\",\n                    \"limitPlatforms\": \"[1]\",\n                    \"denomination\": \"5\",\n                    \"useEndTime\": \"2020-10-20 23:59:59\",\n                    \"promoterList\": {\n                        \"giftCouponPromoterResp\": {\n                            \"targetName\": \"达人A\",\n                            \"unionId\": \"10000618\",\n                            \"pid\": \"1002132107_4100446224_3003707911\"\n                        }\n                    },\n                    \"receiveEndTime\": \"2019-10-18 00:00:00\",\n                    \"effectiveDays\": \"1\",\n                    \"showInMedias\": \"0\",\n                    \"share\": \"-1\",\n                    \"receiveNum\": \"10\",\n                    \"skuIdList\": \"[11144230]\",\n                    \"status\": \"1\",\n                    \"couponTitle\": \"礼金2020\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_statistics_giftcoupon_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <giftCouponEffectDataResp>\n          <amount>100</amount>\n          <contentMatch>0</contentMatch>\n          <contentMatchMedias>\n            <element>17</element>\n            <element>18</element>\n          </contentMatchMedias>\n          <costAmount>80</costAmount>\n          <costNum>10</costNum>\n          <couponTitle>礼金2020</couponTitle>\n          <denomination>5</denomination>\n          <effectiveDays>1</effectiveDays>\n          <expireType>1</expireType>\n          <giftCouponKey>4f70ed5a367c94bf</giftCouponKey>\n          <limitPlatforms>\n            <element>1</element>\n          </limitPlatforms>\n          <promoterList>\n            <giftCouponPromoterResp>\n              <pid>1002132107_4100446224_3003707911</pid>\n              <targetName>达人A</targetName>\n              <unionId>10000618</unionId>\n            </giftCouponPromoterResp>\n          </promoterList>\n          <receiveEndTime>2019-10-18 00:00:00</receiveEndTime>\n          <receiveNum>10</receiveNum>\n          <receiveStartTime>2019-10-14 00:00:00</receiveStartTime>\n          <share>-1</share>\n          <showInMedias>0</showInMedias>\n          <showStatus>1</showStatus>\n          <skuIdList>\n            <element>11144230</element>\n          </skuIdList>\n          <status>1</status>\n          <type>2</type>\n          <useEndTime>2020-10-20 23:59:59</useEndTime>\n          <useStartTime>2020-10-14 00:00:00</useStartTime>\n          <ygCommission>50</ygCommission>\n        </giftCouponEffectDataResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_statistics_giftcoupon_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenStatisticsGiftcouponQueryRequest();\n<br/>\n                                                                                                                                \n$effectDataReq= new EffectDataReq;\n<br/>\n                    \n$req->setEffectDataReq($effectDataReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenStatisticsGiftcouponQueryRequest request=new UnionOpenStatisticsGiftcouponQueryRequest();<br>GiftCouponEffectDataReq effectDataReq=new GiftCouponEffectDataReq();<br>request.setEffectDataReq(effectDataReq);<br>request.setVersion(\"1.0\");<br>UnionOpenStatisticsGiftcouponQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenStatisticsGiftcouponQueryRequest import UnionOpenStatisticsGiftcouponQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenStatisticsGiftcouponQueryRequest(url,port)\n<br/>\na.effectDataReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.statistics.GiftCouponEffectDataReq",
+          "systemValue": false,
+          "webPamer": "effectDataReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "skuId",
+              "elements": [],
+              "required": true,
+              "value": "7443197",
+              "desc": "查询该SKU您创建的推客礼金，以及该SKU您可推广的联盟礼金。 skuId和giftCouponKey二选一，不可同时入参。"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "giftCouponKey",
+              "elements": [],
+              "required": true,
+              "value": "4f70ed5a367c94bf",
+              "desc": "根据礼金批次ID精确查询礼金信息，请勿和createTime同时传入。 skuId和giftCouponKey二选一，不可同时入参。"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "createTime",
+              "elements": [],
+              "required": false,
+              "value": "2019-10-18",
+              "desc": "可查询此日期及以后创建的礼金，如不传则不限日期。 格式：yyyy-MM-dd"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "startTime",
+              "elements": [],
+              "required": false,
+              "value": "2019-10-18",
+              "desc": "可查询此日期及以后下单的礼金效果数据，如不传则不限日期。 格式：yyyy-MM-dd"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "key",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "工具商传入推客的授权key，可帮助该推客查询礼金效果数据。（需联系运营开通工具商权限才能拿到数据）"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "targetType",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "推广类型：默认为1；1：本账号创建礼金 2：合作推广礼金（本账号可推广的联盟礼金和其他账号定向给本账号或本账号下PID推广的礼金）"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.kpl.GiftCouponEffectDataQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.kpl.GiftCouponEffectDataResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.kpl.GiftCouponEffectDataResp",
+                    "systemValue": false,
+                    "webPamer": "giftCouponEffectDataResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "giftCouponKey",
+                        "elements": [],
+                        "required": false,
+                        "value": "4f70ed5a367c94bf",
+                        "desc": "礼金批次ID"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "amount",
+                        "elements": [],
+                        "required": false,
+                        "value": "100",
+                        "desc": "礼金总张数"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "receiveNum",
+                        "elements": [],
+                        "required": false,
+                        "value": "10",
+                        "desc": "已发放数量"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "costNum",
+                        "elements": [],
+                        "required": false,
+                        "value": "10",
+                        "desc": "已使用数量"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "ygCommission",
+                        "elements": [],
+                        "required": false,
+                        "value": "50",
+                        "desc": "预估佣金"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "status",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "礼金状态（1：正常，2：停止）"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "receiveStartTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "2019-10-14 00:00:00",
+                        "desc": "领取开始日期（yyyy-MM-dd HH:mm:ss）"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "receiveEndTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "2019-10-18 00:00:00",
+                        "desc": "领取结束日期（yyyy-MM-dd HH:mm:ss）"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "effectiveDays",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "消费者领取后的有效期天数"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "costAmount",
+                        "elements": [],
+                        "required": false,
+                        "value": "80",
+                        "desc": "礼金实际消耗金额,订单中使用的礼金券面额总和"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "type",
+                        "elements": [],
+                        "required": false,
+                        "value": "2",
+                        "desc": "礼金类型 1.联盟礼金；2.推客礼金"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "Number[]",
+                        "systemValue": false,
+                        "webPamer": "skuIdList",
+                        "elements": [],
+                        "required": false,
+                        "value": "[11144230]",
+                        "desc": "skuIdList"
+                      },
+                      {
+                        "id": 1003001013,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "share",
+                        "elements": [],
+                        "required": false,
+                        "value": "-1",
+                        "desc": "是否限制每个推广链接仅可领取1张礼金：-1不限，1限制"
+                      },
+                      {
+                        "id": 1003001014,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "contentMatch",
+                        "elements": [],
+                        "required": false,
+                        "value": "0",
+                        "desc": "是否允许通过内容平台推广，0：不允许，1：允许；默认为0"
+                      },
+                      {
+                        "id": 1003001015,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "expireType",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "时间类型：1.相对时间，2.绝对时间"
+                      },
+                      {
+                        "id": 1003001016,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "useStartTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "2020-10-14 00:00:00",
+                        "desc": "使用开始时间(yyyy-MM-dd HH:mi:ss)"
+                      },
+                      {
+                        "id": 1003001017,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "useEndTime",
+                        "elements": [],
+                        "required": false,
+                        "value": "2020-10-20 23:59:59",
+                        "desc": "使用结束时间(yyyy-MM-dd HH:mi:ss)"
+                      },
+                      {
+                        "id": 1003001018,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "denomination",
+                        "elements": [],
+                        "required": false,
+                        "value": "5",
+                        "desc": "礼金面额"
+                      },
+                      {
+                        "id": 1003001019,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "couponTitle",
+                        "elements": [],
+                        "required": false,
+                        "value": "礼金2020",
+                        "desc": "礼金名称"
+                      },
+                      {
+                        "id": 1003001020,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "showStatus",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "礼金状态（1：已停止，2：未开始，3：发放中，4：已结束，5：当天已结束，6：已抢光，7：当前时段已抢光，8：到达发放限额）"
+                      },
+                      {
+                        "id": 1003001021,
+                        "pid": 1003001,
+                        "type": "Number[]",
+                        "systemValue": false,
+                        "webPamer": "limitPlatforms",
+                        "elements": [],
+                        "required": false,
+                        "value": "[1]",
+                        "desc": "限制使用平台：1-京东APP，1033-京东极速版"
+                      },
+                      {
+                        "id": 1003001022,
+                        "pid": 1003001,
+                        "type": "Number[]",
+                        "systemValue": false,
+                        "webPamer": "contentMatchMedias",
+                        "elements": [],
+                        "required": false,
+                        "value": "[17,18]",
+                        "desc": "contentMatch = 1 时此字段方生效，允许推广的媒体类型 -1：全部， 其他枚举值：17: 抖音,18: 快手,21: 微博,22: 知乎, 35: 斗鱼 ,38 : 手机QQ/全民K歌,43: 百家号图文,49: 微信小商店/腾讯微视，-1与其他枚举值互斥"
+                      },
+                      {
+                        "id": 1003001023,
+                        "pid": 1003001,
+                        "type": "com.jd.union.GiftCouponPromoterResp[]",
+                        "systemValue": false,
+                        "webPamer": "promoterList",
+                        "elements": [
+                          {
+                            "id": 1003001023001,
+                            "pid": 1003001023,
+                            "type": "com.jd.union.GiftCouponPromoterResp",
+                            "systemValue": false,
+                            "webPamer": "giftCouponPromoterResp",
+                            "elements": [
+                              {
+                                "id": 1003001023001001,
+                                "pid": 1003001023001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "targetName",
+                                "elements": [],
+                                "required": false,
+                                "value": "达人A",
+                                "desc": "定向的名称"
+                              },
+                              {
+                                "id": 1003001023001002,
+                                "pid": 1003001023001,
+                                "type": "Number",
+                                "systemValue": false,
+                                "webPamer": "unionId",
+                                "elements": [],
+                                "required": false,
+                                "value": "10000618",
+                                "desc": "定向的联盟ID"
+                              },
+                              {
+                                "id": 1003001023001003,
+                                "pid": 1003001023001,
+                                "type": "String",
+                                "systemValue": false,
+                                "webPamer": "pid",
+                                "elements": [],
+                                "required": false,
+                                "value": "1002132107_4100446224_3003707911",
+                                "desc": "定向的联盟pid"
+                              }
+                            ],
+                            "required": false,
+                            "value": "",
+                            "desc": "推广者信息"
+                          }
+                        ],
+                        "required": false,
+                        "value": "",
+                        "desc": "数据明细"
+                      },
+                      {
+                        "id": 1003001024,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "showInMedias",
+                        "elements": [],
+                        "required": false,
+                        "value": "0",
+                        "desc": "是否仅在所选平台访问链接时展示礼金，0:否  1:是"
+                      }
+                    ],
+                    "required": false,
+                    "value": "",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "0",
+        "error": "调用成功",
+        "solution": "调用成功"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"0\",\n    \"errorMessage\": \"调用成功\",\n    \"errorSolution\": \"调用成功\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>0</code>\n  <errorMessage>调用成功</errorMessage>\n  <errorSolution>调用成功</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b434891_leinu6o4_2381"
+}

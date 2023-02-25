@@ -1,0 +1,190 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.user.register.validate",
+      "znName": "京东注册用户判定接口【申请】",
+      "version": "1.0",
+      "apiDesc": "入参用户信息，可判定用户是否为京东注册用户"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_user_register_validate_response\": {\n        \"validateResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"userResp\": {\n                    \"jdUser\": \"1\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_user_register_validate_response>\n    <validateResult>\n      <code>200</code>\n      <data>\n        <userResp>\n          <jdUser>1</jdUser>\n        </userResp>\n      </data>\n      <message>success</message>\n    </validateResult>\n  </jd_union_open_user_register_validate_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenUserRegisterValidateRequest();\n<br/>\n                                                                                                                                \n$userStateReq= new UserStateReq;\n<br/>\n                    \n$req->setUserStateReq($userStateReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenUserRegisterValidateRequest request=new UnionOpenUserRegisterValidateRequest();<br>UserStateReq userStateReq=new UserStateReq();<br>request.setUserStateReq(userStateReq);<br>request.setVersion(\"1.0\");<br>UnionOpenUserRegisterValidateResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenUserRegisterValidateRequest import UnionOpenUserRegisterValidateRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenUserRegisterValidateRequest(url,port)\n<br/>\na.userStateReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "67b9e6c0b56d4abdb8f4**********aa",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.user.UserStateReq",
+          "systemValue": false,
+          "webPamer": "userStateReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "userId",
+              "elements": [],
+              "required": true,
+              "value": "示例1： userIdType设置为8时，此时userId需要设置为安卓移动设备Imei，如861794042953717 示例2： userIdType设置为16时，此时userId需要设置为苹果移动设备Openudid，如f99dbd2ba8de45a65cd7f08b7737bc919d6c87f7 示例3： userIdType设置为32时，此时userId需要设置为苹果移动设备idfa，如DCC77BDA-C2CA-4729-87D6-B7F65C8014D6 示例4： userIdType设置为64时，此时userId需要设置为安卓移动设备imei的32位大写的MD5编码，如1097787632DB8876D325C356285648D0（原始imei：861794042953717） 示例5： userIdType设置为128时，此时userId需要设置为苹果移动设备idfa的32位大写的MD5编码，如01D0C2D675F700BA3716C05F39BDA0EB（原始idfa：DCC77BDA-C2CA-4729-87D6-B7F65C8014D6） 示例6： userIdType设置为32768时，此时userId需要设置为安卓移动设备oaid，如7dafe7ff-bffe-a28b-fdf5-7fefdf7f7e85",
+              "desc": "userIdType对应的用户设备ID，userIdType和userId需同时传入"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "userIdType",
+              "elements": [],
+              "required": true,
+              "value": "32",
+              "desc": "用户ID类型，当前userIdType支持的枚举值包括：8、16、32、64、128、32768。userIdType和userId需同时传入，且一一对应。userIdType各枚举值对应的userId含义如下：8(安卓移动设备Imei); 16(苹果移动设备Openudid)；32(苹果移动设备idfa); 64(安卓移动设备imei的md5编码，32位，大写，匹配率略低);128(苹果移动设备idfa的md5编码，32位，大写，匹配率略低); 32768(安卓移动设备oaid)；131072(安卓移动设备oaid的md5编码，32位，大写)；1048576（苹果移动设备caid）"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求对象"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.kpl.ValidateResult",
+            "systemValue": false,
+            "webPamer": "validateResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.kpl.UserResp",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.kpl.UserStateResp",
+                    "systemValue": false,
+                    "webPamer": "userResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "jdUser",
+                        "elements": [],
+                        "required": true,
+                        "value": "1",
+                        "desc": "1、京东注册用户 ，2、非京东注册用户（包括未查询到身份的用户）"
+                      }
+                    ],
+                    "required": true,
+                    "value": "{'jdUser':2}",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "{'userResp':{'jdUser':2}}",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "200",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "400",
+        "error": "入参错误",
+        "solution": "请按message提示修改入参"
+      },
+      {
+        "code": "500",
+        "error": "服务端异常",
+        "solution": "请联系联盟客服"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "601",
+        "error": "账户状态异常，无法调用接口",
+        "solution": "请联系联盟客服"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b434891_leinv8oh_2387"
+}

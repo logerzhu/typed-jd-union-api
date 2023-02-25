@@ -1,0 +1,971 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.order.row.query",
+      "znName": "订单行查询接口",
+      "version": "1.0",
+      "apiDesc": "查询推广订单及佣金信息，可查询最近90天内下单的订单，会随着订单状态变化同步更新数据。支持按下单时间、完成时间或更新时间查询。建议按更新时间每分钟调用一次，查询最近一分钟的订单更新数据。支持查询subunionid、推广位、PID参数，支持普通推客及工具商推客订单查询。如需要通过SDK调用此接口，请接入JOS SDK：https://union.jd.com/helpcenter/13246-13312-108188"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_order_row_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"orderRowResp\": {\n                    \"orderId\": \"108618000005\",\n                    \"sign\": \"B44C0FC3F104167FEC8A53DFD2B26E40\",\n                    \"estimateFee\": \"2.43\",\n                    \"pid\": \"618_618_618\",\n                    \"cpActId\": \"0\",\n                    \"rid\": \"37843\",\n                    \"orderEmt\": \"2\",\n                    \"popId\": \"709982\",\n                    \"orderTime\": \"2020-01-02 15:50:16\",\n                    \"modifyTime\": \"2020-01-02 16:01:03\",\n                    \"payMonth\": \"0\",\n                    \"price\": \"69.0\",\n                    \"unionTag\": \"00000000000000000000000000000001\",\n                    \"cid2\": \"11158\",\n                    \"id\": \"415900297816660001\",\n                    \"cid3\": \"11969\",\n                    \"actualFee\": \"0.0\",\n                    \"cid1\": \"1620\",\n                    \"skuId\": \"44303679033\",\n                    \"skuFrozenNum\": \"0\",\n                    \"ext1\": \"hello_world\",\n                    \"finishTime\": \"2020-01-03 15:59:16\",\n                    \"subsidyRate\": \"0.0\",\n                    \"unionId\": \"1000618618\",\n                    \"giftCouponKey\": \"xxx_coupon_key\",\n                    \"plus\": \"0\",\n                    \"categoryInfo\": {\n                        \"cid1Name\": \"珠宝首饰\",\n                        \"cid2Name\": \"木手串/把件\",\n                        \"cid2\": \"2\",\n                        \"cid3Name\": \"其他\",\n                        \"cid3\": \"3\",\n                        \"cid1\": \"1\"\n                    },\n                    \"skuReturnNum\": \"0\",\n                    \"traceType\": \"2\",\n                    \"actualCosPrice\": \"0.0\",\n                    \"balanceExt\": \"{20191020:10,20191120:-2}\",\n                    \"proPriceAmount\": \"6.18\",\n                    \"goodsInfo\": {\n                        \"owner\": \"g\",\n                        \"mainSkuId\": \"6161111\",\n                        \"productId\": \"1236547\",\n                        \"imageUrl\": \"http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg\",\n                        \"shopName\": \"XXXX旗舰店\",\n                        \"shopId\": \"45619\"\n                    },\n                    \"commissionRate\": \"5.0\",\n                    \"estimateCosPrice\": \"54.0\",\n                    \"validCode\": \"16\",\n                    \"skuName\": \"朴坊 WAZZUPbaby 变色龙盲盒第三弹 第三代龙出没注意盲盒 单个盲盒，款式随机\",\n                    \"giftCouponOcsAmount\": \"0\",\n                    \"finalRate\": \"90.0\",\n                    \"channelId\": \"1\",\n                    \"unionAlias\": \"**平台\",\n                    \"skuTag\": \"0000000000000000000000000000000000000000000000000000000000000001\",\n                    \"parentId\": \"0\",\n                    \"subUnionId\": \"331967\",\n                    \"unionRole\": \"1\",\n                    \"positionId\": \"0\",\n                    \"siteId\": \"61866\",\n                    \"expressStatus\": \"10\",\n                    \"skuNum\": \"1\",\n                    \"subSideRate\": \"90.0\"\n                }\n            },\n            \"hasMore\": \"true\",\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": null
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenOrderRowQueryRequest();\n<br/>\n                                                                                                                                \n$orderReq= new OrderReq;\n<br/>\n                    \n$req->setOrderReq($orderReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenOrderRowQueryRequest request=new UnionOpenOrderRowQueryRequest();<br>OrderRowReq orderReq=new OrderRowReq();<br>request.setOrderReq(orderReq);<br>request.setVersion(\"1.0\");<br>UnionOpenOrderRowQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenOrderRowQueryRequest import UnionOpenOrderRowQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenOrderRowQueryRequest(url,port)\n<br/>\na.orderReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.order.row.OrderRowReq",
+          "systemValue": false,
+          "webPamer": "orderReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageIndex",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "页码"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageSize",
+              "elements": [],
+              "required": true,
+              "value": "20",
+              "desc": "每页包含条数，上限为500"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "type",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "订单时间查询类型(1：下单时间，2：完成时间（购买用户确认收货时间），3：更新时间"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "startTime",
+              "elements": [],
+              "required": true,
+              "value": "2020-01-02 21:23:00",
+              "desc": "开始时间 格式yyyy-MM-dd HH:mm:ss，与endTime间隔不超过1小时"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "endTime",
+              "elements": [],
+              "required": true,
+              "value": "2020-01-02 21:24:00",
+              "desc": "结束时间 格式yyyy-MM-dd HH:mm:ss，与startTime间隔不超过1小时"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "childUnionId",
+              "elements": [],
+              "required": false,
+              "value": "61800001",
+              "desc": "子推客unionID，传入该值可查询子推客的订单，注意不可和key同时传入。（需联系运营开通PID权限才能拿到数据）"
+            },
+            {
+              "id": 2007,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "key",
+              "elements": [],
+              "required": false,
+              "value": "xxxxxxab4d5247fdac36ddbaf0xxxxxx",
+              "desc": "工具商传入推客的授权key，可帮助该推客查询订单，注意不可和childUnionid同时传入。（需联系运营开通工具商权限才能拿到数据）"
+            },
+            {
+              "id": 2008,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "fields",
+              "elements": [],
+              "required": false,
+              "value": "goodsInfo",
+              "desc": "支持出参数据筛选，逗号','分隔，目前可用：goodsInfo（商品信息）,categoryInfo(类目信息）"
+            },
+            {
+              "id": 2009,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "orderId",
+              "elements": [],
+              "required": false,
+              "value": "415900297816660001",
+              "desc": "订单号，当orderId不为空时，其他参数非必填"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求对象"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.kpl.OrderRowQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.kpl.OrderRowResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.kpl.OrderRowResp",
+                    "systemValue": false,
+                    "webPamer": "orderRowResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "id",
+                        "elements": [],
+                        "required": true,
+                        "value": "415900297816660001",
+                        "desc": "标记唯一订单行：订单+sku维度的唯一标识"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderId",
+                        "elements": [],
+                        "required": true,
+                        "value": "108618000005",
+                        "desc": "订单号"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "parentId",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "父单的订单号：如一个订单拆成多个子订单时，原订单号会作为父单号，拆分的订单号为子单号存储在orderid中。若未发生拆单，该字段为0"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "orderTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "2020-01-02 15:50:16",
+                        "desc": "下单时间,格式yyyy-MM-dd HH:mm:ss"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "finishTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "2020-01-03 15:59:16",
+                        "desc": "完成时间（购买用户确认收货时间）,格式yyyy-MM-dd HH:mm:ss"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "modifyTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "2020-01-02 16:01:03",
+                        "desc": "更新时间,格式yyyy-MM-dd HH:mm:ss"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderEmt",
+                        "elements": [],
+                        "required": true,
+                        "value": "2",
+                        "desc": "下单设备 1.pc 2.无线"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "plus",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "下单用户是否为PLUS会员 0：否，1：是"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "unionId",
+                        "elements": [],
+                        "required": true,
+                        "value": "1000618618",
+                        "desc": "推客ID"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuId",
+                        "elements": [],
+                        "required": true,
+                        "value": "44303679033",
+                        "desc": "商品ID"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "skuName",
+                        "elements": [],
+                        "required": true,
+                        "value": "朴坊 WAZZUPbaby 变色龙盲盒第三弹 第三代龙出没注意盲盒 单个盲盒，款式随机",
+                        "desc": "商品名称"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuNum",
+                        "elements": [],
+                        "required": true,
+                        "value": "1",
+                        "desc": "商品数量"
+                      },
+                      {
+                        "id": 1003001013,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuReturnNum",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "商品已退货数量"
+                      },
+                      {
+                        "id": 1003001014,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuFrozenNum",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "商品售后中数量"
+                      },
+                      {
+                        "id": 1003001015,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "price",
+                        "elements": [],
+                        "required": true,
+                        "value": "69.0",
+                        "desc": "商品单价"
+                      },
+                      {
+                        "id": 1003001016,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "commissionRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "5.0",
+                        "desc": "佣金比例(投放的广告主计划比例)"
+                      },
+                      {
+                        "id": 1003001017,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "subSideRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "90.0",
+                        "desc": "分成比例（单位：%）"
+                      },
+                      {
+                        "id": 1003001018,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "subsidyRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.0",
+                        "desc": "补贴比例（单位：%）"
+                      },
+                      {
+                        "id": 1003001019,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "finalRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "90.0",
+                        "desc": "最终分佣比例（单位：%）=分成比例+补贴比例"
+                      },
+                      {
+                        "id": 1003001020,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateCosPrice",
+                        "elements": [],
+                        "required": true,
+                        "value": "54.0",
+                        "desc": "预估计佣金额：由订单的实付金额拆分至每个商品的预估计佣金额，不包括运费，以及京券、东券、E卡、余额等虚拟资产支付的金额。该字段仅为预估值，实际佣金以actualCosPrice为准进行计算"
+                      },
+                      {
+                        "id": 1003001021,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateFee",
+                        "elements": [],
+                        "required": true,
+                        "value": "2.43",
+                        "desc": "推客的预估佣金（预估计佣金额*佣金比例*最终比例），如订单完成前发生退款，此金额也会更新。"
+                      },
+                      {
+                        "id": 1003001022,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actualCosPrice",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.0",
+                        "desc": "实际计算佣金的金额。订单完成后，会将误扣除的运费券金额更正。如订单完成后发生退款，此金额会更新。"
+                      },
+                      {
+                        "id": 1003001023,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actualFee",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.0",
+                        "desc": "推客分得的实际佣金（实际计佣金额*佣金比例*最终比例）。如订单完成后发生退款，此金额会更新。"
+                      },
+                      {
+                        "id": 1003001024,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "validCode",
+                        "elements": [],
+                        "required": true,
+                        "value": "16",
+                        "desc": "sku维度的有效码（-1：未知,2.无效-拆单,3.无效-取消,4.无效-京东帮帮主订单,5.无效-账号异常,6.无效-赠品类目不返佣,7.无效-校园订单,8.无效-企业订单,9.无效-团购订单,11.无效-乡村推广员下单,13. 违规订单-其他,14.无效-来源与备案网址不符,15.待付款,16.已付款,17.已完成（购买用户确认收货）,19.无效-佣金比例为0,20.无效-此复购订单对应的首购订单无效,21.无效-云店订单,22.无效-PLUS会员佣金比例为0,23.无效-支付有礼,24.已付定金,25. 违规订单-流量劫持,26. 违规订单-流量异常,27. 违规订单-违反京东平台规则,28. 违规订单-多笔交易异常,29.无效-跨屏跨店,30.无效-累计件数超出类目上限,29.无效-跨屏跨店,30.无效-累计件数超出类目上限"
+                      },
+                      {
+                        "id": 1003001025,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "traceType",
+                        "elements": [],
+                        "required": true,
+                        "value": "2",
+                        "desc": "同跨店：2同店 3跨店"
+                      },
+                      {
+                        "id": 1003001026,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "positionId",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "推广位ID"
+                      },
+                      {
+                        "id": 1003001027,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "siteId",
+                        "elements": [],
+                        "required": true,
+                        "value": "61866",
+                        "desc": "应用id（网站id、appid、社交媒体id）"
+                      },
+                      {
+                        "id": 1003001028,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "unionAlias",
+                        "elements": [],
+                        "required": true,
+                        "value": "**平台",
+                        "desc": "PID所属母账号平台名称（原第三方服务商来源），两方分佣会有该值"
+                      },
+                      {
+                        "id": 1003001029,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "pid",
+                        "elements": [],
+                        "required": true,
+                        "value": "618_618_618",
+                        "desc": "格式:子推客ID_子站长应用ID_子推客推广位ID"
+                      },
+                      {
+                        "id": 1003001030,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "cid1",
+                        "elements": [],
+                        "required": true,
+                        "value": "1620",
+                        "desc": "一级类目id"
+                      },
+                      {
+                        "id": 1003001031,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "cid2",
+                        "elements": [],
+                        "required": true,
+                        "value": "11158",
+                        "desc": "二级类目id"
+                      },
+                      {
+                        "id": 1003001032,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "cid3",
+                        "elements": [],
+                        "required": true,
+                        "value": "11969",
+                        "desc": "三级类目id"
+                      },
+                      {
+                        "id": 1003001033,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "subUnionId",
+                        "elements": [],
+                        "required": true,
+                        "value": "331967",
+                        "desc": "子渠道标识，在转链时可自定义传入，格式要求：字母、数字或下划线，最多支持80个字符(需要联系运营开放白名单才能拿到数据)"
+                      },
+                      {
+                        "id": 1003001034,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "unionTag",
+                        "elements": [],
+                        "required": true,
+                        "value": "00000000000000000000000000000001",
+                        "desc": "联盟标签数据（32位整型二进制字符串：00000000000000000000000000000001。数据从右向左进行，每一位为1表示符合特征，第1位：红包，第2位：组合推广，第3位：拼购，第5位：有效首次购（0000000000011XXX表示有效首购，最终奖励活动结算金额会结合订单状态判断，以联盟后台对应活动效果数据报表https://union.jd.com/active为准）,第8位：复购订单，第9位：礼金，第10位：联盟礼金，第11位：推客礼金，第12位：京喜APP首购，第13位：京喜首购，第14位：京喜复购，第15位：京喜订单，第16位：京东极速版APP首购，第17位白条首购，第18位校园订单，第19位是0或1时，均代表普通订单，第20位：预售订单，第21位：学生订单，第22位：全球购订单 ，第23位：京喜拼拼首购订单，第24位：京喜拼拼复购订单 例如：00000000000000000000000000000001:红包订单，00000000000000000000000000000010:组合推广订单，00000000000000000000000000000100:拼购订单，00000000000000000000000000011000:有效首购，00000000000000000000000000000111：红包+组合推广+拼购等） 注：一个订单同时使用礼金和红包，仅礼金位数为1，红包位数为0"
+                      },
+                      {
+                        "id": 1003001035,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "popId",
+                        "elements": [],
+                        "required": true,
+                        "value": "709982",
+                        "desc": "商家ID"
+                      },
+                      {
+                        "id": 1003001036,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "ext1",
+                        "elements": [],
+                        "required": true,
+                        "value": "hello_world",
+                        "desc": "推客生成推广链接时传入的扩展字段（需要联系运营开放白名单才能拿到数据）。"
+                      },
+                      {
+                        "id": 1003001037,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "payMonth",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "预估结算时间，订单完成后才会返回，格式：yyyyMMdd，默认：0。表示最新的预估结算日期。当payMonth为当前的未来时间时，表示该订单可结算；当payMonth为当前的过去时间时，表示该订单已结算"
+                      },
+                      {
+                        "id": 1003001038,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "cpActId",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "招商团活动id：当商品参加了招商团会有该值，为0时表示无活动"
+                      },
+                      {
+                        "id": 1003001039,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "unionRole",
+                        "elements": [],
+                        "required": true,
+                        "value": "1",
+                        "desc": "站长角色：1 推客 2 团长 3内容服务商"
+                      },
+                      {
+                        "id": 1003001040,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "giftCouponOcsAmount",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "礼金分摊金额：使用礼金的订单会有该值"
+                      },
+                      {
+                        "id": 1003001041,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "giftCouponKey",
+                        "elements": [],
+                        "required": true,
+                        "value": "xxx_coupon_key",
+                        "desc": "礼金批次ID：使用礼金的订单会有该值"
+                      },
+                      {
+                        "id": 1003001042,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "balanceExt",
+                        "elements": [],
+                        "required": true,
+                        "value": "{20191020:10,20191120:-2}",
+                        "desc": "计佣扩展信息，表示结算月:每月实际佣金变化情况，格式：{20191020:10,20191120:-2}，订单完成后会有该值"
+                      },
+                      {
+                        "id": 1003001043,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "sign",
+                        "elements": [],
+                        "required": false,
+                        "value": "B44C0FC3F104167FEC8A53DFD2B26E40",
+                        "desc": "数据签名，用来核对出参数据是否被修改，入参fields中写入sign时返回"
+                      },
+                      {
+                        "id": 1003001044,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "proPriceAmount",
+                        "elements": [],
+                        "required": false,
+                        "value": "6.18",
+                        "desc": "价保赔付金额：订单申请价保或赔付的金额，实际计佣金额已经减去此金额，您无需处理"
+                      },
+                      {
+                        "id": 1003001045,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "rid",
+                        "elements": [],
+                        "required": false,
+                        "value": "37843",
+                        "desc": "团长渠道ID，仅限招商团长管理渠道使用，团长开通权限后才可使用。"
+                      },
+                      {
+                        "id": 1003001046,
+                        "pid": 1003001,
+                        "type": "com.jd.kpl.GoodsInfo",
+                        "systemValue": false,
+                        "webPamer": "goodsInfo",
+                        "elements": [
+                          {
+                            "id": 1003001046001,
+                            "pid": 1003001046,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "imageUrl",
+                            "elements": [],
+                            "required": false,
+                            "value": "http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg",
+                            "desc": "sku主图链接"
+                          },
+                          {
+                            "id": 1003001046002,
+                            "pid": 1003001046,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "owner",
+                            "elements": [],
+                            "required": false,
+                            "value": "g",
+                            "desc": "g=自营，p=pop"
+                          },
+                          {
+                            "id": 1003001046003,
+                            "pid": 1003001046,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "mainSkuId",
+                            "elements": [],
+                            "required": false,
+                            "value": "6161111",
+                            "desc": "自营商品主Id（owner=g取此值）"
+                          },
+                          {
+                            "id": 1003001046004,
+                            "pid": 1003001046,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "productId",
+                            "elements": [],
+                            "required": false,
+                            "value": "1236547",
+                            "desc": "非自营商品主Id（owner=p取此值）"
+                          },
+                          {
+                            "id": 1003001046005,
+                            "pid": 1003001046,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "shopName",
+                            "elements": [],
+                            "required": false,
+                            "value": "XXXX旗舰店",
+                            "desc": "店铺名称（或供应商名称）"
+                          },
+                          {
+                            "id": 1003001046006,
+                            "pid": 1003001046,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "shopId",
+                            "elements": [],
+                            "required": false,
+                            "value": "45619",
+                            "desc": "店铺Id"
+                          }
+                        ],
+                        "required": false,
+                        "value": "",
+                        "desc": "商品信息，入参传入fields，goodsInfo获取"
+                      },
+                      {
+                        "id": 1003001047,
+                        "pid": 1003001,
+                        "type": "com.jd.kpl.CategoryInfo",
+                        "systemValue": false,
+                        "webPamer": "categoryInfo",
+                        "elements": [
+                          {
+                            "id": 1003001047001,
+                            "pid": 1003001047,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "cid1",
+                            "elements": [],
+                            "required": false,
+                            "value": "1",
+                            "desc": "一级类目id"
+                          },
+                          {
+                            "id": 1003001047002,
+                            "pid": 1003001047,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "cid2",
+                            "elements": [],
+                            "required": false,
+                            "value": "2",
+                            "desc": "二级类目id"
+                          },
+                          {
+                            "id": 1003001047003,
+                            "pid": 1003001047,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "cid3",
+                            "elements": [],
+                            "required": false,
+                            "value": "3",
+                            "desc": "三级类目id"
+                          },
+                          {
+                            "id": 1003001047004,
+                            "pid": 1003001047,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "cid1Name",
+                            "elements": [],
+                            "required": false,
+                            "value": "珠宝首饰",
+                            "desc": "一级类目名称"
+                          },
+                          {
+                            "id": 1003001047005,
+                            "pid": 1003001047,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "cid2Name",
+                            "elements": [],
+                            "required": false,
+                            "value": "木手串/把件",
+                            "desc": "二级类目名称"
+                          },
+                          {
+                            "id": 1003001047006,
+                            "pid": 1003001047,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "cid3Name",
+                            "elements": [],
+                            "required": false,
+                            "value": "其他",
+                            "desc": "三级类目名称"
+                          }
+                        ],
+                        "required": false,
+                        "value": "",
+                        "desc": "类目信息,入参传入fields，categoryInfo获取"
+                      },
+                      {
+                        "id": 1003001048,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "expressStatus",
+                        "elements": [],
+                        "required": false,
+                        "value": "10",
+                        "desc": "发货状态（10：待发货，20：已发货）"
+                      },
+                      {
+                        "id": 1003001049,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "channelId",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "渠道关系ID"
+                      },
+                      {
+                        "id": 1003001050,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "skuTag",
+                        "elements": [],
+                        "required": false,
+                        "value": "0000000000000000000000000000000000000000000000000000000000000001",
+                        "desc": "目前unionTag为32位，为支持更多标签标识能力，现新增64位标签字段，64位新标签可以兼容32位unionTag，右32位参考 unionTag字段描述"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              },
+              {
+                "id": 1004,
+                "pid": 1,
+                "type": "Boolean",
+                "systemValue": false,
+                "webPamer": "hasMore",
+                "elements": [],
+                "required": true,
+                "value": "true",
+                "desc": "是否还有更多,true：还有数据；false:已查询完毕，没有数据"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "2002408",
+        "error": "接口降级处理",
+        "solution": "接口降级处理"
+      },
+      {
+        "code": "200",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "2002400",
+        "error": "参数错误",
+        "solution": "请按文档要求入参"
+      },
+      {
+        "code": "2002499",
+        "error": "数组类型参数元数个数，不符合业务规定(或List、分隔符串类型)",
+        "solution": "根据文档重新核实入参"
+      },
+      {
+        "code": "2002401",
+        "error": "token不合法",
+        "solution": "重新生成token"
+      },
+      {
+        "code": "2002500",
+        "error": "系统异常，请稍后重试",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "2002403",
+        "error": "无访问权限",
+        "solution": "请联系客服"
+      },
+      {
+        "code": "2002452",
+        "error": "单位时间内订单量超过最大值(10000),请缩小查询时间范围",
+        "solution": "请缩小入参endtime-starttime之间间隔"
+      },
+      {
+        "code": "2002453",
+        "error": "无效请求-查询时间范围超过规定限制",
+        "solution": "请缩小入参endtime-starttime之间间隔"
+      },
+      {
+        "code": "2002410",
+        "error": "联盟用户不存在，请检查unionId是否正确",
+        "solution": "登录站长端或京粉app重新核实unionid"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2002410\",\n    \"errorMessage\": \"联盟用户不存在，请检查unionId是否正确\",\n    \"errorSolution\": \"登录站长端或京粉app重新核实unionid\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2002410</code>\n  <errorMessage>联盟用户不存在，请检查unionId是否正确</errorMessage>\n  <errorSolution>登录站长端或京粉app重新核实unionid</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b5fe1d3_leinmn68_2491"
+}

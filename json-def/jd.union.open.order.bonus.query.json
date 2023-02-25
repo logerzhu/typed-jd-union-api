@@ -1,0 +1,601 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.order.bonus.query",
+      "znName": "奖励订单查询接口【申请】",
+      "version": "1.0",
+      "apiDesc": "奖励订单查询接口，奖励活动效果的奖励订单明细查询接口，每日奖励订单大于五千单可申请该接口权限。未达到该标准的站长可在联盟官网—效果报表—导出对应订单明细。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_order_bonus_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"bonusOrderResp\": {\n                    \"estimateCosPrice\": \"1.00\",\n                    \"commissionRate\": \"4.0\",\n                    \"orderId\": \"81823969001\",\n                    \"estimateBonusFee\": \"0\",\n                    \"bonusText\": \"无效\",\n                    \"estimateFee\": \"0.04\",\n                    \"pid\": \"3131_131_11\",\n                    \"orderState\": \"2\",\n                    \"skuName\": \"【京东拼购】拼团户外手套男骑行保暖女运动防滑加绒触屏手套 颜色款式随机发 S/M\",\n                    \"activityId\": \"1\",\n                    \"orderTime\": \"1541733600000\",\n                    \"payPrice\": \"0.00\",\n                    \"actualFee\": \"0.00\",\n                    \"finalRate\": \"95.00\",\n                    \"skuId\": \"35847800771\",\n                    \"ext1\": \"无\",\n                    \"bonusInvalidCode\": \"3\",\n                    \"finishTime\": \"0\",\n                    \"unionAlias\": \"fhakf\",\n                    \"subsidyRate\": \"0.00\",\n                    \"unionId\": \"1000009196\",\n                    \"activityName\": \"11月京粉“拼购节”重点媒体奖励活动\",\n                    \"bonusInvalidText\": \"无效-取消\",\n                    \"parentId\": \"81823969001\",\n                    \"subUnionId\": \"LX_STORE_47534\",\n                    \"sortValue\": \"1541733600000,263989501198192640\",\n                    \"orderText\": \"已付款\",\n                    \"positionId\": \"502047534\",\n                    \"actualCosPrice\": \"0.00\",\n                    \"bonusState\": \"0\",\n                    \"actualBonusFee\": \"0\",\n                    \"subSideRate\": \"95.00\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_order_bonus_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <bonusOrderResp>\n          <activityId>1</activityId>\n          <activityName>11月京粉“拼购节”重点媒体奖励活动</activityName>\n          <actualBonusFee>0</actualBonusFee>\n          <actualCosPrice>0.00</actualCosPrice>\n          <actualFee>0.00</actualFee>\n          <bonusInvalidCode>3</bonusInvalidCode>\n          <bonusInvalidText>无效-取消</bonusInvalidText>\n          <bonusState>0</bonusState>\n          <bonusText>无效</bonusText>\n          <commissionRate>4.0</commissionRate>\n          <estimateBonusFee>0</estimateBonusFee>\n          <estimateCosPrice>1.00</estimateCosPrice>\n          <estimateFee>0.04</estimateFee>\n          <ext1>无</ext1>\n          <finalRate>95.00</finalRate>\n          <finishTime>0</finishTime>\n          <orderId>81823969001</orderId>\n          <orderState>2</orderState>\n          <orderText>已付款</orderText>\n          <orderTime>1541733600000</orderTime>\n          <parentId>81823969001</parentId>\n          <payPrice>0.00</payPrice>\n          <pid>3131_131_11</pid>\n          <positionId>502047534</positionId>\n          <skuId>35847800771</skuId>\n          <skuName>【京东拼购】拼团户外手套男骑行保暖女运动防滑加绒触屏手套 颜色款式随机发 S/M</skuName>\n          <sortValue>1541733600000,263989501198192640</sortValue>\n          <subSideRate>95.00</subSideRate>\n          <subUnionId>LX_STORE_47534</subUnionId>\n          <subsidyRate>0.00</subsidyRate>\n          <unionAlias>fhakf</unionAlias>\n          <unionId>1000009196</unionId>\n        </bonusOrderResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_order_bonus_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenOrderBonusQueryRequest();\n<br/>\n                                                                                                                                \n$orderReq= new OrderReq;\n<br/>\n                    \n$req->setOrderReq($orderReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenOrderBonusQueryRequest request=new UnionOpenOrderBonusQueryRequest();<br>BonusOrderReq orderReq=new BonusOrderReq();<br>request.setOrderReq(orderReq);<br>request.setVersion(\"1.0\");<br>UnionOpenOrderBonusQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenOrderBonusQueryRequest import UnionOpenOrderBonusQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenOrderBonusQueryRequest(url,port)\n<br/>\na.orderReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "无",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.order.bonus.BonusOrderReq",
+          "systemValue": false,
+          "webPamer": "orderReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "optType",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "时间类型（1.下单时间拉取、2.更新时间拉取）"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "startTime",
+              "elements": [],
+              "required": true,
+              "value": "1541733000000",
+              "desc": "订单开始时间，时间戳（毫秒），与endTime间隔不超过10分钟"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "endTime",
+              "elements": [],
+              "required": true,
+              "value": "1541733600000",
+              "desc": "订单结束时间，时间戳（毫秒），与startTime间隔不超过10分钟"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageNo",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "页码，默认值为1"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageSize",
+              "elements": [],
+              "required": true,
+              "value": "100",
+              "desc": "每页数量，上限100"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "sortValue",
+              "elements": [],
+              "required": true,
+              "value": "1541733600000,263989501198192640",
+              "desc": "与pageNo、pageSize组合使用。获取当前页最后一条记录的sortValue，下一页请求传入该值"
+            },
+            {
+              "id": 2007,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "activityId",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "奖励活动ID"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "查询对象"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.kpl.BonusOrderQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.kpl.BonusOrderResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.kpl.BonusOrderResp",
+                    "systemValue": false,
+                    "webPamer": "bonusOrderResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "unionId",
+                        "elements": [],
+                        "required": true,
+                        "value": "1000009196",
+                        "desc": "联盟ID"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "bonusInvalidCode",
+                        "elements": [],
+                        "required": true,
+                        "value": "3",
+                        "desc": "无效状态码，-1:无效、2:无效-拆单、3:无效-取消、4:无效-京东帮帮主订单、5:无效-账号异常、6:无效-赠品类目不返佣 等"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "bonusInvalidText",
+                        "elements": [],
+                        "required": true,
+                        "value": "无效-取消",
+                        "desc": "无效状态码对应的无效状态文案"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "payPrice",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.00",
+                        "desc": "实际支付金额"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateCosPrice",
+                        "elements": [],
+                        "required": true,
+                        "value": "1.00",
+                        "desc": "预估计佣金额"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateFee",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.04",
+                        "desc": "预估佣金"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actualCosPrice",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.00",
+                        "desc": "实际计佣金额"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actualFee",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.00",
+                        "desc": "实际佣金"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "1541733600000",
+                        "desc": "下单时间、时间戳（毫秒）"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "finishTime",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "完成时间、时间戳（毫秒）"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "positionId",
+                        "elements": [],
+                        "required": true,
+                        "value": "502047534",
+                        "desc": "推广位ID"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderId",
+                        "elements": [],
+                        "required": true,
+                        "value": "81823969001",
+                        "desc": "订单号"
+                      },
+                      {
+                        "id": 1003001013,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "bonusState",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "奖励状态，0:无效、1:有效"
+                      },
+                      {
+                        "id": 1003001014,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "bonusText",
+                        "elements": [],
+                        "required": true,
+                        "value": "无效",
+                        "desc": "奖励状态文案"
+                      },
+                      {
+                        "id": 1003001015,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "skuName",
+                        "elements": [],
+                        "required": true,
+                        "value": "【京东拼购】拼团户外手套男骑行保暖女运动防滑加绒触屏手套 颜色款式随机发 S/M",
+                        "desc": "商品名称"
+                      },
+                      {
+                        "id": 1003001016,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "commissionRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "4.0",
+                        "desc": "佣金比例，单位：%"
+                      },
+                      {
+                        "id": 1003001017,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "subUnionId",
+                        "elements": [],
+                        "required": true,
+                        "value": "LX_STORE_47534",
+                        "desc": "子联盟ID"
+                      },
+                      {
+                        "id": 1003001018,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "pid",
+                        "elements": [],
+                        "required": true,
+                        "value": "3131_131_11",
+                        "desc": "pid"
+                      },
+                      {
+                        "id": 1003001019,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "ext1",
+                        "elements": [],
+                        "required": true,
+                        "value": "无",
+                        "desc": "推客生成推广链接时传入的扩展字段"
+                      },
+                      {
+                        "id": 1003001020,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "unionAlias",
+                        "elements": [],
+                        "required": true,
+                        "value": "fhakf",
+                        "desc": "母站长简称"
+                      },
+                      {
+                        "id": 1003001021,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "subSideRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "95.00",
+                        "desc": "分成比例（单位：%）"
+                      },
+                      {
+                        "id": 1003001022,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "subsidyRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "0.00",
+                        "desc": "补贴比例（单位：%）"
+                      },
+                      {
+                        "id": 1003001023,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "finalRate",
+                        "elements": [],
+                        "required": true,
+                        "value": "95.00",
+                        "desc": "最终分佣比例（单位：%）=分成比例+补贴比例"
+                      },
+                      {
+                        "id": 1003001024,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "activityName",
+                        "elements": [],
+                        "required": true,
+                        "value": "11月京粉“拼购节”重点媒体奖励活动",
+                        "desc": "活动名称"
+                      },
+                      {
+                        "id": 1003001025,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "parentId",
+                        "elements": [],
+                        "required": true,
+                        "value": "81823969001",
+                        "desc": "父单的订单号：如一个订单拆成多个子订单时，原订单号会作为父单号，拆分的订单号为子单号存储在orderid中。若未发生拆单，该字段为0"
+                      },
+                      {
+                        "id": 1003001026,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuId",
+                        "elements": [],
+                        "required": true,
+                        "value": "35847800771",
+                        "desc": "skuId"
+                      },
+                      {
+                        "id": 1003001027,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateBonusFee",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "预估奖励金额：查询时间范围内，已付款且奖励有效，满足奖励规则的奖励金额"
+                      },
+                      {
+                        "id": 1003001028,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actualBonusFee",
+                        "elements": [],
+                        "required": true,
+                        "value": "0",
+                        "desc": "实际奖励金额：查询时间范围内，已付款或已完成（视具体规则），奖励有效且满足奖励规则的奖励金额"
+                      },
+                      {
+                        "id": 1003001029,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderState",
+                        "elements": [],
+                        "required": true,
+                        "value": "2",
+                        "desc": "奖励订单状态，1:已完成、2:已付款、3:待付款"
+                      },
+                      {
+                        "id": 1003001030,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "orderText",
+                        "elements": [],
+                        "required": true,
+                        "value": "已付款",
+                        "desc": "奖励订单状态，待付款/已付款/已完成"
+                      },
+                      {
+                        "id": 1003001031,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "sortValue",
+                        "elements": [],
+                        "required": true,
+                        "value": "1541733600000,263989501198192640",
+                        "desc": "排序值，按'下单时间'分页查询时使用"
+                      },
+                      {
+                        "id": 1003001032,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "activityId",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "奖励活动ID"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "2002408",
+        "error": "联盟用户不存在，请检查unionId是否正确",
+        "solution": "登录站长端或京粉app重新核实unionid"
+      },
+      {
+        "code": "200",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "2002400",
+        "error": "入参有误",
+        "solution": "请按文档要求入参"
+      },
+      {
+        "code": "2002499",
+        "error": "数组类型参数元数个数，不符合业务规定(或List、分隔符串类型)",
+        "solution": "根据文档重新核实入参"
+      },
+      {
+        "code": "2002401",
+        "error": "token不合法",
+        "solution": "重新生成token"
+      },
+      {
+        "code": "2002500",
+        "error": "系统异常，请稍后重试",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      },
+      {
+        "code": "2002403",
+        "error": "无访问权限",
+        "solution": "请联系客服"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2002403\",\n    \"errorMessage\": \"无访问权限\",\n    \"errorSolution\": \"请联系客服\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2002403</code>\n  <errorMessage>无访问权限</errorMessage>\n  <errorSolution>请联系客服</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b118b51_leinnd00_1932"
+}

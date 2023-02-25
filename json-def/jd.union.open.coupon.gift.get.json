@@ -1,0 +1,448 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.coupon.gift.get",
+      "znName": "礼金创建",
+      "version": "1.0",
+      "apiDesc": "礼金创建接口可针对指定商品生成礼金批次ID，之后还需调用转链接口，传入商品链接+礼金ID+普通优惠券链接，即可生成礼金推广链接，进行投放推广。 注：您需要预先充值才可创建礼金，请在联盟PC官网-工具场景-京享礼金，或京粉app-首页京享礼金内进行充值。（您需开通礼金充值权限方可充值，部分在黑名单中的商品不可创建礼金）"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_coupon_gift_get_response\": {\n        \"getResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"giftCouponKey\": \"4f70ed5a367c94bf\"\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_coupon_gift_get_response>\n    <getResult>\n      <code>200</code>\n      <data>\n        <giftCouponKey>4f70ed5a367c94bf</giftCouponKey>\n      </data>\n      <message>success</message>\n    </getResult>\n  </jd_union_open_coupon_gift_get_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenCouponGiftGetRequest();\n<br/>\n                                                                                                                                \n$couponReq= new CouponReq;\n<br/>\n                    \n$req->setCouponReq($couponReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenCouponGiftGetRequest request=new UnionOpenCouponGiftGetRequest();<br>CreateGiftCouponReq couponReq=new CreateGiftCouponReq();<br>request.setCouponReq(couponReq);<br>request.setVersion(\"1.0\");<br>UnionOpenCouponGiftGetResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenCouponGiftGetRequest import UnionOpenCouponGiftGetRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenCouponGiftGetRequest(url,port)\n<br/>\na.couponReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "ppKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.coupon.gift.CreateGiftCouponReq",
+          "systemValue": false,
+          "webPamer": "couponReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "skuMaterialId",
+              "elements": [],
+              "required": true,
+              "value": "11144230或者https://item.jd.com/11144230.html",
+              "desc": "商品skuId或落地页地址"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "discount",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "优惠券面额，最小不可低于1元，最大不可超过pop商品价格的80%，自营商品价格的50%。如：1或者1.00或者1.01"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "amount",
+              "elements": [],
+              "required": true,
+              "value": "11",
+              "desc": "总数量"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "receiveStartTime",
+              "elements": [],
+              "required": true,
+              "value": "2019-10-18 00",
+              "desc": "领取开始时间(yyyy-MM-dd HH)，区间为(创建当天0点直至未来6天内)，系统补充为yyyy-MM-dd HH:00:00"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "receiveEndTime",
+              "elements": [],
+              "required": true,
+              "value": "2019-10-18 23",
+              "desc": "领取结束时间(yyyy-MM-dd HH)，区间为(创建当前时间点直至未来6天内)，系统补充为yyyy-MM-dd HH:59:59"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "effectiveDays",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "消费者领取后n天内可用，时间天数1至7，当expireType=1时，必须设置该字段"
+            },
+            {
+              "id": 2007,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "isSpu",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "是否绑定同spu商品(1:是;0:否)，例如skuMaterialId输入一款37码的鞋，当isSpu选择1时，此款鞋的全部尺码均可推广这张礼金；当isSpu选择0时，此款鞋仅37码可推广这张礼金，其他鞋码不支持"
+            },
+            {
+              "id": 2008,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "expireType",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "使用时间类型：1.相对时间，需配合effectiveDays一同传入；2.绝对时间，需配合useStartTime和useEndTime一同传入"
+            },
+            {
+              "id": 2009,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "useStartTime",
+              "elements": [],
+              "required": false,
+              "value": "2019-11-18",
+              "desc": "消费者领取后的使用开始时间，格式：yyyy-MM-dd，系统补充为yyyy-MM-dd HH:00:00，当expireType=2时，必须设置该字段"
+            },
+            {
+              "id": 2010,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "useEndTime",
+              "elements": [],
+              "required": false,
+              "value": "2019-11-18",
+              "desc": "消费者领取后的使用结束时间，格式：yyyy-MM-dd，系统补充为yyyy-MM-dd HH:59:59，当expireType=2时，必须设置该字段"
+            },
+            {
+              "id": 2011,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "share",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "每个礼金推广链接是否限制仅可领取1张礼金：-1不限，1限制"
+            },
+            {
+              "id": 2012,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "contentMatch",
+              "elements": [],
+              "required": false,
+              "value": "0",
+              "desc": "是否允许通过内容平台推广，0：不允许，1：允许；默认为0"
+            },
+            {
+              "id": 2013,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "couponTitle",
+              "elements": [],
+              "required": false,
+              "value": "礼金2020",
+              "desc": "礼金名称"
+            },
+            {
+              "id": 2014,
+              "pid": 2,
+              "type": "Number[]",
+              "systemValue": false,
+              "webPamer": "contentMatchMedias",
+              "elements": [],
+              "required": false,
+              "value": "[17,18]",
+              "desc": "contentMatch = 1 时此字段方生效，允许推广的媒体类型 -1：全部， 其他枚举值：17: 抖音,18: 快手,21: 微博,22: 知乎, 35: 斗鱼 ,38 : 手机QQ/全民K歌,43: 百家号图文,49: 微信小商店/腾讯微视，-1与其他枚举值互斥"
+            },
+            {
+              "id": 2015,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "showInMedias",
+              "elements": [],
+              "required": false,
+              "value": "0",
+              "desc": "是否仅在所选平台访问链接时展示礼金，0:否  1:是"
+            },
+            {
+              "id": 2016,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "targetType",
+              "elements": [],
+              "required": false,
+              "value": "6",
+              "desc": "定向推广类型，默认为1，向运营申请定向功能后才能入参4,5,6并生效； 1.不定向推广  4:本账号推广-定向PID 5：合作账号推广-定向联盟ID 6:合作账号推广-定向PID"
+            },
+            {
+              "id": 2017,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "childPromoters",
+              "elements": [],
+              "required": false,
+              "value": "[{ 'targetName': '达人A',  'targetValue': '1002132107_4100446224_3003707911' }]",
+              "desc": "json格式字符串；targetName为定向的合作方名称，targetValue为联盟ID或PID；定向本账号推广时入参PID，定向合作方推广时入参合作方名称和联盟ID或PID；targetType in (4,5,6) 时必填；"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.kpl.GetResult",
+            "systemValue": false,
+            "webPamer": "getResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.kpl.CreateGiftCouponResp",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "giftCouponKey",
+                    "elements": [],
+                    "required": true,
+                    "value": "4f70ed5a367c94bf",
+                    "desc": "礼金批次ID，调用转链接口获取推广链接时，传入此参数可获得礼金推广链接"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "2006618",
+        "error": "绝对时间类型时（expireType=2）,使用开始时间useStartTime、使用结束时间useEndTime不能为空",
+        "solution": "绝对时间类型时（expireType=2）,使用开始时间useStartTime、使用结束时间useEndTime不能为空"
+      },
+      {
+        "code": "2006617",
+        "error": "useEndTime使用结束时间校验未通过，格式不正确",
+        "solution": "useEndTime使用结束时间校验未通过，格式不正确"
+      },
+      {
+        "code": "2006619",
+        "error": "绝对时间类型时（expireType=2）,使用结束时间useStartTime必须大于等于领取结束时间receiveEndTime",
+        "solution": "绝对时间类型时（expireType=2）,使用结束时间useStartTime必须大于等于领取结束时间receiveEndTime"
+      },
+      {
+        "code": "2006614",
+        "error": "receiveStartTime领取开始时间需小于当前时间+6*24小时，只能创建最近7天内的礼金",
+        "solution": "receiveStartTime领取开始时间需小于当前时间+6*24小时，只能创建最近7天内的礼金"
+      },
+      {
+        "code": "2006613",
+        "error": "receiveStartTime领取开始时间、receiveEndTime领取结束时间校验未通过，领取开始时间不能早于创建礼金当天0点，例如7月8日10点创建领取开始时间为7月7日0点的礼金将会失败，如领取时间为7月8日0点则可以正常创建。领取结束时间不能小于当前小时时间，例如7月8日10:01:38可创建一个结束时间为7月8日10点的礼金，但不可创建结束时间为7月8日9点的礼金",
+        "solution": "修改receiveStartTime或receiveEndTime的值，领取开始时间不能早于创建礼金当天0点，例如7月8日10点创建领取开始时间为7月7日0点的礼金将会失败，如创建领取时间为7月8日0点的礼金则可以正常创建。领取结束时间不能小于当前小时时间，例如7月8日10:01:38可创建一个结束时间为7月8日10点的礼金，但不可创建结束时间为7月8日9点的礼金"
+      },
+      {
+        "code": "2006616",
+        "error": "useStartTime使用开始时间校验未通过，格式不正确",
+        "solution": "useStartTime使用开始时间校验未通过，格式不正确"
+      },
+      {
+        "code": "2006615",
+        "error": "receiveEndTime领取结束时间需小于当前时间+6*24小时，只能创建最近7天内的礼金",
+        "solution": "receiveEndTime领取结束时间需小于当前时间+6*24小时，只能创建最近7天内的礼金"
+      },
+      {
+        "code": "2006610",
+        "error": "isSpu校验未通过，请输入正确枚举值",
+        "solution": "修改isSpu的值，是否绑定同spu商品(1:是;0:否)"
+      },
+      {
+        "code": "2006612",
+        "error": "discount面额校验不通过，POP商品需要小于等于最低价的80%",
+        "solution": "降低discount面额，POP商品需要小于等于最低价的80%"
+      },
+      {
+        "code": "2006611",
+        "error": "discount面额校验不通过，自营商品需要小于等于最低价的50%",
+        "solution": "降低discount面额，自营商品需要小于等于最低价的50%"
+      },
+      {
+        "code": "1002022",
+        "error": "skuMaterialId，该商品在礼金黑名单中，不能参与推广，请更换",
+        "solution": "skuMaterialId，该商品在礼金黑名单中，不能参与推广，请更换"
+      },
+      {
+        "code": "1002016",
+        "error": "skuMaterialId，未查询到有效商品，请确认商品是否在推广中",
+        "solution": "skuMaterialId，未查询到有效商品，请确认商品是否在推广中"
+      },
+      {
+        "code": "1002013",
+        "error": "skuMaterialId，未解析到商品，请确认链接",
+        "solution": "skuMaterialId，未解析到商品，请确认链接"
+      },
+      {
+        "code": "2006607",
+        "error": "receiveEndTime领取结束时间需大于等于receiveStartTime领取开始时间",
+        "solution": "修改receiveStartTime或者receiveStartTime的值，确保receiveEndTime领取结束时间需大于等于receiveStartTime领取开始时间"
+      },
+      {
+        "code": "2006606",
+        "error": "receiveEndTime领取结束时间校验未通过，时间格式错误",
+        "solution": "修改receiveEndTime格式，格式为：（yyyy-MM-dd HH:mm:ss"
+      },
+      {
+        "code": "2006609",
+        "error": "effectiveDays领取相对时间未填写或取值范围不在[1,7]内",
+        "solution": "修改effectiveDays的值，确保在[1,7]之内的正整数"
+      },
+      {
+        "code": "2006608",
+        "error": "领取开始时间receiveStartTime和领取结束时间receiveEndTime，时间差不能大于7*24小时",
+        "solution": "修改receiveStartTime或者receiveStartTim的值，确保领取开始时间receiveStartTime和领取结束时间receiveEndTime，时间差不能大于7*24小时"
+      },
+      {
+        "code": "2006603",
+        "error": "amount总数量参数校验未通过，必须为正整数，且非空",
+        "solution": "修改amount字段，改为正整数，且非空"
+      },
+      {
+        "code": "2006602",
+        "error": "discount优惠券面额校验未通过,必须为大于等于1的正数，最多小数点2位",
+        "solution": "修改discount字段，改为大于等于1的正数，最多小数点2位"
+      },
+      {
+        "code": "2006605",
+        "error": "receiveStartTime领取开始时间校验未通过，时间格式错误",
+        "solution": "修改receiveStartTime格式，格式为：（yyyy-MM-dd HH:mm:ss）"
+      },
+      {
+        "code": "2006604",
+        "error": "discount面额*amount数量必须大于等于20",
+        "solution": "调整discount或者amount的值，使discount面额*amount数量大于等于20"
+      },
+      {
+        "code": "2006621",
+        "error": "expireType使用时间类型校验未通过，请填写正确枚举值",
+        "solution": "expireType使用时间类型校验未通过，请填写正确枚举值"
+      },
+      {
+        "code": "2006620",
+        "error": "使用开始时间useStartTime和使用结束时间useEndTime,时间差不能大于7天",
+        "solution": "使用开始时间useStartTime和使用结束时间useEndTime,时间差不能大于7天"
+      },
+      {
+        "code": "2006601",
+        "error": "skuMaterialId参数不能为空",
+        "solution": "输入skuMaterialId"
+      },
+      {
+        "code": "2006622",
+        "error": "share礼金推广链接是否限制仅可领取1张礼金校验未通过，请填写正确枚举值",
+        "solution": "share礼金推广链接是否限制仅可领取1张礼金校验未通过，请填写正确枚举值"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b124e37_leint0ap_2259"
+}

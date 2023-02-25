@@ -1,0 +1,251 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.selling.promotion.get",
+      "znName": "转链获取接口",
+      "version": "1.0",
+      "apiDesc": "转链获取，支持工具商"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_selling_promotion_get_response\": {\n        \"getResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"clickURL\": \"https://u.selling.cn/jdc?e=XXXXXX?p=XXXXXXXXXXX\",\n                \"shortURL\": \"https://u.selling.cn/ddFeCdS\"\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_selling_promotion_get_response>\n    <getResult>\n      <code>200</code>\n      <data>\n        <clickURL>https://u.selling.cn/jdc?e=XXXXXX?p=XXXXXXXXXXX</clickURL>\n        <shortURL>https://u.selling.cn/ddFeCdS</shortURL>\n      </data>\n      <message>success</message>\n    </getResult>\n  </jd_union_open_selling_promotion_get_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenSellingPromotionGetRequest();\n<br/>\n                                                                                                                                \n$req= new Req;\n<br/>\n                    \n$req->setReq($req);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenSellingPromotionGetRequest request=new UnionOpenSellingPromotionGetRequest();<br>PromotionCodeReq req=new PromotionCodeReq();<br>request.setReq(req);<br>request.setVersion(\"1.0\");<br>UnionOpenSellingPromotionGetResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenSellingPromotionGetRequest import UnionOpenSellingPromotionGetRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenSellingPromotionGetRequest(url,port)\n<br/>\na.req=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.promotion.base.PromotionCodeReq",
+          "systemValue": false,
+          "webPamer": "req",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "materialId",
+              "elements": [],
+              "required": true,
+              "value": "https://selling.cn/pages/detail/index?skuId=1234",
+              "desc": "推广物料url，例如活动链接、商品链接等；不支持仅传入skuid"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "siteId",
+              "elements": [],
+              "required": true,
+              "value": "435676",
+              "desc": "网站ID/APP ID，入口：京东联盟-推广管理-网站管理/APP管理-查看网站ID/APP ID（1、接口禁止使用导购媒体id入参；2、投放链接的网址或应用必须与传入的网站ID/AppID备案一致，否则订单会判“无效-来源与备案网址不符”）"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "chainType",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "转链类型，1：长链， 2 ：短链 ，3： 长链+短链，默认短链，短链有效期60天"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "couponUrl",
+              "elements": [],
+              "required": false,
+              "value": "http://coupon.jd.com/ilink/get/get_coupon.action?XXXXXXX",
+              "desc": "优惠券领取链接，在使用优惠券、商品二合一功能时入参，且materialId须为商品详情页链接"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "positionId",
+              "elements": [],
+              "required": false,
+              "value": "456",
+              "desc": "推广位id"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "subUnionId",
+              "elements": [],
+              "required": false,
+              "value": "618_18_c35***e6a ",
+              "desc": "子渠道标识，您可自定义传入字母、数字或下划线，最多支持80个字符，该参数会在订单行查询接口中展示（需申请权限，申请方法请见https://union.jd.com/helpcenter/13246-13247-46301）"
+            },
+            {
+              "id": 2007,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "ext1",
+              "elements": [],
+              "required": false,
+              "value": "100_618_618",
+              "desc": " 系统扩展参数（需申请权限，申请方法请见https://union.jd.com/helpcenter/13246-13247-46301），最多支持40字符，参数会在订单行查询接口中展示"
+            },
+            {
+              "id": 2008,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "pid",
+              "elements": [],
+              "required": false,
+              "value": "618_618_6018 ",
+              "desc": "联盟子推客身份标识（不能传入接口调用者自己的pid）"
+            },
+            {
+              "id": 2009,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "unionId",
+              "elements": [],
+              "required": false,
+              "value": "3181321",
+              "desc": "目标推客的联盟ID，工具商给推客转链使用。"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.SellingPromotionGetResult",
+            "systemValue": false,
+            "webPamer": "getResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": false,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.SellingPromotionCodeResp",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "shortURL",
+                    "elements": [],
+                    "required": false,
+                    "value": "https://u.selling.cn/ddFeCdS",
+                    "desc": "生成的推广目标链接，以短链接形式，有效期60天"
+                  },
+                  {
+                    "id": 1003002,
+                    "pid": 1003,
+                    "type": "String",
+                    "systemValue": false,
+                    "webPamer": "clickURL",
+                    "elements": [],
+                    "required": true,
+                    "value": "https://u.selling.cn/jdc?e=XXXXXX?p=XXXXXXXXXXX",
+                    "desc": "生成推广目标的长链，长期有效"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "0",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b118b51_leio1bma_1963"
+}

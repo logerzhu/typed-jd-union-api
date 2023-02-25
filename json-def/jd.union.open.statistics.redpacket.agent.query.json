@@ -1,0 +1,356 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.statistics.redpacket.agent.query",
+      "znName": "工具商京享红包效果数据查询接口【申请】",
+      "version": "1.0",
+      "apiDesc": "工具商查询帮助其他推客转的链接的红包发放数据"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_statistics_redpacket_agent_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"redPacketEffectDataResp\": {\n                    \"showNum\": \"1\",\n                    \"promotionName\": \"111\",\n                    \"unionId\": \"1\",\n                    \"positionId\": \"1\",\n                    \"useNum\": \"1\",\n                    \"actId\": \"1\",\n                    \"giveNum\": \"1\",\n                    \"orderNum\": \"1\",\n                    \"orderFee\": \"1\",\n                    \"orderPrice\": \"1\",\n                    \"tjDate\": \"2020-10-19\",\n                    \"channelId\": \"12345\"\n                }\n            },\n            \"message\": \"success\",\n            \"totalCount\": \"100\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_statistics_redpacket_agent_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <redPacketEffectDataResp>\n          <actId>1</actId>\n          <channelId>12345</channelId>\n          <giveNum>1</giveNum>\n          <orderFee>1</orderFee>\n          <orderNum>1</orderNum>\n          <orderPrice>1</orderPrice>\n          <positionId>1</positionId>\n          <promotionName>111</promotionName>\n          <showNum>1</showNum>\n          <tjDate>2020-10-19</tjDate>\n          <unionId>1</unionId>\n          <useNum>1</useNum>\n        </redPacketEffectDataResp>\n      </data>\n      <message>success</message>\n      <totalCount>100</totalCount>\n    </queryResult>\n  </jd_union_open_statistics_redpacket_agent_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenStatisticsRedpacketAgentQueryRequest();\n<br/>\n                                                                                                                                \n$effectDataAgentReq= new EffectDataAgentReq;\n<br/>\n                    \n$req->setEffectDataAgentReq($effectDataAgentReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenStatisticsRedpacketAgentQueryRequest request=new UnionOpenStatisticsRedpacketAgentQueryRequest();<br>RedPacketEffectDataAgentReq effectDataAgentReq=new RedPacketEffectDataAgentReq();<br>request.setEffectDataAgentReq(effectDataAgentReq);<br>request.setVersion(\"1.0\");<br>UnionOpenStatisticsRedpacketAgentQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenStatisticsRedpacketAgentQueryRequest import UnionOpenStatisticsRedpacketAgentQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenStatisticsRedpacketAgentQueryRequest(url,port)\n<br/>\na.effectDataAgentReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "无",
+          "desc": "应用appKey"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.statistics.agent.RedPacketEffectDataAgentReq",
+          "systemValue": false,
+          "webPamer": "effectDataAgentReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "actId",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "京享红包活动Id，如不传则查询全部京享红包活动"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "startDate",
+              "elements": [],
+              "required": true,
+              "value": "2020-11-11",
+              "desc": "开始日期yyyy-MM-dd，不可超出最近90天"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "endDate",
+              "elements": [],
+              "required": true,
+              "value": "2020-11-11",
+              "desc": "结束时间yyyy-MM-dd，不可超出最近90天"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageIndex",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "页码，起始1"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "pageSize",
+              "elements": [],
+              "required": true,
+              "value": "20",
+              "desc": "每页数，大于等于10且小于等于100的正整数"
+            },
+            {
+              "id": 2006,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "type",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "类型，出參数据按照指定纬度聚合（1推广位，2channelId，默认：1推广位）"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.QueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.RedPacketEffectDataResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.RedPacketEffectDataResp",
+                    "systemValue": false,
+                    "webPamer": "redPacketEffectDataResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "tjDate",
+                        "elements": [],
+                        "required": false,
+                        "value": "2020-10-19",
+                        "desc": "数据日期"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actId",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "京享红包活动ID"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "unionId",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "京东联盟id"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "positionId",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "推广位"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "promotionName",
+                        "elements": [],
+                        "required": false,
+                        "value": "111",
+                        "desc": "推广位名称"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "showNum",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "京享红包活动页浏览次数"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "giveNum",
+                        "elements": [],
+                        "required": true,
+                        "value": "1",
+                        "desc": "京享红包发放数量"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "useNum",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "京享红包使用数量"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderNum",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "京享红包有效订单数量"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderPrice",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "京享红包订单有效GMV"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "orderFee",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "京享红包订单有效预估佣金"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "channelId",
+                        "elements": [],
+                        "required": false,
+                        "value": "12345",
+                        "desc": "渠道关系ID"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              },
+              {
+                "id": 1004,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "totalCount",
+                "elements": [],
+                "required": true,
+                "value": "100",
+                "desc": "总数量"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      },
+      {
+        "code": "2001401",
+        "error": "入参错误",
+        "solution": "请按message修改入参"
+      },
+      {
+        "code": "2001500",
+        "error": "服务系统异常",
+        "solution": "请稍后重试"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"2001500\",\n    \"errorMessage\": \"服务系统异常\",\n    \"errorSolution\": \"请稍后重试\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>2001500</code>\n  <errorMessage>服务系统异常</errorMessage>\n  <errorSolution>请稍后重试</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b124e37_leinppzw_2246"
+}

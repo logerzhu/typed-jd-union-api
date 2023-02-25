@@ -1,0 +1,240 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.statistics.activity.bonus.query",
+      "znName": "奖励金额查询接口【申请】",
+      "version": "1.0",
+      "apiDesc": "查询近12个月的奖励金额，奖励金额会随着活动进行发生变化"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_statistics_activity_bonus_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"estimateBonus\": \"1000\",\n                \"activityId\": \"1\",\n                \"uv\": \"1\",\n                \"estimateCosPrice\": \"10000\",\n                \"unionId\": \"5227\",\n                \"actualValidNum\": \"1200\",\n                \"actualCosPrice\": \"12000\",\n                \"actualBonus\": \"1200\",\n                \"estimateValidNum\": \"1000\"\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_statistics_activity_bonus_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <activityId>1</activityId>\n        <actualBonus>1200</actualBonus>\n        <actualCosPrice>12000</actualCosPrice>\n        <actualValidNum>1200</actualValidNum>\n        <estimateBonus>1000</estimateBonus>\n        <estimateCosPrice>10000</estimateCosPrice>\n        <estimateValidNum>1000</estimateValidNum>\n        <unionId>5227</unionId>\n        <uv>1</uv>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_statistics_activity_bonus_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenStatisticsActivityBonusQueryRequest();\n<br/>\n                                                                                                                                \n$req= new Req;\n<br/>\n                    \n$req->setReq($req);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenStatisticsActivityBonusQueryRequest request=new UnionOpenStatisticsActivityBonusQueryRequest();<br>BonusEffectDataReq req=new BonusEffectDataReq();<br>request.setReq(req);<br>request.setVersion(\"1.0\");<br>UnionOpenStatisticsActivityBonusQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenStatisticsActivityBonusQueryRequest import UnionOpenStatisticsActivityBonusQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenStatisticsActivityBonusQueryRequest(url,port)\n<br/>\na.req=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "appKey",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.statistics.activity.BonusEffectDataReq",
+          "systemValue": false,
+          "webPamer": "req",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "activityId",
+              "elements": [],
+              "required": true,
+              "value": "1",
+              "desc": "奖励活动Id"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": "请求对象"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.BonusStatisticsQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.BonusEffectDataResp",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "unionId",
+                    "elements": [],
+                    "required": true,
+                    "value": "5227",
+                    "desc": "站长ID"
+                  },
+                  {
+                    "id": 1003002,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "activityId",
+                    "elements": [],
+                    "required": true,
+                    "value": "1",
+                    "desc": "活动ID"
+                  },
+                  {
+                    "id": 1003003,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "estimateValidNum",
+                    "elements": [],
+                    "required": true,
+                    "value": "1000",
+                    "desc": "预估有效订单数"
+                  },
+                  {
+                    "id": 1003004,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "estimateCosPrice",
+                    "elements": [],
+                    "required": true,
+                    "value": "10000",
+                    "desc": "预估计佣金额(GMV)"
+                  },
+                  {
+                    "id": 1003005,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "estimateBonus",
+                    "elements": [],
+                    "required": true,
+                    "value": "1000",
+                    "desc": "预估奖励金额"
+                  },
+                  {
+                    "id": 1003006,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "actualValidNum",
+                    "elements": [],
+                    "required": true,
+                    "value": "1200",
+                    "desc": "实际有效订单数"
+                  },
+                  {
+                    "id": 1003007,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "actualCosPrice",
+                    "elements": [],
+                    "required": true,
+                    "value": "12000",
+                    "desc": "实际计佣金额(GMV)"
+                  },
+                  {
+                    "id": 1003008,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "actualBonus",
+                    "elements": [],
+                    "required": true,
+                    "value": "1200",
+                    "desc": "实际奖励金额"
+                  },
+                  {
+                    "id": 1003009,
+                    "pid": 1003,
+                    "type": "Number",
+                    "systemValue": false,
+                    "webPamer": "uv",
+                    "elements": [],
+                    "required": false,
+                    "value": "1",
+                    "desc": "结算uv"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "结果对象"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "0",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b118b51_leinr1ai_1940"
+}

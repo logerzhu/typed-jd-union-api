@@ -1,0 +1,670 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.goods.bigfield.query",
+      "znName": "商品详情查询接口",
+      "version": "1.0",
+      "apiDesc": "商品详情查询接口,大字段信息"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_goods_bigfield_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"bigFieldGoodsResp\": {\n                    \"skuName\": \"手机\",\n                    \"videoBigFieldInfo\": {\n                        \"productFeatures\": \"无\",\n                        \"image\": \"无\",\n                        \"material_Description\": \"无\",\n                        \"comments\": \"无\",\n                        \"box_Contents\": \"无\",\n                        \"editerDesc\": \"无\",\n                        \"contentDesc\": \"无\",\n                        \"manual\": \"无\",\n                        \"catalogue\": \"无\"\n                    },\n                    \"owner\": \"g\",\n                    \"baseBigFieldInfo\": {\n                        \"wdis\": \"无\",\n                        \"wareQD\": \"无\",\n                        \"propGroups\": \"JSON串\",\n                        \"propCode\": \"无\"\n                    },\n                    \"mainSkuId\": \"6161111\",\n                    \"bookBigFieldInfo\": {\n                        \"productFeatures\": \"无\",\n                        \"image\": \"无\",\n                        \"comments\": \"无\",\n                        \"relatedProducts\": \"无\",\n                        \"authorDesc\": \"无\",\n                        \"bookAbstract\": \"无\",\n                        \"editerDesc\": \"无\",\n                        \"contentDesc\": \"无\",\n                        \"catalogue\": \"无\",\n                        \"introduction\": \"无\"\n                    },\n                    \"productId\": \"1236547\",\n                    \"skuStatus\": \"1\",\n                    \"detailImages\": \"http://img30.360buyimg.com/vc/jfs/t1/144028/20/5850/1105845/5f3cceb8Ec52ab631/da3cb259e0d83f42.jpg\",\n                    \"imageInfo\": {\n                        \"imageList\": {\n                            \"urlInfo\": {\n                                \"url\": \"http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg\"\n                            }\n                        }\n                    },\n                    \"skuId\": \"1111\",\n                    \"categoryInfo\": {\n                        \"cid1Name\": \"珠宝首饰\",\n                        \"cid2Name\": \"木手串/把件\",\n                        \"cid2\": \"12041\",\n                        \"cid3Name\": \"其他\",\n                        \"cid3\": \"12052\",\n                        \"cid1\": \"6144\"\n                    }\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_goods_bigfield_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <bigFieldGoodsResp>\n          <baseBigFieldInfo>\n            <propCode>无</propCode>\n            <propGroups>JSON串</propGroups>\n            <wareQD>无</wareQD>\n            <wdis>无</wdis>\n          </baseBigFieldInfo>\n          <bookBigFieldInfo>\n            <authorDesc>无</authorDesc>\n            <bookAbstract>无</bookAbstract>\n            <catalogue>无</catalogue>\n            <comments>无</comments>\n            <contentDesc>无</contentDesc>\n            <editerDesc>无</editerDesc>\n            <image>无</image>\n            <introduction>无</introduction>\n            <productFeatures>无</productFeatures>\n            <relatedProducts>无</relatedProducts>\n          </bookBigFieldInfo>\n          <categoryInfo>\n            <cid1>6144</cid1>\n            <cid1Name>珠宝首饰</cid1Name>\n            <cid2>12041</cid2>\n            <cid2Name>木手串/把件</cid2Name>\n            <cid3>12052</cid3>\n            <cid3Name>其他</cid3Name>\n          </categoryInfo>\n          <detailImages>http://img30.360buyimg.com/vc/jfs/t1/144028/20/5850/1105845/5f3cceb8Ec52ab631/da3cb259e0d83f42.jpg</detailImages>\n          <imageInfo>\n            <imageList>\n              <urlInfo>\n                <url>http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg</url>\n              </urlInfo>\n            </imageList>\n          </imageInfo>\n          <mainSkuId>6161111</mainSkuId>\n          <owner>g</owner>\n          <productId>1236547</productId>\n          <skuId>1111</skuId>\n          <skuName>手机</skuName>\n          <skuStatus>1</skuStatus>\n          <videoBigFieldInfo>\n            <box_Contents>无</box_Contents>\n            <catalogue>无</catalogue>\n            <comments>无</comments>\n            <contentDesc>无</contentDesc>\n            <editerDesc>无</editerDesc>\n            <image>无</image>\n            <manual>无</manual>\n            <material_Description>无</material_Description>\n            <productFeatures>无</productFeatures>\n          </videoBigFieldInfo>\n        </bigFieldGoodsResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_goods_bigfield_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenGoodsBigfieldQueryRequest();\n<br/>\n                                                                                                                                \n$goodsReq= new GoodsReq;\n<br/>\n                    \n$req->setGoodsReq($goodsReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenGoodsBigfieldQueryRequest request=new UnionOpenGoodsBigfieldQueryRequest();<br>BigFieldGoodsReq goodsReq=new BigFieldGoodsReq();<br>request.setGoodsReq(goodsReq);<br>request.setVersion(\"1.0\");<br>UnionOpenGoodsBigfieldQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenGoodsBigfieldQueryRequest import UnionOpenGoodsBigfieldQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenGoodsBigfieldQueryRequest(url,port)\n<br/>\na.goodsReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": false,
+          "value": "无",
+          "desc": "无"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.goods.bigfield.BigFieldGoodsReq",
+          "systemValue": false,
+          "webPamer": "goodsReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number[]",
+              "systemValue": false,
+              "webPamer": "skuIds",
+              "elements": [],
+              "required": true,
+              "value": "29357345299",
+              "desc": "skuId集合，最多支持批量入参10个sku"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "String[]",
+              "systemValue": false,
+              "webPamer": "fields",
+              "elements": [],
+              "required": false,
+              "value": "categoryInfo",
+              "desc": "查询域集合，不填写则查询全部，目目前支持：categoryInfo（类目信息）,imageInfo（图片信息）,baseBigFieldInfo（基础大字段信息）,bookBigFieldInfo（图书大字段信息）,videoBigFieldInfo（影音大字段信息）,detailImages（商详图）"
+            }
+          ],
+          "required": true,
+          "value": "无",
+          "desc": " 请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.BigfieldQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": true,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": true,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.BigFieldGoodsResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.BigFieldGoodsResp",
+                    "systemValue": false,
+                    "webPamer": "bigFieldGoodsResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuId",
+                        "elements": [],
+                        "required": true,
+                        "value": "1111",
+                        "desc": "skuId"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "skuName",
+                        "elements": [],
+                        "required": true,
+                        "value": "手机",
+                        "desc": "商品名称"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "com.jd.union.CategoryInfo",
+                        "systemValue": false,
+                        "webPamer": "categoryInfo",
+                        "elements": [
+                          {
+                            "id": 1003001003001,
+                            "pid": 1003001003,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "cid1",
+                            "elements": [],
+                            "required": true,
+                            "value": "6144",
+                            "desc": "一级类目ID"
+                          },
+                          {
+                            "id": 1003001003002,
+                            "pid": 1003001003,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "cid1Name",
+                            "elements": [],
+                            "required": true,
+                            "value": "珠宝首饰",
+                            "desc": "一级类目名称"
+                          },
+                          {
+                            "id": 1003001003003,
+                            "pid": 1003001003,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "cid2",
+                            "elements": [],
+                            "required": true,
+                            "value": "12041",
+                            "desc": "二级类目ID"
+                          },
+                          {
+                            "id": 1003001003004,
+                            "pid": 1003001003,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "cid2Name",
+                            "elements": [],
+                            "required": true,
+                            "value": "木手串/把件",
+                            "desc": "二级类目名称"
+                          },
+                          {
+                            "id": 1003001003005,
+                            "pid": 1003001003,
+                            "type": "Number",
+                            "systemValue": false,
+                            "webPamer": "cid3",
+                            "elements": [],
+                            "required": true,
+                            "value": "12052",
+                            "desc": "三级类目ID"
+                          },
+                          {
+                            "id": 1003001003006,
+                            "pid": 1003001003,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "cid3Name",
+                            "elements": [],
+                            "required": true,
+                            "value": "其他",
+                            "desc": "三级类目名称"
+                          }
+                        ],
+                        "required": true,
+                        "value": "无",
+                        "desc": "类目信息"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "com.jd.union.ImageInfo",
+                        "systemValue": false,
+                        "webPamer": "imageInfo",
+                        "elements": [
+                          {
+                            "id": 1003001004001,
+                            "pid": 1003001004,
+                            "type": "com.jd.union.UrlInfo[]",
+                            "systemValue": false,
+                            "webPamer": "imageList",
+                            "elements": [
+                              {
+                                "id": 1003001004001001,
+                                "pid": 1003001004001,
+                                "type": "com.jd.union.UrlInfo",
+                                "systemValue": false,
+                                "webPamer": "urlInfo",
+                                "elements": [
+                                  {
+                                    "id": 1003001004001001001,
+                                    "pid": 1003001004001001,
+                                    "type": "String",
+                                    "systemValue": false,
+                                    "webPamer": "url",
+                                    "elements": [],
+                                    "required": true,
+                                    "value": "http://img14.360buyimg.com/ads/jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg",
+                                    "desc": "主图链接"
+                                  }
+                                ],
+                                "required": true,
+                                "value": "无",
+                                "desc": "图片合集"
+                              }
+                            ],
+                            "required": true,
+                            "value": "无",
+                            "desc": "图片合集"
+                          }
+                        ],
+                        "required": true,
+                        "value": "无",
+                        "desc": "图片信息"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "com.jd.union.BaseBigFieldInfo",
+                        "systemValue": false,
+                        "webPamer": "baseBigFieldInfo",
+                        "elements": [
+                          {
+                            "id": 1003001005001,
+                            "pid": 1003001005,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "wdis",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "商品介绍"
+                          },
+                          {
+                            "id": 1003001005002,
+                            "pid": 1003001005,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "propCode",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "规格参数【废弃】"
+                          },
+                          {
+                            "id": 1003001005003,
+                            "pid": 1003001005,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "wareQD",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "包装清单(仅自营商品)"
+                          },
+                          {
+                            "id": 1003001005004,
+                            "pid": 1003001005,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "propGroups",
+                            "elements": [],
+                            "required": false,
+                            "value": "JSON串",
+                            "desc": "规格参数"
+                          }
+                        ],
+                        "required": true,
+                        "value": "无",
+                        "desc": "基础大字段信息"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "com.jd.union.BookBigFieldInfo",
+                        "systemValue": false,
+                        "webPamer": "bookBigFieldInfo",
+                        "elements": [
+                          {
+                            "id": 1003001006001,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "comments",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "媒体评论"
+                          },
+                          {
+                            "id": 1003001006002,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "image",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "精彩文摘与插图(插图)"
+                          },
+                          {
+                            "id": 1003001006003,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "contentDesc",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "内容摘要(内容简介)"
+                          },
+                          {
+                            "id": 1003001006004,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "relatedProducts",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "产品描述(相关商品)"
+                          },
+                          {
+                            "id": 1003001006005,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "editerDesc",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "编辑推荐"
+                          },
+                          {
+                            "id": 1003001006006,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "catalogue",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "目录"
+                          },
+                          {
+                            "id": 1003001006007,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "bookAbstract",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "精彩摘要(精彩书摘)"
+                          },
+                          {
+                            "id": 1003001006008,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "authorDesc",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "作者简介"
+                          },
+                          {
+                            "id": 1003001006009,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "introduction",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "前言(前言/序言)"
+                          },
+                          {
+                            "id": 1003001006010,
+                            "pid": 1003001006,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "productFeatures",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "产品特色"
+                          }
+                        ],
+                        "required": true,
+                        "value": "无",
+                        "desc": "图书大字段信息"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "com.jd.union.VideoBigFieldInfo",
+                        "systemValue": false,
+                        "webPamer": "videoBigFieldInfo",
+                        "elements": [
+                          {
+                            "id": 1003001007001,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "comments",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "评论"
+                          },
+                          {
+                            "id": 1003001007002,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "image",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "商品描述(精彩剧照)"
+                          },
+                          {
+                            "id": 1003001007003,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "contentDesc",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "内容摘要(内容简介)"
+                          },
+                          {
+                            "id": 1003001007004,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "editerDesc",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "编辑推荐"
+                          },
+                          {
+                            "id": 1003001007005,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "catalogue",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "目录"
+                          },
+                          {
+                            "id": 1003001007006,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "box_Contents",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "包装清单"
+                          },
+                          {
+                            "id": 1003001007007,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "material_Description",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "特殊说明"
+                          },
+                          {
+                            "id": 1003001007008,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "manual",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "说明书"
+                          },
+                          {
+                            "id": 1003001007009,
+                            "pid": 1003001007,
+                            "type": "String",
+                            "systemValue": false,
+                            "webPamer": "productFeatures",
+                            "elements": [],
+                            "required": true,
+                            "value": "无",
+                            "desc": "产品特色"
+                          }
+                        ],
+                        "required": true,
+                        "value": "无",
+                        "desc": "影音大字段信息"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "mainSkuId",
+                        "elements": [],
+                        "required": false,
+                        "value": "6161111",
+                        "desc": "自营主skuId"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "productId",
+                        "elements": [],
+                        "required": false,
+                        "value": "1236547",
+                        "desc": "非自营商品Id"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuStatus",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "sku上下架状态      1：上架(可搜索，可购买)，      0：下架(可通过skuid搜索，不可购买)，      2：可上架（可通过skuid搜索，不可购买），      10：pop 删除（不可搜索，不可购买））"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "owner",
+                        "elements": [],
+                        "required": false,
+                        "value": "g",
+                        "desc": "g=自营，p=pop"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "detailImages",
+                        "elements": [],
+                        "required": false,
+                        "value": "http://img30.360buyimg.com/vc/jfs/t1/144028/20/5850/1105845/5f3cceb8Ec52ab631/da3cb259e0d83f42.jpg",
+                        "desc": "商详图"
+                      }
+                    ],
+                    "required": true,
+                    "value": "无",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": true,
+                "value": "无",
+                "desc": "数据明细"
+              }
+            ],
+            "required": false,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "1002016",
+        "error": "未查询到有效商品",
+        "solution": "更换商品再次查询"
+      },
+      {
+        "code": "200",
+        "error": "调用成功",
+        "solution": "调用成功"
+      },
+      {
+        "code": "400",
+        "error": "入参skuIds为空",
+        "solution": "请按文档要求入参"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "1002011",
+        "error": "入参skuId查询超过上限",
+        "solution": "减少入参skuId数量"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b124e37_leine9ib_2218"
+}

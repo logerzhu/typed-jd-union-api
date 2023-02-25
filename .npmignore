@@ -1,3 +1,4 @@
 .idea
 src
 **/__tests__/*
+json-def/*

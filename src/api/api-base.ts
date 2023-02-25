@@ -1,6 +1,6 @@
-import { JdCrypto } from '../../cryptos'
+import { JdCrypto } from '../cryptos'
 import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { JdAPIError } from '../../errors'
+import { JdAPIError } from '../errors'
 import qs from 'querystring'
 
 export class JdUnionBase {
@@ -74,6 +74,14 @@ export class JdUnionBase {
     const resultKey = api.substring(api.lastIndexOf('.') + 1) + 'Result'
     const result = JSON.parse(response[resultKey] || null)
     // 判断successCode是否匹配
+    if (result.code != '200') {
+      console.error('JD Union API Error', api, params, response)
+      console.log(result.code, successCode)
+      throw new JdAPIError(
+        result.code,
+        result.errorMessage + ' Solution:' + result.errorSolution
+      )
+    }
     return result
   }
 }

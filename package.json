@@ -8,6 +8,7 @@
     "format": "prettier --write src __tests__",
     "test": "jest",
     "build": "rm -rf dist && tsc",
+    "gen": "ts-node src/tool/gen.ts && npm run format",
     "doc": "typedoc",
     "buildAndPublish": "npm run format && npm run build && npm publish"
   },
@@ -26,10 +27,7 @@
     "Wechat"
   ],
   "dependencies": {
-    "axios": "^0.26.1",
-    "form-data": "^4.0.0",
-    "formstream": "^1.1.1",
-    "xml2js": "^0.4.23"
+    "axios": "^0.26.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
@@ -39,7 +37,7 @@
     "pre-commit": "^1.2.2",
     "prettier": "2.2.1",
     "ts-jest": "^26.4.4",
-    "ts-node": "^9.1.1",
+    "ts-node": "^10.9.1",
     "typedoc": "^0.23.23",
     "typedoc-plugin-markdown": "^3.14.0",
     "typescript": "^4.9.4"

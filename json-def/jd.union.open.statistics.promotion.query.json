@@ -1,0 +1,356 @@
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "apiInfoDTO": {
+      "apiName": "jd.union.open.statistics.promotion.query",
+      "znName": "推广效果数据查询接口【申请】",
+      "version": "1.0",
+      "apiDesc": "支持传入skuId、活动链接来查询当日实时的推广效果数据。"
+    },
+    "apiResponseExampleDTO": {
+      "jsonResponseExample": "{\n    \"jd_union_open_statistics_promotion_query_response\": {\n        \"queryResult\": {\n            \"code\": \"200\",\n            \"data\": {\n                \"promotionEffectDataResp\": {\n                    \"unionId\": \"10001\",\n                    \"clickPv\": \"1000\",\n                    \"dataType\": \"1\",\n                    \"timeType\": \"1\",\n                    \"refundOrders\": \"10\",\n                    \"completeGmv\": \"2500\",\n                    \"activityUrl\": \"https://pro.m.jd.com/mall/active/4QBedkXztZQH6kNkGf3KmjB28FzP/index.html\",\n                    \"estimateValidGmv\": \"5000\",\n                    \"estimateValidOrders\": \"100\",\n                    \"time\": \"2021-12-30 11\",\n                    \"estimateValidFee\": \"100\",\n                    \"completeOrders\": \"50\",\n                    \"actualFee\": \"95\",\n                    \"skuId\": \"10031228062854\"\n                }\n            },\n            \"message\": \"success\"\n        }\n    }\n}",
+      "xmlResponseExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <jd_union_open_statistics_promotion_query_response>\n    <queryResult>\n      <code>200</code>\n      <data>\n        <promotionEffectDataResp>\n          <activityUrl>https://pro.m.jd.com/mall/active/4QBedkXztZQH6kNkGf3KmjB28FzP/index.html</activityUrl>\n          <actualFee>95</actualFee>\n          <clickPv>1000</clickPv>\n          <completeGmv>2500</completeGmv>\n          <completeOrders>50</completeOrders>\n          <dataType>1</dataType>\n          <estimateValidFee>100</estimateValidFee>\n          <estimateValidGmv>5000</estimateValidGmv>\n          <estimateValidOrders>100</estimateValidOrders>\n          <refundOrders>10</refundOrders>\n          <skuId>10031228062854</skuId>\n          <time>2021-12-30 11</time>\n          <timeType>1</timeType>\n          <unionId>10001</unionId>\n        </promotionEffectDataResp>\n      </data>\n      <message>success</message>\n    </queryResult>\n  </jd_union_open_statistics_promotion_query_response>\n</object>\n"
+    },
+    "apiSdkExampleTemplateDTOS": [
+      {
+        "type": "php",
+        "example": "$c = new JdClient();\n<br/>\n$c->appKey = appKey;\n<br/>\n$c->appSecret = appSecret;\n<br/>\n$c->accessToken = accessToken;\n<br/>\n$c->serverUrl = SERVER_URL;\n<br/>\n$req = new UnionOpenStatisticsPromotionQueryRequest();\n<br/>\n                                                                                                                                \n$promotionEffectDataReq= new PromotionEffectDataReq;\n<br/>\n                    \n$req->setPromotionEffectDataReq($promotionEffectDataReq);\n<br/>\n                        $req->setVersion(\"1.0\");\n<br/>\n$resp = $c->execute($req, $c->accessToken);\n<br/>\n\n\n\n"
+      },
+      {
+        "type": "java",
+        "example": "JdClient client=new DefaultJdClient(SERVER_URL,accessToken,appKey,appSecret);  <br>UnionOpenStatisticsPromotionQueryRequest request=new UnionOpenStatisticsPromotionQueryRequest();<br>PromotionEffectDataReq promotionEffectDataReq=new PromotionEffectDataReq();<br>request.setPromotionEffectDataReq(promotionEffectDataReq);<br>request.setVersion(\"1.0\");<br>UnionOpenStatisticsPromotionQueryResponse response=client.execute(request);"
+      },
+      {
+        "type": "python",
+        "example": "import jd.api\n<br/>\nimport json\n<br/>\nfrom jd.api.rest.UnionOpenStatisticsPromotionQueryRequest import UnionOpenStatisticsPromotionQueryRequest\n<br/>\n\njd.setDefaultAppInfo(appkey, secret)\n<br/>\na = UnionOpenStatisticsPromotionQueryRequest(url,port)\n<br/>\na.promotionEffectDataReq=\"\"\n<br/>\na.version = \"1.0\"\n<br/>\ntry:\n<br/>\nf= a.getResponse(sessionkey)\n<br/>\nprint(json.dumps(f, ensure_ascii=False))\n<br/>\nexcept Exception,e:\n<br/>\nprint(e)\n<br/>\n\n\n"
+      }
+    ],
+    "method": {
+      "elements": [
+        {
+          "id": 1,
+          "pid": 0,
+          "type": "String",
+          "systemValue": true,
+          "webPamer": "appKey",
+          "elements": [],
+          "required": true,
+          "value": "appKey",
+          "desc": "appKey"
+        },
+        {
+          "id": 2,
+          "pid": 0,
+          "type": "com.jd.union.open.gateway.api.dto.statistics.PromotionEffectDataReq",
+          "systemValue": false,
+          "webPamer": "promotionEffectDataReq",
+          "elements": [
+            {
+              "id": 2001,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "skuId",
+              "elements": [],
+              "required": false,
+              "value": "10031228062854",
+              "desc": "如果传入的skuId为自营商品则效果数据为这个skuId的推广效果，如果是pop商品则返回sku所属的spu的推广数据 （skuId和activityUrl只能二选一）"
+            },
+            {
+              "id": 2002,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "activityUrl",
+              "elements": [],
+              "required": false,
+              "value": "https://pro.m.jd.com/mall/active/4QBedkXztZQH6kNkGf3KmjB28FzP/index.html",
+              "desc": "活动的长链接或者短链（skuId和activityUrl只能二选一）"
+            },
+            {
+              "id": 2003,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "timeType",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "数据的日期范围 （1：今日实时)， 默认为1"
+            },
+            {
+              "id": 2004,
+              "pid": 2,
+              "type": "Number",
+              "systemValue": false,
+              "webPamer": "dataType",
+              "elements": [],
+              "required": false,
+              "value": "1",
+              "desc": "返回的数据类型（1：汇总数据 )，默认为1"
+            },
+            {
+              "id": 2005,
+              "pid": 2,
+              "type": "String",
+              "systemValue": false,
+              "webPamer": "fields",
+              "elements": [],
+              "required": true,
+              "value": "clickPv,estimateValidOrders",
+              "desc": "返回的数据指标，需要返回多个指标时用英文逗号分隔，目前可用：  clickPv(点击量),estimateValidOrders(有效订单量),estimateValidGmv(有效订单金额),estimateValidFee(预估收入),refundOrders(退款订单量),completeOrders(完成订单量),completeGmv(完成订单金额),actualFee(实际收入)"
+            }
+          ],
+          "required": true,
+          "value": "",
+          "desc": "请求入参"
+        }
+      ],
+      "josResult": {
+        "elements": [
+          {
+            "id": 1,
+            "pid": 0,
+            "type": "com.jd.union.PromotionEffectDataQueryResult",
+            "systemValue": false,
+            "webPamer": "queryResult",
+            "elements": [
+              {
+                "id": 1001,
+                "pid": 1,
+                "type": "Number",
+                "systemValue": false,
+                "webPamer": "code",
+                "elements": [],
+                "required": false,
+                "value": "200",
+                "desc": "返回码"
+              },
+              {
+                "id": 1002,
+                "pid": 1,
+                "type": "String",
+                "systemValue": false,
+                "webPamer": "message",
+                "elements": [],
+                "required": false,
+                "value": "success",
+                "desc": "返回消息"
+              },
+              {
+                "id": 1003,
+                "pid": 1,
+                "type": "com.jd.union.PromotionEffectDataResp[]",
+                "systemValue": false,
+                "webPamer": "data",
+                "elements": [
+                  {
+                    "id": 1003001,
+                    "pid": 1003,
+                    "type": "com.jd.union.PromotionEffectDataResp",
+                    "systemValue": false,
+                    "webPamer": "promotionEffectDataResp",
+                    "elements": [
+                      {
+                        "id": 1003001001,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "unionId",
+                        "elements": [],
+                        "required": false,
+                        "value": "10001",
+                        "desc": "联盟ID"
+                      },
+                      {
+                        "id": 1003001002,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "skuId",
+                        "elements": [],
+                        "required": false,
+                        "value": "10031228062854",
+                        "desc": "商品ID"
+                      },
+                      {
+                        "id": 1003001003,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "activityUrl",
+                        "elements": [],
+                        "required": false,
+                        "value": "https://pro.m.jd.com/mall/active/4QBedkXztZQH6kNkGf3KmjB28FzP/index.html",
+                        "desc": "活动链接"
+                      },
+                      {
+                        "id": 1003001004,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "timeType",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "数据的日期范围"
+                      },
+                      {
+                        "id": 1003001005,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "dataType",
+                        "elements": [],
+                        "required": false,
+                        "value": "1",
+                        "desc": "返回的数据类型"
+                      },
+                      {
+                        "id": 1003001006,
+                        "pid": 1003001,
+                        "type": "String",
+                        "systemValue": false,
+                        "webPamer": "time",
+                        "elements": [],
+                        "required": false,
+                        "value": "2021-12-30 11",
+                        "desc": "如果（timeType=1）是汇总数据，当（dataType=1）为今日实时，则数据结果为当日0点至当前小时的汇总数据，time值格式为 2021-12-30 11:11"
+                      },
+                      {
+                        "id": 1003001007,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "clickPv",
+                        "elements": [],
+                        "required": false,
+                        "value": "1000",
+                        "desc": "点击量"
+                      },
+                      {
+                        "id": 1003001008,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateValidOrders",
+                        "elements": [],
+                        "required": false,
+                        "value": "100",
+                        "desc": "有效订单量"
+                      },
+                      {
+                        "id": 1003001009,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateValidFee",
+                        "elements": [],
+                        "required": false,
+                        "value": "100",
+                        "desc": "预估收入"
+                      },
+                      {
+                        "id": 1003001010,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "estimateValidGmv",
+                        "elements": [],
+                        "required": false,
+                        "value": "5000",
+                        "desc": "有效订单金额"
+                      },
+                      {
+                        "id": 1003001011,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "refundOrders",
+                        "elements": [],
+                        "required": false,
+                        "value": "10",
+                        "desc": "退款订单量： 当日下单付款后又取消的订单量"
+                      },
+                      {
+                        "id": 1003001012,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "completeOrders",
+                        "elements": [],
+                        "required": false,
+                        "value": "50",
+                        "desc": "完成订单量"
+                      },
+                      {
+                        "id": 1003001013,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "completeGmv",
+                        "elements": [],
+                        "required": false,
+                        "value": "2500",
+                        "desc": "完成订单金额"
+                      },
+                      {
+                        "id": 1003001014,
+                        "pid": 1003001,
+                        "type": "Number",
+                        "systemValue": false,
+                        "webPamer": "actualFee",
+                        "elements": [],
+                        "required": false,
+                        "value": "95",
+                        "desc": "实际收入"
+                      }
+                    ],
+                    "required": false,
+                    "value": "",
+                    "desc": "数据明细"
+                  }
+                ],
+                "required": false,
+                "value": "",
+                "desc": "数据明细"
+              }
+            ],
+            "required": true,
+            "value": "",
+            "desc": "返回结果"
+          }
+        ]
+      },
+      "auth": "false"
+    },
+    "apiErrorsDTOS": [
+      {
+        "code": "400",
+        "error": "参数错误",
+        "solution": "请按文档要求入参"
+      },
+      {
+        "code": "500",
+        "error": "服务系统异常",
+        "solution": "稍后重试"
+      },
+      {
+        "code": "403",
+        "error": "无访问权限，如有疑问请联系联盟客服",
+        "solution": "请联系联盟客服咨询"
+      },
+      {
+        "code": "429",
+        "error": "接口调用超频，请降低接口调用频次",
+        "solution": "请降低接口调用频次"
+      }
+    ],
+    "apiErrorResponseExampleDTO": {
+      "jsonErrorExample": "{\n    \"code\": \"429\",\n    \"errorMessage\": \"接口调用超频，请降低接口调用频次\",\n    \"errorSolution\": \"请降低接口调用频次\"\n}",
+      "xmlErrorExample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<object>\n  <code>429</code>\n  <errorMessage>接口调用超频，请降低接口调用频次</errorMessage>\n  <errorSolution>请降低接口调用频次</errorSolution>\n</object>\n"
+    }
+  },
+  "requestId": "om_0b5fe1d3_leinsdhn_2501"
+}
