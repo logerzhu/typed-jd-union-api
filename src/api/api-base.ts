@@ -29,7 +29,6 @@ export class JdUnionBase {
           `url: ${opts.url}, status code: ${res.status}`
         )
       }
-      console.log(res.data)
       if (res.data.error_response) {
         throw new JdAPIError('-1', JSON.stringify(res.data.error_response))
       }
