@@ -69,7 +69,7 @@ export type QueryAgentRedpacketStatisticsResult = {
       /** 渠道关系ID*/
       channelId?: number
     }
-  }
+  }[]
 
   /** 总数量*/
   totalCount: number

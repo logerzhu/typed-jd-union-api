@@ -177,10 +177,10 @@ export type QuerySupplyRowOrderResult = {
       /** 达人在京东的唯一ID，可在“京东联盟-京红任务-小店达人”中搜索获取，不会随抖快达人昵称的改变而变化*/
       talentId?: string
     }
-  }
+  }[]
 
   /** 是否还有更多,true：还有数据；false:已查询完毕，没有数据*/
-  hasMore?: undefined
+  hasMore?: boolean
 }
 export class QuerySupplyRowOrderAPI extends JdUnionBase {
   async querySupplyRowOrder(params: QuerySupplyRowOrderParams) {

@@ -63,7 +63,7 @@ export type QueryRecommendActivityResult = {
       /** 活动文案（如需广告投放素材和文案需入参高和宽）*/
       imageTitle?: string
     }
-  }
+  }[]
 }
 export class QueryRecommendActivityAPI extends JdUnionBase {
   async queryRecommendActivity(params: QueryRecommendActivityParams) {

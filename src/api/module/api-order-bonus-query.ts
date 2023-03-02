@@ -132,7 +132,7 @@ export type QueryBonusOrderResult = {
       /** 奖励活动ID*/
       activityId?: number
     }
-  }
+  }[]
 }
 export class QueryBonusOrderAPI extends JdUnionBase {
   async queryBonusOrder(params: QueryBonusOrderParams) {

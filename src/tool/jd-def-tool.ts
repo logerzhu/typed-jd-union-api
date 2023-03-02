@@ -20,14 +20,21 @@ function parseElement(data: any): Element {
 }
 
 function formatElement(element: Element) {
-  const typeMap = { String: 'string', Number: 'number' }
+  const typeMap = {
+    String: 'string',
+    Number: 'number',
+    Boolean: 'boolean',
+    'String[]': 'string[]',
+    'Number[]': 'number[]',
+    'Boolean[]': 'boolean[]'
+  }
   return `
   /** ${element.desc}*/
   ${element.name}${!element.required ? '?' : ''}:${
     element.elements != null
       ? `{
       ${element.elements.map((e) => formatElement(e)).join('')}
-  }`
+  }${element.type.endsWith('[]') ? '[]' : ''}`
       : typeMap[element.type]
   }
   `
@@ -43,12 +50,6 @@ export default function jdDefinitionToTS(jsonDef: any) {
     successCode:
       jsonDef.data.apiErrorsDTOS.find((d) => d.solution == '调用成功')?.code ||
       '200'
-  }
-
-  if (
-    jsonDef.data.apiErrorsDTOS.find((d) => d.solution == '调用成功') == null
-  ) {
-    console.error('----', apiInfo.apiName)
   }
 
   const firstUppercase = (str: String) =>

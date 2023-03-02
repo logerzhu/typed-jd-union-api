@@ -228,10 +228,10 @@ export type QueryRowOrderResult = {
       /** 目前unionTag为32位，为支持更多标签标识能力，现新增64位标签字段，64位新标签可以兼容32位unionTag，右32位参考 unionTag字段描述*/
       skuTag?: string
     }
-  }
+  }[]
 
   /** 是否还有更多,true：还有数据；false:已查询完毕，没有数据*/
-  hasMore: undefined
+  hasMore: boolean
 }
 export class QueryRowOrderAPI extends JdUnionBase {
   async queryRowOrder(params: QueryRowOrderParams) {

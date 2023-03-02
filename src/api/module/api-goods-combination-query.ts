@@ -244,9 +244,9 @@ export type QueryCombinationGoodsResult = {
           /** 最低价/促销价*/
           lowestPrice: number
         }
-      }
+      }[]
     }
-  }
+  }[]
 
   /** 有效商品总数量*/
   totalCount?: number

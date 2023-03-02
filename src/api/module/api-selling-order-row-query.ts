@@ -228,10 +228,10 @@ export type QueryRowOrderSellingResult = {
       /** 汇率单位*/
       exchangeRateUnit?: string
     }
-  }
+  }[]
 
   /** 是否还有更多,true：还有数据；false:已查询完毕，没有数据*/
-  hasMore: undefined
+  hasMore: boolean
 }
 export class QueryRowOrderSellingAPI extends JdUnionBase {
   async queryRowOrderSelling(params: QueryRowOrderSellingParams) {

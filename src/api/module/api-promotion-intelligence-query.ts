@@ -9,7 +9,7 @@ export type QueryIntelligencePromotionParams = {
     type?: number
 
     /** 类目一ID，支持传多个类目筛选*/
-    cid1List?: undefined
+    cid1List?: number[]
 
     /** 默认吐出未开始和进行中线报，1 未开始、2 进行中*/
     status?: number
@@ -58,7 +58,7 @@ export type QueryIntelligencePromotionResult = {
       type?: number
 
       /** 类目信息*/
-      cid1List?: undefined
+      cid1List?: number[]
 
       /** 1 未开始、2 进行中*/
       status?: number
@@ -72,7 +72,7 @@ export type QueryIntelligencePromotionResult = {
       /** 线报结束时间,天维度，精确到时分秒2021-11-18 12:00:00*/
       endTime?: string
     }
-  }
+  }[]
 }
 export class QueryIntelligencePromotionAPI extends JdUnionBase {
   async queryIntelligencePromotion(params: QueryIntelligencePromotionParams) {

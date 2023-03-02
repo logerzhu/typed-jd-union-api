@@ -33,7 +33,7 @@ export type GetGoodsCategoryResult = {
       /** 父类目Id*/
       parentId: number
     }
-  }
+  }[]
 }
 export class GetGoodsCategoryAPI extends JdUnionBase {
   async getGoodsCategory(params: GetGoodsCategoryParams) {

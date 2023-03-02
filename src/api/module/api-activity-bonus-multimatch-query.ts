@@ -6,7 +6,7 @@ export type QueryMultimatchBonusActivityParams = {
     userIdType: number
 
     /** userIdType对应的批量用户设备ID,最多20个*/
-    userIds: undefined
+    userIds: string[]
   }
 }
 
@@ -40,9 +40,9 @@ export type QueryMultimatchBonusActivityResult = {
           /** 结束时间，时间戳（ms）*/
           endTime: number
         }
-      }
+      }[]
     }
-  }
+  }[]
 }
 export class QueryMultimatchBonusActivityAPI extends JdUnionBase {
   async queryMultimatchBonusActivity(

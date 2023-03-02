@@ -53,7 +53,7 @@ export type QueryPositionResult = {
         /** pid：仅uniontype传4时，展示pid；可用于内容平台推广*/
         pid?: string
       }
-    }
+    }[]
 
     /** 总数*/
     total: number

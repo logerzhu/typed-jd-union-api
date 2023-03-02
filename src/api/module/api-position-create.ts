@@ -15,7 +15,7 @@ export type CreatePositionParams = {
     type: number
 
     /** 推广位名称集合，英文,分割；上限50*/
-    spaceNameList: undefined
+    spaceNameList: string[]
 
     /** 站点ID：网站的ID/app ID/snsID 。当type非4(聊天工具)时，siteId必填*/
     siteId: number

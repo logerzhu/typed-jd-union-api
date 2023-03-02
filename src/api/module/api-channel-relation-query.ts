@@ -33,7 +33,7 @@ export type QueryRelationChannelResult = {
       /** 备注名：仅支持传入中文、字母、数字、下划线或中划线，最多20个字符*/
       note?: string
     }
-  }
+  }[]
 
   /** 总数*/
   totalCount?: number

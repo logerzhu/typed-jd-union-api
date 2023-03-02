@@ -3,7 +3,7 @@ export type QueryGoodsSellingParams = {
   /** 请求入参*/
   req: {
     /** 京东skuId集合，最多100个*/
-    skuIds: undefined
+    skuIds: number[]
   }
 }
 
@@ -34,7 +34,7 @@ export type QueryGoodsSellingResult = {
       imageUrl: string
 
       /** 图片链接集合*/
-      imgList: undefined
+      imgList: string[]
 
       /** 一级类目ID*/
       cid1: number
@@ -88,7 +88,7 @@ export type QueryGoodsSellingResult = {
           /** 1：是；0：否*/
           isBest: number
         }
-      }
+      }[]
 
       /** 店铺*/
       shopInfo?: {
@@ -127,12 +127,12 @@ export type QueryGoodsSellingResult = {
           /** 优惠方式，直降金额*/
           directReduceAmount?: string
         }
-      }
+      }[]
 
       /** 币种：USD代表美元，CNY代表人民币*/
       currency?: string
     }
-  }
+  }[]
 }
 export class QueryGoodsSellingAPI extends JdUnionBase {
   async queryGoodsSelling(params: QueryGoodsSellingParams) {

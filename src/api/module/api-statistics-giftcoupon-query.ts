@@ -67,7 +67,7 @@ export type QueryGiftcouponStatisticsResult = {
       type?: number
 
       /** skuIdList*/
-      skuIdList?: undefined
+      skuIdList?: number[]
 
       /** 是否限制每个推广链接仅可领取1张礼金：-1不限，1限制*/
       share?: number
@@ -94,10 +94,10 @@ export type QueryGiftcouponStatisticsResult = {
       showStatus?: number
 
       /** 限制使用平台：1-京东APP，1033-京东极速版*/
-      limitPlatforms?: undefined
+      limitPlatforms?: number[]
 
       /** contentMatch = 1 时此字段方生效，允许推广的媒体类型 -1：全部， 其他枚举值：17: 抖音,18: 快手,21: 微博,22: 知乎, 35: 斗鱼 ,38 : 手机QQ/全民K歌,43: 百家号图文,49: 微信小商店/腾讯微视，-1与其他枚举值互斥*/
-      contentMatchMedias?: undefined
+      contentMatchMedias?: number[]
 
       /** 数据明细*/
       promoterList?: {
@@ -112,12 +112,12 @@ export type QueryGiftcouponStatisticsResult = {
           /** 定向的联盟pid*/
           pid?: string
         }
-      }
+      }[]
 
       /** 是否仅在所选平台访问链接时展示礼金，0:否  1:是*/
       showInMedias?: number
     }
-  }
+  }[]
 }
 export class QueryGiftcouponStatisticsAPI extends JdUnionBase {
   async queryGiftcouponStatistics(params: QueryGiftcouponStatisticsParams) {

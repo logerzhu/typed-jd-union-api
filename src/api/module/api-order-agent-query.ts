@@ -219,10 +219,10 @@ export type QueryAgentOrderResult = {
       /** 团长渠道ID，仅限招商团长管理渠道使用，团长开通权限后才可使用。*/
       rid?: number
     }
-  }
+  }[]
 
   /** 是否还有更多,true：还有数据；false:已查询完毕，没有数据*/
-  hasMore: undefined
+  hasMore: boolean
 }
 export class QueryAgentOrderAPI extends JdUnionBase {
   async queryAgentOrder(params: QueryAgentOrderParams) {

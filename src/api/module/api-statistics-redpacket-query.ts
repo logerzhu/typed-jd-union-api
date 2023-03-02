@@ -27,7 +27,7 @@ export type QueryRedpacketStatisticsParams = {
     type?: number
 
     /** 子渠道ID集合(最多一次查询50个)*/
-    channelIds?: undefined
+    channelIds?: number[]
   }
 }
 
@@ -75,7 +75,7 @@ export type QueryRedpacketStatisticsResult = {
       /** 渠道关系ID*/
       channelId?: number
     }
-  }
+  }[]
 
   /** 总数量*/
   totalCount?: number

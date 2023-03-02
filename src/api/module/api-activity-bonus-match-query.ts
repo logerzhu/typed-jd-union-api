@@ -30,7 +30,7 @@ export type QueryMatchBonusActivityResult = {
       /** 结束时间，时间戳（ms）*/
       endTime: number
     }
-  }
+  }[]
 }
 export class QueryMatchBonusActivityAPI extends JdUnionBase {
   async queryMatchBonusActivity(params: QueryMatchBonusActivityParams) {

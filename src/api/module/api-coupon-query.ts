@@ -1,7 +1,7 @@
 import { JdUnionBase } from '../api-base'
 export type QueryCouponParams = {
   /** 优惠券链接集合；上限10（GET请求）；上限50（POST请求或SDK调用）*/
-  couponUrls: undefined
+  couponUrls: string[]
 }
 
 export type QueryCouponResult = {
@@ -48,7 +48,7 @@ export type QueryCouponResult = {
       /** 券使用平台*/
       platform: string
     }
-  }
+  }[]
 }
 export class QueryCouponAPI extends JdUnionBase {
   async queryCoupon(params: QueryCouponParams) {

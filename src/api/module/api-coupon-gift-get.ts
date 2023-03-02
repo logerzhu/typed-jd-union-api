@@ -42,7 +42,7 @@ export type GetGiftCouponParams = {
     couponTitle?: string
 
     /** contentMatch = 1 时此字段方生效，允许推广的媒体类型 -1：全部， 其他枚举值：17: 抖音,18: 快手,21: 微博,22: 知乎, 35: 斗鱼 ,38 : 手机QQ/全民K歌,43: 百家号图文,49: 微信小商店/腾讯微视，-1与其他枚举值互斥*/
-    contentMatchMedias?: undefined
+    contentMatchMedias?: number[]
 
     /** 是否仅在所选平台访问链接时展示礼金，0:否  1:是*/
     showInMedias?: number

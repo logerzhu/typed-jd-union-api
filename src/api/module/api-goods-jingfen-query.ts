@@ -135,7 +135,7 @@ export type QueryJingfenGoodsResult = {
             /** 券热度，值越大热度越高，区间:[0,10]*/
             hotValue: number
           }
-        }
+        }[]
       }
 
       /** 商品好评率*/
@@ -150,7 +150,7 @@ export type QueryJingfenGoodsResult = {
             /** 图片链接地址，第一个图片链接为主图链接,修改图片尺寸拼接方法：/s***x***_jfs/，例如：http://img14.360buyimg.com/ads/s300x300_jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg*/
             url: string
           }
-        }
+        }[]
 
         /** 白底图*/
         whiteImage?: string
@@ -283,7 +283,7 @@ export type QueryJingfenGoodsResult = {
       }
 
       /** 京喜商品类型，1京喜、2京喜工厂直供、3京喜优选（包含3时可在京东APP购买）*/
-      jxFlags?: undefined
+      jxFlags?: number[]
 
       /** 视频信息*/
       videoInfo?: {
@@ -312,7 +312,7 @@ export type QueryJingfenGoodsResult = {
             /** 播放地址*/
             playUrl: string
           }
-        }
+        }[]
       }
 
       /** 段子信息*/
@@ -331,7 +331,7 @@ export type QueryJingfenGoodsResult = {
       }
 
       /** 0普通商品，10微信京东购物小程序禁售，11微信京喜小程序禁售*/
-      forbidTypes?: undefined
+      forbidTypes?: number[]
 
       /** 京东配送 1：是，0：不是*/
       deliveryType?: number
@@ -348,7 +348,7 @@ export type QueryJingfenGoodsResult = {
             /** 服务名称*/
             serviceName?: string
           }
-        }
+        }[]
 
         /** 1：放心购商品*/
         fxg?: number
@@ -373,7 +373,7 @@ export type QueryJingfenGoodsResult = {
           /** 促销ID*/
           promotionLableId?: number
         }
-      }
+      }[]
 
       /** 双价格*/
       secondPriceInfoList?: {
@@ -385,7 +385,7 @@ export type QueryJingfenGoodsResult = {
           /** 价格（资源位238新人价请使用此价格）*/
           secondPrice?: number
         }
-      }
+      }[]
 
       /** 预售信息*/
       preSaleInfo?: {
@@ -474,7 +474,7 @@ export type QueryJingfenGoodsResult = {
       /** 2：POP自然人小店*/
       companyType?: number
     }
-  }
+  }[]
 
   /** 有效商品总数量，上限1w*/
   totalCount: number

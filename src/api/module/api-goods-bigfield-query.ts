@@ -3,10 +3,10 @@ export type QueryBigfieldGoodsParams = {
   /**  请求入参*/
   goodsReq: {
     /** skuId集合，最多支持批量入参10个sku*/
-    skuIds: undefined
+    skuIds: number[]
 
     /** 查询域集合，不填写则查询全部，目目前支持：categoryInfo（类目信息）,imageInfo（图片信息）,baseBigFieldInfo（基础大字段信息）,bookBigFieldInfo（图书大字段信息）,videoBigFieldInfo（影音大字段信息）,detailImages（商详图）*/
-    fields?: undefined
+    fields?: string[]
   }
 }
 
@@ -57,7 +57,7 @@ export type QueryBigfieldGoodsResult = {
             /** 主图链接*/
             url: string
           }
-        }
+        }[]
       }
 
       /** 基础大字段信息*/
@@ -153,7 +153,7 @@ export type QueryBigfieldGoodsResult = {
       /** 商详图*/
       detailImages?: string
     }
-  }
+  }[]
 }
 export class QueryBigfieldGoodsAPI extends JdUnionBase {
   async queryBigfieldGoods(params: QueryBigfieldGoodsParams) {

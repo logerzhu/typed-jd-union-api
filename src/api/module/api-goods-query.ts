@@ -18,7 +18,7 @@ export type QueryGoodsParams = {
     pageSize?: number
 
     /** skuid集合(一次最多支持查询20个sku)，数组类型开发时记得加[]*/
-    skuIds?: undefined
+    skuIds?: number[]
 
     /** 关键词，字数同京东商品名称一致，目前未限制*/
     keyword?: string
@@ -81,7 +81,7 @@ export type QueryGoodsParams = {
     forbidTypes?: string
 
     /** 京喜商品类型，1京喜、2京喜工厂直供、3京喜优选，入参多个值表示或条件查询*/
-    jxFlags?: undefined
+    jxFlags?: number[]
 
     /** 支持传入0.0、2.5、3.0、3.5、4.0、4.5、4.9，默认为空表示不筛选评分*/
     shopLevelFrom?: number
@@ -99,7 +99,7 @@ export type QueryGoodsParams = {
     deliveryType?: number
 
     /** 资源位17：极速版商品*/
-    eliteType?: undefined
+    eliteType?: number[]
 
     /** 是否秒杀商品。1：是*/
     isSeckill?: number
@@ -222,7 +222,7 @@ export type QueryGoodsResult = {
             /** 入参couponUrl优惠券链接搜索对应的券，1 是 ，0 否*/
             isInputCoupon?: number
           }
-        }
+        }[]
       }
 
       /** 商品好评率*/
@@ -237,7 +237,7 @@ export type QueryGoodsResult = {
             /** 图片链接地址，第一个图片链接为主图链接,修改图片尺寸拼接方法：/s***x***_jfs/，例如：http://img14.360buyimg.com/ads/s300x300_jfs/t22495/56/628456568/380476/9befc935/5b39fb01N7d1af390.jpg*/
             url: string
           }
-        }
+        }[]
 
         /** 白底图*/
         whiteImage?: string
@@ -372,7 +372,7 @@ export type QueryGoodsResult = {
             /** 时长(单位:s)*/
             duration?: number
           }
-        }
+        }[]
       }
 
       /** 评价信息*/
@@ -391,13 +391,13 @@ export type QueryGoodsResult = {
                 /** 图片链接地址【废弃】*/
                 url: string
               }
-            }
+            }[]
           }
-        }
+        }[]
       }
 
       /** 京喜商品类型，1京喜、2京喜工厂直供、3京喜优选（包含3时可在京东APP购买）*/
-      jxFlags?: undefined
+      jxFlags?: number[]
 
       /** 商品段子信息，emoji表情等*/
       documentInfo?: {
@@ -433,10 +433,10 @@ export type QueryGoodsResult = {
       stockState?: number
 
       /** 资源位17：极速版商品*/
-      eliteType?: undefined
+      eliteType?: number[]
 
       /** 0普通商品，10微信京东购物小程序禁售，11微信京喜小程序禁售*/
-      forbidTypes?: undefined
+      forbidTypes?: number[]
 
       /** 京东配送 1：是，0：不是*/
       deliveryType?: number
@@ -456,7 +456,7 @@ export type QueryGoodsResult = {
             /** 服务名称*/
             serviceName?: string
           }
-        }
+        }[]
       }
 
       /** 商品促销标签集*/
@@ -481,7 +481,7 @@ export type QueryGoodsResult = {
           /** 促销标签名称*/
           labelName?: string
         }
-      }
+      }[]
 
       /** 双价格*/
       secondPriceInfoList?: {
@@ -493,7 +493,7 @@ export type QueryGoodsResult = {
           /** 价格*/
           secondPrice?: number
         }
-      }
+      }[]
 
       /** 秒杀信息*/
       seckillInfo?: {
@@ -582,7 +582,7 @@ export type QueryGoodsResult = {
       /** 2：POP自然人小店*/
       companyType?: number
     }
-  }
+  }[]
 
   /** 有效商品总数量，上限10w*/
   totalCount: number
@@ -591,7 +591,7 @@ export type QueryGoodsResult = {
   hotWords?: string
 
   /** 相似推荐商品skuId集合*/
-  similarSkuList?: undefined
+  similarSkuList?: number[]
 }
 export class QueryGoodsAPI extends JdUnionBase {
   async queryGoods(params: QueryGoodsParams) {

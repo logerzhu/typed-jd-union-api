@@ -9,7 +9,7 @@ export type QueryIntelligenceToolsPromotionParams = {
     type?: number
 
     /** 类目一ID，支持传多个类目筛选*/
-    cid1List?: undefined
+    cid1List?: number[]
 
     /** 默认吐出未开始和进行中线报，1 未开始、2 进行中*/
     status?: number
@@ -58,7 +58,7 @@ export type QueryIntelligenceToolsPromotionResult = {
       type?: number
 
       /** 类目信息*/
-      cid1List?: undefined
+      cid1List?: number[]
 
       /** 1 未开始、2 进行中*/
       status?: number
@@ -72,7 +72,7 @@ export type QueryIntelligenceToolsPromotionResult = {
       /** 线报结束时间,天维度，精确到时分秒，格式：yyyy-MM-dd HH:mm:ss*/
       endTime?: string
     }
-  }
+  }[]
 }
 export class QueryIntelligenceToolsPromotionAPI extends JdUnionBase {
   async queryIntelligenceToolsPromotion(

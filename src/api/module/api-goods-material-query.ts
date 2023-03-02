@@ -150,7 +150,7 @@ export type QueryMaterialGoodsResult = {
             /** 最优优惠券，1：是；0：否，购买一件商品可使用的面额最大优惠券*/
             isBest: number
           }
-        }
+        }[]
       }
 
       /** 商品好评率*/
@@ -165,7 +165,7 @@ export type QueryMaterialGoodsResult = {
             /** 图片链接地址，第一个图片链接为主图链接*/
             url: string
           }
-        }
+        }[]
 
         /** 白底图*/
         whiteImage?: string
@@ -286,7 +286,7 @@ export type QueryMaterialGoodsResult = {
       }
 
       /** 京喜商品类型，1京喜、2京喜工厂直供、3京喜优选*/
-      jxFlags?: undefined
+      jxFlags?: number[]
 
       /** 视频信息*/
       videoInfo?: {
@@ -315,7 +315,7 @@ export type QueryMaterialGoodsResult = {
             /** 播放地址*/
             playUrl: string
           }
-        }
+        }[]
       }
 
       /** 推广信息*/
@@ -331,7 +331,7 @@ export type QueryMaterialGoodsResult = {
       }
 
       /** 0普通商品，10微信京东购物小程序禁售，11微信京喜小程序禁售*/
-      forbidTypes?: undefined
+      forbidTypes?: number[]
 
       /** 京东配送 1：是，0：不是*/
       deliveryType?: number
@@ -351,7 +351,7 @@ export type QueryMaterialGoodsResult = {
             /** 服务名称*/
             serviceName?: string
           }
-        }
+        }[]
       }
 
       /** 商品促销标签集*/
@@ -373,7 +373,7 @@ export type QueryMaterialGoodsResult = {
           /** 促销ID*/
           promotionLableId?: number
         }
-      }
+      }[]
 
       /** 落地页*/
       materialUrl?: string
@@ -457,7 +457,7 @@ export type QueryMaterialGoodsResult = {
           /** 价格*/
           secondPrice?: number
         }
-      }
+      }[]
 
       /** 是否全球购商品 1：是*/
       isOversea?: number
@@ -465,7 +465,7 @@ export type QueryMaterialGoodsResult = {
       /** 2：POP自然人小店*/
       companyType?: number
     }
-  }
+  }[]
 
   /** 有效商品总数量*/
   totalCount: number

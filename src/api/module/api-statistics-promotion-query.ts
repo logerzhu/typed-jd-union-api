@@ -72,7 +72,7 @@ export type QueryPromotionStatisticsResult = {
       /** 实际收入*/
       actualFee?: number
     }
-  }
+  }[]
 }
 export class QueryPromotionStatisticsAPI extends JdUnionBase {
   async queryPromotionStatistics(params: QueryPromotionStatisticsParams) {

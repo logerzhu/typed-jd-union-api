@@ -66,10 +66,10 @@ export type QueryBonusActivityResult = {
       /** 活动概述*/
       remark: string
     }
-  }
+  }[]
 
   /** 是否有更多*/
-  hasMore: undefined
+  hasMore: boolean
 }
 export class QueryBonusActivityAPI extends JdUnionBase {
   async queryBonusActivity(params: QueryBonusActivityParams) {

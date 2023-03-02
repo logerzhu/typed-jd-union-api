@@ -91,7 +91,7 @@ export type QueryActivityResult = {
           /** 图片链接*/
           imgUrl?: string
         }
-      }
+      }[]
 
       /** 活动ID*/
       id?: number
@@ -106,9 +106,9 @@ export type QueryActivityResult = {
           /** 类目级别(需枚举，当前京挑客活动全部为一级类目)*/
           type?: number
         }
-      }
+      }[]
     }
-  }
+  }[]
 
   /** 总数量*/
   totalCount?: number
